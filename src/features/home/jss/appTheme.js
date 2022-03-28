@@ -5,7 +5,7 @@ const createThemeMode = isNightMode =>
     palette: {
       type: isNightMode ? 'dark' : 'light',
       background: {
-        default: isNightMode ? '#242332' : '#fbf9f6',
+        default: isNightMode ? '#242332' : '#fcd5ce',
         paper: isNightMode ? '#606077' : '#fff',
         primary: isNightMode ? '#505067' : '#FBF6F0',
         secondary: isNightMode ? '#3B3A4D' : '#F8F2EC',

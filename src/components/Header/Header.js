@@ -49,11 +49,11 @@ const Header = ({ links, isNightMode, setNightMode }) => {
             <Hidden xsDown>
               <img
                 alt="BOMB"
-                src={require(`images/bomb-256.png`)}
+                src={require(`images/froyo1.png`)}
                 height={'40px'}
                 className={classes.logo}
               />
-              bomb.farm
+              .farm
             </Hidden>
             <Hidden smUp>
               <img
@@ -70,10 +70,16 @@ const Header = ({ links, isNightMode, setNightMode }) => {
           <Hidden smDown>
             {/* {renderLink('vote', t('vote'), 'vote-yea', classes)} */}
             {/* {renderLink('dashboard', t('stats'), 'chart-bar', classes)} */}
-            <a class="title" href="https://app.bomb.money" target="_blank">
-              <h3>
-                <u>bomb.money Home</u>
-              </h3>
+            <a
+              class="title"
+              href="https://icecreamfinance.app/#/"
+              target="_blank"
+              style={{ marginRight: '8px' }}
+            >
+              <h3>icecreamfinance.app/</h3>
+            </a>
+            <a class="title" href="https://sundaefinance.app/#/" target="_blank">
+              <h3>sundaefinance.app/</h3>
             </a>
           </Hidden>
         </div>
