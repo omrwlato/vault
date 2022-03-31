@@ -1,6 +1,6 @@
 {
-  "App-Meta-Description": "BOMB.farm autocompounding vaults.",
-  "Disclaimer": "Know the project that you're investing into as we will not be responsible for any losses.",
+  "App-Meta-Description": "Froyo.farm autocompounding vaults.",
+  "Disclaimer": "Know the project that you're investing into as we are not responsible for any losses.",
   "Network-UnknownError": "An unknown error has occurred.",
   "Network-ConnectionRequired": "Wallet connection to {{network}} required.",
   "Network-Supports": "This app supports {{network}}.",

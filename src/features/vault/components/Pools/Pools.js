@@ -111,7 +111,7 @@ export default function Pools() {
           </h4>
         </div>
       </Grid>
-
+      {console.log(pools, 'pools123')}
       <VisiblePools
         pools={pools}
         apys={apys}

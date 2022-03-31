@@ -225,6 +225,7 @@ const styles = theme => ({
   },
   link: {
     display: 'inline-flex',
+    alignItems: 'center',
     margin: '0 1rem',
     background: 'transparent',
     border: 0,
@@ -245,6 +246,9 @@ const styles = theme => ({
     color: theme.palette.text.primary,
     marginRight: '0.5rem',
     textAlign: 'end',
+  },
+  linkIcon: {
+    margin: '0 1rem',
   },
   iconButton: {
     color: theme.palette.text.primary,

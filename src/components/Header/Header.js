@@ -68,18 +68,55 @@ const Header = ({ links, isNightMode, setNightMode }) => {
 
         <div className={classes.middleNav}>
           <Hidden smDown>
-            {/* {renderLink('vote', t('vote'), 'vote-yea', classes)} */}
-            {/* {renderLink('dashboard', t('stats'), 'chart-bar', classes)} */}
             <a
-              class="title"
+              href="https://discord.com/invite/icecream"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={classes.link}
+            >
+              <i className={`fab fa-discord ${classes.linkIcon}`} />
+              <span>Discord</span>
+            </a>
+            <a href="#" target="_blank" rel="noopener noreferrer" className={classes.link}>
+              <i className={`fas fa-book ${classes.linkIcon}`} />
+              <span>Docs</span>
+            </a>
+            <a
+              href="https://twitter.com/beefyfinance"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={classes.link}
+            >
+              <i className={`fab fa-twitter ${classes.linkIcon}`} />
+              <span>Twitter</span>
+            </a>
+            <a
               href="https://icecreamfinance.app/#/"
               target="_blank"
-              style={{ marginRight: '8px' }}
+              rel="noopener noreferrer"
+              className={classes.link}
             >
-              <h3>icecreamfinance.app/</h3>
+              <img
+                alt="cream"
+                src={require(`images/cream1.png`)}
+                height={'35px'}
+                className={classes.logo}
+              />
+              <span>ICF</span>
             </a>
-            <a class="title" href="https://sundaefinance.app/#/" target="_blank">
-              <h3>sundaefinance.app/</h3>
+            <a
+              href="https://sundaefinance.app/#/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={classes.link}
+            >
+              <img
+                alt="cream"
+                src={require(`images/sundae1.png`)}
+                height={'35px'}
+                className={classes.logo}
+              />
+              <span>SF</span>
             </a>
           </Hidden>
         </div>
