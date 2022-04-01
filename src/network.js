@@ -1,23 +1,23 @@
 /* eslint-disable import/first */
 export const allNetworks = [
-  {
+  /*   {
     name: 'BSC',
     asset: 'BSC',
     id: 56,
     hash: '/bsc',
-  },
+  }, */
   // {
   //   name: 'HECO',
   //   asset: 'HECO',
   //   id: 128,
   //   hash: '/heco',
   // },
-  // {
-  //   name: 'AVALANCHE',
-  //   asset: 'AVALANCHE',
-  //   id: 43114,
-  //   hash: '/avax',
-  // },
+  {
+    name: 'AVALANCHE',
+    asset: 'AVALANCHE',
+    id: 43114,
+    hash: '/avax',
+  },
   // {
   //   name: 'POLYGON',
   //   asset: 'POLYGON',

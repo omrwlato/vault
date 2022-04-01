@@ -48,18 +48,19 @@ const Header = ({ links, isNightMode, setNightMode }) => {
           <Button className={classes.title}>
             <Hidden xsDown>
               <img
-                alt="BOMB"
+                alt="FROYO"
                 src={require(`images/froyo1.png`)}
-                height={'40px'}
+                height={'75px'}
+                width={'200px'}
                 className={classes.logo}
               />
-              .farm
             </Hidden>
             <Hidden smUp>
               <img
-                alt="BOMB"
-                src={require(`images/bomb-256.png`)}
-                height={'35px'}
+                alt="FROYO"
+                src={require(`images/froyo1.png`)}
+                height={'50px'}
+                width={'125px'}
                 className={classes.logo}
               />
             </Hidden>
@@ -82,7 +83,7 @@ const Header = ({ links, isNightMode, setNightMode }) => {
               <span>Docs</span>
             </a>
             <a
-              href="https://twitter.com/beefyfinance"
+              href="https://twitter.com/icecreamfinance"
               target="_blank"
               rel="noopener noreferrer"
               className={classes.link}
@@ -100,6 +101,7 @@ const Header = ({ links, isNightMode, setNightMode }) => {
                 alt="cream"
                 src={require(`images/cream1.png`)}
                 height={'35px'}
+                width={'35px'}
                 className={classes.logo}
               />
               <span>ICF</span>
@@ -113,7 +115,8 @@ const Header = ({ links, isNightMode, setNightMode }) => {
               <img
                 alt="cream"
                 src={require(`images/sundae1.png`)}
-                height={'35px'}
+                height={'30px'}
+                width={'30px'}
                 className={classes.logo}
               />
               <span>SF</span>
@@ -161,11 +164,18 @@ const Header = ({ links, isNightMode, setNightMode }) => {
           </IconButton>
           <div className={classes.appResponsive}>{links}</div>
           <div style={{ textAlign: 'center' }}>
-            <a class="title" href="https://app.bomb.money" target="_blank">
+            <a class="title" href="https://icecreamfinance.app" target="_blank">
               <h3>
-                <u>bomb.money Home</u>
+                <u>IceCream Finance</u>
               </h3>
             </a>
+
+            <a class="title" href="https://sundaefinance.app" target="_blank">
+              <h3>
+                <u>Sundae Finance</u>
+              </h3>
+            </a>
+
             {/* <LinkSidebar name="vote" label={t('vote')} icon="vote-yea" classes={classes} /> */}
             {/* <LinkSidebar name="dashboard" label={t('stats')} icon="chart-bar" classes={classes} />
             <LinkSidebar name="docs" label={t('docs')} icon="book" classes={classes} />
@@ -264,7 +274,7 @@ const LinkSidebar = ({ name, label, icon, classes }) => (
 );
 
 const getLinkUrl = name => {
-  return name === 'buy' ? getNetworkBuyUrl() : `https://${name}.bomb.farm`;
+  return name === 'buy' ? getNetworkBuyUrl() : `https://${name}.froyo.farm`;
 };
 
 export default Header;
