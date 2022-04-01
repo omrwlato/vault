@@ -126,8 +126,8 @@ export default function Pools() {
         <Button name="ALL" onClick={onClickPool}>
           All
         </Button>
-        <Button name="BOMB" onClick={onClickPool}>
-          Bomb
+        <Button name="SUNDAE" onClick={onClickPool}>
+          SUNDAE
         </Button>
       </Grid>
       {console.log(newPoolsSelected, 'newpools')}
