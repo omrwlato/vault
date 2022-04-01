@@ -25,6 +25,7 @@ export const bscPools = [
       'https://pancakeswap.finance/add/0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c/0x522348779DCb2911539e76A1042aA922F9C47Ee3',
     buyTokenUrl:
       'https://pancakeswap.finance/swap?inputCurrency=0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c&outputCurrency=0x522348779DCb2911539e76A1042aA922F9C47Ee3',
+    family: 'BOMB',
   },
   {
     id: 'bomb-bomb',
@@ -50,6 +51,7 @@ export const bscPools = [
     stratType: 'SingleStake',
     buyTokenUrl:
       'https://pancakeswap.finance/swap?inputCurrency=0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c&outputCurrency=0x522348779DCb2911539e76A1042aA922F9C47Ee3',
+    family: 'BOMB',
   },
   {
     id: 'bomb-bshare-wbnb',
@@ -77,6 +79,7 @@ export const bscPools = [
       'https://pancakeswap.finance/add/BNB/0x531780FAcE85306877D7e1F05d713D1B50a37F7A',
     buyTokenUrl:
       'https://pancakeswap.finance/swap?outputCurrency=0x531780FAcE85306877D7e1F05d713D1B50a37F7A',
+    family: 'BOMB',
   },
   {
     id: 'bomb-bomb-bshare',
@@ -104,5 +107,6 @@ export const bscPools = [
       'https://pancakeswap.finance/add/0x522348779DCb2911539e76A1042aA922F9C47Ee3/0x531780FAcE85306877D7e1F05d713D1B50a37F7A',
     buyTokenUrl:
       'https://pancakeswap.finance/swap?outputCurrency=0x522348779DCb2911539e76A1042aA922F9C47Ee3',
+    family: 'BOMB',
   },
 ];

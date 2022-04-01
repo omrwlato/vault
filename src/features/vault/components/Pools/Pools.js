@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { makeStyles } from '@material-ui/core/styles';
 import AllInclusiveIcon from '@material-ui/icons/AllInclusive';
 import Grid from '@material-ui/core/Grid';
-
+import Button from '@material-ui/core/Button';
 import TVLLoader from './TVLLoader/TVLLoader';
 import { useConnectWallet } from 'features/home/redux/hooks';
 import { useFetchBalances, useFetchVaultsData, useFetchApys } from '../../redux/hooks';
@@ -29,7 +29,13 @@ export default function Pools() {
   const { poolsTvl } = usePoolsTvl(pools);
   const { userTvl } = useUserTvl(pools, tokens);
   const classes = useStyles();
-
+  const [poolSelected, setPoolSelected] = useState('ALL');
+  const onClickPool = e => {
+    console.log(e.currentTarget, 'current Target');
+    console.log(e.currentTarget.name, 'Name');
+    const { name } = e.currentTarget;
+    setPoolSelected(name);
+  };
   useEffect(() => {
     fetchApys();
     const id = setInterval(fetchApys, FETCH_INTERVAL_MS);
@@ -111,15 +117,28 @@ export default function Pools() {
           </h4>
         </div>
       </Grid>
+      <Grid item xs={12}>
+        <Button name="ALL" onClick={onClickPool}>
+          All
+        </Button>
+        <Button name="BOMB" onClick={onClickPool}>
+          Bomb
+        </Button>
+      </Grid>
+      {console.log(poolSelected, 'poolSelected')}
       {console.log(pools, 'pools123')}
-      <VisiblePools
-        pools={pools}
-        apys={apys}
-        tokens={tokens}
-        fetchBalancesDone={fetchBalancesDone}
-        fetchApysDone={fetchApysDone}
-        fetchVaultsDataDone={fetchVaultsDataDone}
-      />
+      {poolSelected === 'ALL' ? (
+        <VisiblePools
+          pools={pools}
+          apys={apys}
+          tokens={tokens}
+          fetchBalancesDone={fetchBalancesDone}
+          fetchApysDone={fetchApysDone}
+          fetchVaultsDataDone={fetchVaultsDataDone}
+        />
+      ) : (
+        <div></div>
+      )}
     </Grid>
   );
 }
