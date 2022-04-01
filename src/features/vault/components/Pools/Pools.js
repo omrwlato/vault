@@ -30,11 +30,16 @@ export default function Pools() {
   const { userTvl } = useUserTvl(pools, tokens);
   const classes = useStyles();
   const [poolSelected, setPoolSelected] = useState('ALL');
+  const [newPoolsSelected, setNewPoolsSelected] = useState([]);
+  const selectedPoolList = family => {
+    const familyPools = pools.filter(pool => pool.family === family);
+    return familyPools;
+  };
   const onClickPool = e => {
-    console.log(e.currentTarget, 'current Target');
-    console.log(e.currentTarget.name, 'Name');
     const { name } = e.currentTarget;
+    const poolsToDisplay = selectedPoolList(name);
     setPoolSelected(name);
+    setNewPoolsSelected(poolsToDisplay);
   };
   useEffect(() => {
     fetchApys();
@@ -125,8 +130,7 @@ export default function Pools() {
           Bomb
         </Button>
       </Grid>
-      {console.log(poolSelected, 'poolSelected')}
-      {console.log(pools, 'pools123')}
+      {console.log(newPoolsSelected, 'newpools')}
       {poolSelected === 'ALL' ? (
         <VisiblePools
           pools={pools}
@@ -137,7 +141,14 @@ export default function Pools() {
           fetchVaultsDataDone={fetchVaultsDataDone}
         />
       ) : (
-        <div></div>
+        <VisiblePools
+          pools={newPoolsSelected}
+          apys={apys}
+          tokens={tokens}
+          fetchBalancesDone={fetchBalancesDone}
+          fetchApysDone={fetchApysDone}
+          fetchVaultsDataDone={fetchVaultsDataDone}
+        />
       )}
     </Grid>
   );
