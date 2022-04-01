@@ -1,5 +1,5 @@
 export const avalanchePools = [
-  {
+  /*   {
     id: 'bomb-bomb-btcb',
     name: 'BOMB-BTCB LP',
     token: 'BOMB-BTCB LP',
@@ -25,5 +25,5 @@ export const avalanchePools = [
       'https://pancakeswap.finance/add/0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c/0x522348779DCb2911539e76A1042aA922F9C47Ee3',
     buyTokenUrl:
       'https://pancakeswap.finance/swap?inputCurrency=0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c&outputCurrency=0x522348779DCb2911539e76A1042aA922F9C47Ee3',
-  },
+  }, */
 ];
