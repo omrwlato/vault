@@ -394,7 +394,7 @@ export const getNetworkConnectors = t => {
               description: t('Home-BrowserWallet'),
             },
           },
-          walletconnect: {
+          /*           walletconnect: {
             package: WalletConnectProvider,
             options: {
               rpc: {
@@ -402,7 +402,7 @@ export const getNetworkConnectors = t => {
                 56: 'https://bsc1.bomb.money/',
               },
             },
-          },
+          }, */
           'custom-binance': {
             display: {
               name: 'Binance',
@@ -487,15 +487,15 @@ export const getNetworkConnectors = t => {
               description: t('Home-BrowserWallet'),
             },
           },
-          // walletconnect: {
-          //   package: WalletConnectProvider,
-          //   options: {
-          //     rpc: {
-          //       1: 'https://api.avax.network/ext/bc/C/rpc',
-          //       43114: 'https://api.avax.network/ext/bc/C/rpc',
-          //     },
-          //   },
-          // },
+          walletconnect: {
+            package: WalletConnectProvider,
+            options: {
+              rpc: {
+                1: 'https://api.avax.network/ext/bc/C/rpc',
+                43114: 'https://api.avax.network/ext/bc/C/rpc',
+              },
+            },
+          },
         },
       };
     case 137:
