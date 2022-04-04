@@ -8,8 +8,8 @@ export const bscPools = [
     tokenDecimals: 18,
     tokenDescriptionUrl: '#',
     earnedToken: 'bombfarmBOMB-BTCB',
-    earnedTokenAddress: '0x94E85B8E050F3F281CB9597cc0144F1F7AF1fe9B',
-    earnContractAddress: '0x94E85B8E050F3F281CB9597cc0144F1F7AF1fe9B',
+    earnedTokenAddress: '0x94E85B8E050F3F281CB9597cc0144F1F7AF1fe9B', // vault contract
+    earnContractAddress: '0x94E85B8E050F3F281CB9597cc0144F1F7AF1fe9B', // vault contract
     pricePerFullShare: 1,
     tvl: 0,
     oracle: 'lps',
