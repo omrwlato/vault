@@ -61,7 +61,7 @@ const PoolTitle = ({
   }
 
   return (
-    <Grid container wrap="nowrap">
+    <Grid container style={{ display: 'flex', justifyContent: 'center' }}>
       {avatar}
       <div className={classes.texts}>
         <Typography className={classes.title} variant="body2" gutterBottom>

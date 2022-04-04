@@ -1,7 +1,7 @@
 const styles = theme => ({
   container: {
-    marginBottom: '24px',
     border: '1px solid ' + theme.palette.background.border,
+    backgroundColor: 'red',
   },
   accordion: {
     width: '100%',

@@ -78,69 +78,62 @@ const PoolSummary = ({
   );
 
   return (
-    <AccordionSummary
-      className={
-        pool.status === 'eol'
-          ? classes.detailsRetired
-          : pool.depositsPaused
-          ? classes.detailsPaused
-          : classes.details
-      }
-      style={{ justifyContent: 'space-between' }}
-      onClick={onSummaryClick}
-    >
-      <Grid container alignItems="center" style={{ paddingTop: '20px' }}>
-        {vaultStateTitle}
-        <PoolBoosts poolName={pool.name} earnedTokenAddress={pool.earnedTokenAddress} />
-        <Grid item xs={12} className={`${classes.item} ${classes.itemTitle}`}>
-          <PoolTitle
-            name={pool.name}
-            logo={pool.logo}
-            poolId={pool.id}
-            description={t('Vault-Description', { vault: pool.tokenDescription })}
-            launchpool={launchpool}
-            addLiquidityUrl={pool.addLiquidityUrl}
-            removeLiquidityUrl={pool.removeLiquidityUrl}
-            buyTokenUrl={pool.buyTokenUrl}
-            assets={pool.assets}
-            multipleLaunchpools={multipleLaunchpools}
-          />
-        </Grid>
-        <Grid item xs={6} className={`${classes.item} ${classes.itemBalances}`}>
+    // <AccordionSummary
+    //   className={
+    //     pool.status === 'eol'
+    //       ? classes.detailsRetired
+    //       : pool.depositsPaused
+    //       ? classes.detailsPaused
+    //       : classes.details
+    //   }
+    //   style={{ justifyContent: 'space-between' }}
+    //   onClick={onSummaryClick}
+    // >
+    <Grid container style={{ paddingTop: '1px', display: 'flex', flexDirection: 'row' }}>
+      {vaultStateTitle}
+      <PoolBoosts poolName={pool.name} earnedTokenAddress={pool.earnedTokenAddress} />
+      <Grid item xs={12}>
+        <PoolTitle
+          name={pool.name}
+          logo={pool.logo}
+          poolId={pool.id}
+          description={t('Vault-Description', { vault: pool.tokenDescription })}
+          launchpool={launchpool}
+          addLiquidityUrl={pool.addLiquidityUrl}
+          removeLiquidityUrl={pool.removeLiquidityUrl}
+          buyTokenUrl={pool.buyTokenUrl}
+          assets={pool.assets}
+          multipleLaunchpools={multipleLaunchpools}
+        />
+      </Grid>
+      <Grid container xs={12} style={{ display: 'flex', justifyContent: 'center' }}>
+        <LabeledStat
+          value={formatTvl(pool.tvl, pool.oraclePrice)}
+          label={t('Vault-TVL')}
+          isLoading={!fetchVaultsDataDone}
+        />
+      </Grid>
+      <Grid container xs={12} style={{ display: 'flex', justifyContent: 'space-between' }}>
+        <Grid item>
           <LabeledStat
             value={formatDecimals(balanceSingle)}
             subvalue={balanceUsd}
             label={t('Vault-Wallet')}
             isLoading={!fetchBalancesDone}
-            className={classes.itemInner}
           />
         </Grid>
-        <Grid item xs={6} className={`${classes.item} ${classes.itemBalances}`}>
+        <Grid item>
           <LabeledStat
             value={formatDecimals(deposited)}
             subvalue={depositedUsd}
             label={t('Vault-Deposited')}
             isLoading={!fetchBalancesDone}
-            className={classes.itemInner}
-          />
-        </Grid>
-        <ApyStats
-          apy={apy}
-          launchpoolApr={launchpoolApr}
-          isLoading={!fetchApysDone}
-          itemClasses={`${classes.item} ${classes.itemStats}`}
-          itemInnerClasses={classes.itemInner}
-        />
-        <Grid item xs={4} className={`${classes.item} ${classes.itemStats}`}>
-          <LabeledStat
-            value={formatTvl(pool.tvl, pool.oraclePrice)}
-            label={t('Vault-TVL')}
-            isLoading={!fetchVaultsDataDone}
-            className={classes.itemInner}
           />
         </Grid>
       </Grid>
-    </AccordionSummary>
+      <ApyStats apy={apy} launchpoolApr={launchpoolApr} isLoading={!fetchApysDone} />
+    </Grid>
+    // </AccordionSummary>
   );
 };
 

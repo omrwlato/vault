@@ -167,8 +167,8 @@ const ApyStats = ({ apy, launchpoolApr, isLoading = false, itemClasses, itemInne
   );
 
   return (
-    <>
-      <Grid item xs={4} className={itemClasses}>
+    <Grid container xs={12} style={{ display: 'flex', justifyContent: 'space-between' }}>
+      <Grid item className={itemClasses}>
         <LabeledStatWithTooltip
           value={formatted.totalApy}
           label={t('Vault-APY')}
@@ -180,7 +180,7 @@ const ApyStats = ({ apy, launchpoolApr, isLoading = false, itemClasses, itemInne
           className={`tooltip-toggle ${itemInnerClasses}`}
         />
       </Grid>
-      <Grid item xs={4} className={itemClasses}>
+      <Grid item className={itemClasses}>
         <LabeledStatWithTooltip
           value={formatted.totalDaily}
           label={t('Vault-APYDaily')}
@@ -192,7 +192,7 @@ const ApyStats = ({ apy, launchpoolApr, isLoading = false, itemClasses, itemInne
           className={`tooltip-toggle ${itemInnerClasses}`}
         />
       </Grid>
-    </>
+    </Grid>
   );
 };
 

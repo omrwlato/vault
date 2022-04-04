@@ -42,7 +42,7 @@ const VisiblePools = ({
     <>
       {/* Remove filter for now. We only have two vaults in bomb.farm */}
 
-      <Filters
+      {/* <Filters
         toggleFilter={toggleFilter}
         filters={filters}
         platform={platform}
@@ -53,22 +53,22 @@ const VisiblePools = ({
         setVaultType={setVaultType}
         setAsset={setAsset}
         setOrder={setOrder}
-      />
+      /> */}
       <div className={classes.scroller}>
-        <InfiniteScroll dataLength={visiblePools.length} hasMore={true} next={fetchVisiblePools}>
-          {visiblePools.map((pool, index) => (
-            <Pool
-              pool={pool}
-              index={index}
-              tokens={tokens}
-              apy={apys[pool.id] || { totalApy: 0 }}
-              key={pool.id}
-              fetchBalancesDone={fetchBalancesDone}
-              fetchApysDone={fetchApysDone}
-              fetchVaultsDataDone={fetchVaultsDataDone}
-            />
-          ))}
-        </InfiniteScroll>
+        {/* <InfiniteScroll dataLength={visiblePools.length} hasMore={true} next={fetchVisiblePools}> */}
+        {visiblePools.map((pool, index) => (
+          <Pool
+            pool={pool}
+            index={index}
+            tokens={tokens}
+            apy={apys[pool.id] || { totalApy: 0 }}
+            key={pool.id}
+            fetchBalancesDone={fetchBalancesDone}
+            fetchApysDone={fetchApysDone}
+            fetchVaultsDataDone={fetchVaultsDataDone}
+          />
+        ))}
+        {/* </InfiniteScroll> */}
       </div>
       {!sortedPools.length && <h3 className={classes.subtitle}>{t('No-Results')}</h3>}
     </>

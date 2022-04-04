@@ -21,7 +21,6 @@ const styles = theme => ({
     },
   },
   item: {
-    marginBottom: '20px',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',

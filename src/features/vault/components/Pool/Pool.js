@@ -54,8 +54,22 @@ const Pool = ({
   }, [subscribe, activeLaunchpools]);
 
   return (
-    <Grid item xs={12} container key={index} className={classes.container} spacing={0}>
-      <Accordion
+    <Grid item xs={12} md={4} container key={index} className={classes.container} spacing={0}>
+      {/* <div style={{ width: '100%', backgroundColor: 'red' }}>hey</div> */}
+      <PoolSummary
+        pool={pool}
+        launchpool={launchpool}
+        balanceSingle={balanceSingle}
+        toggleCard={toggleCard}
+        sharesBalance={sharesBalance}
+        apy={apy}
+        fetchBalancesDone={fetchBalancesDone}
+        fetchApysDone={fetchApysDone}
+        fetchVaultsDataDone={fetchVaultsDataDone}
+        multipleLaunchpools={multipleLaunchpools}
+      />
+
+      {/* <Accordion
         expanded={isOpen}
         className={classes.accordion}
         square={true}
@@ -77,7 +91,7 @@ const Pool = ({
         <AccordionDetails style={{ justifyContent: 'space-between' }}>
           <PoolActions pool={pool} balanceSingle={balanceSingle} sharesBalance={sharesBalance} />
         </AccordionDetails>
-      </Accordion>
+      </Accordion> */}
     </Grid>
   );
 };
