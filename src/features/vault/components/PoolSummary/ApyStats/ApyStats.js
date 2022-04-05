@@ -167,7 +167,11 @@ const ApyStats = ({ apy, launchpoolApr, isLoading = false, itemClasses, itemInne
   );
 
   return (
-    <Grid container xs={12} style={{ display: 'flex', justifyContent: 'space-between' }}>
+    <Grid
+      container
+      xs={12}
+      style={{ display: 'flex', justifyContent: 'space-between', marginTop: '20px' }}
+    >
       <Grid item className={itemClasses}>
         <LabeledStatWithTooltip
           value={formatted.totalApy}

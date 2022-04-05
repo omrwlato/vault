@@ -89,7 +89,7 @@ const PoolSummary = ({
     //   style={{ justifyContent: 'space-between' }}
     //   onClick={onSummaryClick}
     // >
-    <Grid container style={{ paddingTop: '1px', display: 'flex', flexDirection: 'row' }}>
+    <Grid container style={{ display: 'flex', flexDirection: 'row' }}>
       {vaultStateTitle}
       <PoolBoosts poolName={pool.name} earnedTokenAddress={pool.earnedTokenAddress} />
       <Grid item xs={12}>
@@ -108,12 +108,17 @@ const PoolSummary = ({
       </Grid>
       <Grid container xs={12} style={{ display: 'flex', justifyContent: 'center' }}>
         <LabeledStat
+          style={{ marginLeft: '20px', marginTop: '20px' }}
           value={formatTvl(pool.tvl, pool.oraclePrice)}
           label={t('Vault-TVL')}
           isLoading={!fetchVaultsDataDone}
         />
       </Grid>
-      <Grid container xs={12} style={{ display: 'flex', justifyContent: 'space-between' }}>
+      <Grid
+        container
+        xs={12}
+        style={{ display: 'flex', justifyContent: 'space-between', marginTop: '20px' }}
+      >
         <Grid item>
           <LabeledStat
             value={formatDecimals(balanceSingle)}

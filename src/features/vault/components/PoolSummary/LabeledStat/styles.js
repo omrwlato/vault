@@ -22,6 +22,10 @@ const styles = theme => ({
     position: 'absolute',
     top: '-20px',
   },
+  tvlFormat: {
+    marginLeft: '20px',
+    marginTop: '20px',
+  },
   label: {
     fontSize: '14px',
     fontWeight: '400',

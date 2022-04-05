@@ -4,7 +4,7 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import { useTranslation } from 'react-i18next';
 import { makeStyles } from '@material-ui/core/styles';
 import styles from './styles';
-
+import Grid from '@material-ui/core/Grid';
 import useFilteredPools from '../../hooks/useFilteredPools';
 import usePoolsByPlatform from '../../hooks/usePoolsByPlatform';
 import usePoolsByVaultType from '../../hooks/usePoolsByVaultType';
@@ -54,7 +54,7 @@ const VisiblePools = ({
         setAsset={setAsset}
         setOrder={setOrder}
       /> */}
-      <div className={classes.scroller}>
+      <Grid container spacing={2} direction="row" justify="flex-start" alignItems="flex-start">
         {/* <InfiniteScroll dataLength={visiblePools.length} hasMore={true} next={fetchVisiblePools}> */}
         {visiblePools.map((pool, index) => (
           <Pool
@@ -69,7 +69,7 @@ const VisiblePools = ({
           />
         ))}
         {/* </InfiniteScroll> */}
-      </div>
+      </Grid>
       {!sortedPools.length && <h3 className={classes.subtitle}>{t('No-Results')}</h3>}
     </>
   );
