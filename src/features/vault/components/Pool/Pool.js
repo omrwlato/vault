@@ -54,7 +54,7 @@ const Pool = ({
   }, [subscribe, activeLaunchpools]);
 
   return (
-    <Grid item xs={12} md={3} container key={index} className={classes.container} spacing={0}>
+    <Grid xs={12} md={4} item key={index}>
       {/* <div style={{ width: '100%', backgroundColor: 'red' }}>hey</div> */}
       <PoolSummary
         pool={pool}

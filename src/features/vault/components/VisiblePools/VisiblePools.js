@@ -54,7 +54,7 @@ const VisiblePools = ({
         setAsset={setAsset}
         setOrder={setOrder}
       /> */}
-      <Grid container spacing={2} direction="row" justify="flex-start" alignItems="flex-start">
+      <Grid container spacing={4}>
         {/* <InfiniteScroll dataLength={visiblePools.length} hasMore={true} next={fetchVisiblePools}> */}
         {visiblePools.map((pool, index) => (
           <Pool

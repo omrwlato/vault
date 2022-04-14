@@ -89,10 +89,21 @@ const PoolSummary = ({
     //   style={{ justifyContent: 'space-between' }}
     //   onClick={onSummaryClick}
     // >
-    <Grid container style={{ display: 'flex', flexDirection: 'row' }}>
+    <Grid
+      container
+      xs={12}
+      style={{
+        display: 'flex',
+        flexDirection: 'row',
+        backgroundColor: '#dda69c',
+        padding: '10px',
+        border: '2px solid gray',
+        borderRadius: '5px',
+      }}
+    >
       {vaultStateTitle}
       <PoolBoosts poolName={pool.name} earnedTokenAddress={pool.earnedTokenAddress} />
-      <Grid item xs={12}>
+      <Grid item xs={12} style={{ marginBottom: '15px', marginTop: '15px' }}>
         <PoolTitle
           name={pool.name}
           logo={pool.logo}
@@ -106,7 +117,11 @@ const PoolSummary = ({
           multipleLaunchpools={multipleLaunchpools}
         />
       </Grid>
-      <Grid container xs={12} style={{ display: 'flex', justifyContent: 'center' }}>
+      <Grid
+        container
+        xs={12}
+        style={{ display: 'flex', justifyContent: 'center', marginBottom: '15px' }}
+      >
         <LabeledStat
           style={{ marginLeft: '20px', marginTop: '20px' }}
           value={formatTvl(pool.tvl, pool.oraclePrice)}
@@ -117,7 +132,12 @@ const PoolSummary = ({
       <Grid
         container
         xs={12}
-        style={{ display: 'flex', justifyContent: 'space-between', marginTop: '20px' }}
+        style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          marginTop: '20px',
+          marginBottom: '20px',
+        }}
       >
         <Grid item>
           <LabeledStat
