@@ -183,9 +183,9 @@ const Header = ({ links, isNightMode, setNightMode }) => {
             <LinkSidebar name="forum" label={t('forum')} icon="comments" classes={classes} />
             <InsureLinkSidebar t={t} classes={classes} />
             <LinkSidebar name="buy" label={t('buy')} icon="dollar-sign" classes={classes} /> */}
-            <IconButton onClick={setNightMode} className={classes.icon}>
+            {/*             <IconButton onClick={setNightMode} className={classes.icon}>
               {isNightMode ? <WbSunny /> : <NightsStay />}
-            </IconButton>
+            </IconButton> */}
           </div>
         </Drawer>
       </Hidden>

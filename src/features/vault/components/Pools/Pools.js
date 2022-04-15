@@ -2,8 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { makeStyles } from '@material-ui/core/styles';
 import AllInclusiveIcon from '@material-ui/icons/AllInclusive';
-import Grid from '@material-ui/core/Grid';
-import Button from '@material-ui/core/Button';
+
 import TVLLoader from './TVLLoader/TVLLoader';
 import { useConnectWallet } from 'features/home/redux/hooks';
 import { useFetchBalances, useFetchVaultsData, useFetchApys } from '../../redux/hooks';
@@ -13,6 +12,7 @@ import { usePoolsTvl, useUserTvl } from '../../hooks/usePoolsTvl';
 import { formatGlobalTvl } from 'features/helpers/format';
 import { useFetchBifibuyback } from 'features/vault/redux/fetchBifiBuyback';
 import { getNetworkFriendlyName } from '../../../helpers/getNetworkData';
+import { Box, Button, CardContent, Grid, Paper, Typography } from '@material-ui/core';
 
 const FETCH_INTERVAL_MS = 15 * 1000;
 
@@ -81,47 +81,67 @@ export default function Pools() {
 
   return (
     <Grid container className={classes.container}>
-      <Grid item xs={6}>
+      {/*       <Grid item xs={6}>
         {/* <h1 className={classes.title}>{t('Vault-Network')}</h1> */}
-        {/* <NetworksToggle /> */}
+      {/* <NetworksToggle /> 
         {fetchVaultsDataDone && activePoolCount && (
           <>
             <h2 className={classes.title}> {`${activePoolCount} ${t('Vault-MainTitle')}`}</h2>
           </>
         )}
-      </Grid>
-      <Grid item xs={6}>
+      </Grid> */}
+      {/*       <Grid container justify="center">
         <div className={classes.tvl}>
           <span className={classes.title}>
-            TVL{' '}
+            Total Value Locked{' '}
+            {fetchVaultsDataDone && poolsTvl > 0 ? (
+              formatGlobalTvl(poolsTvl)
+            ) : (
+              <TVLLoader className={classes.titleLoader} />
+            )}
+          </span> */}
+
+      <Grid container justify="center">
+        <Box
+          mt={3}
+          style={{
+            justifyContent: 'center',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+          }}
+        >
+          <h3 style={{ color: '#000', fontSize: '1.17em' }}>Total Value Locked</h3>
+          <span style={{ fontSize: '50px', marginBottom: '30px' }}>
             {fetchVaultsDataDone && poolsTvl > 0 ? (
               formatGlobalTvl(poolsTvl)
             ) : (
               <TVLLoader className={classes.titleLoader} />
             )}
           </span>
-
-          {/* {fetchBifibuybackDone && chainBifibuyback && (
+        </Box>
+      </Grid>
+      {/* {fetchBifibuybackDone && chainBifibuyback && (
             <span className={classes.text}>
               {t('Vault-BifiBuyback', { amount: formatGlobalTvl(chainBifibuyback) })}
             </span>
           )} */}
 
-          <span className={classes.text}>
+      {/*           <span className={classes.text}>
             {t('Vault-Deposited')}{' '}
             {fetchVaultsDataDone && fetchBalancesDone ? (
               formatGlobalTvl(userTvl)
             ) : (
               <TVLLoader className={classes.titleLoader} />
             )}
-          </span>
-
+          </span> */}
+      {/* 
           <h4 className={classes.subtitle} style={{ marginTop: '16px' }}>
             <AllInclusiveIcon className={classes.infinityIcon} />
             {t('Vault-AutocompoundingNote')}
-          </h4>
-        </div>
-      </Grid>
+          </h4> 
+        </div> 
+      </Grid> */}
       <Grid item xs={12}>
         <Button name="ALL" onClick={onClickPool}>
           All
@@ -132,9 +152,9 @@ export default function Pools() {
         <Button name="ICECREAM" onClick={onClickPool}>
           ICECREAM
         </Button>
-        <Button name="ARGOS" onClick={onClickPool}>
+        {/*         <Button name="ARGOS" onClick={onClickPool}>
           ARGOS
-        </Button>
+        </Button> */}
       </Grid>
       {console.log(newPoolsSelected, 'newpools')}
       {poolSelected === 'ALL' ? (

@@ -1,23 +1,21 @@
 const styles = theme => ({
   container: {
-    paddingTop: '4px',
+    paddingTop: '0px',
   },
   tvl: {
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'flex-end',
+    alignItems: 'center',
   },
   title: {
     fontSize: '32px',
     letterSpacing: '0',
-    lineHeight: '32px',
-    fontWeight: '550',
-    color: theme.palette.text.primary,
+    color: '#000',
     display: 'flex',
     alignItems: 'center',
   },
   titleLoader: {
-    marginLeft: '12px',
+    marginLeft: '0px',
   },
   subtitle: {
     letterSpacing: '0',
@@ -25,15 +23,14 @@ const styles = theme => ({
     [theme.breakpoints.down('xs')]: {
       lineHeight: '16px',
     },
-    color: theme.palette.text.secondary,
+    color: '#000',
     marginTop: '0',
   },
   text: {
     fontSize: '24px',
     letterSpacing: '0',
     lineHeight: '32px',
-    fontWeight: '550',
-    color: theme.palette.text.primary,
+    color: '#000',
     display: 'flex',
     alignItems: 'center',
   },

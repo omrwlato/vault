@@ -140,7 +140,7 @@ export const avalanchePools = [
       'https://traderjoexyz.com/pool/0x155f794b56353533E0AfBF76e1B1FC57DFAd5Bd7/0xAE21d31a6494829a9E4B2B291F4984AAE8121757',
     family: 'ICECREAM',
   },
-  {
+  /*   {
     id: 'ARGOS-JOE',
     name: 'ARGOS-JOE LP',
     token: 'ARGOS-JOE LP',
@@ -195,5 +195,5 @@ export const avalanchePools = [
     buyTokenUrl:
       'https://traderjoexyz.com/trade?outputCurrency=0xe9067be19c824d7ad82e35333152EB0c593AB454#/',
     family: 'ARGOS',
-  },
+  }, */
 ];

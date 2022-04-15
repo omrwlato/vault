@@ -1,12 +1,26 @@
 import React from 'react';
+import { Box, Button, CardContent, Grid, Paper, Typography } from '@material-ui/core';
 
 import Pools from 'features/vault/components/Pools/Pools';
-import Disclaimer from 'components/Disclaimer/Disclaimer';
 
 export default function HomePage() {
   return (
     <>
-      <Disclaimer />
+      <Grid
+        container
+        direction="column"
+        alignItems="center"
+        justifyContent="center"
+        style={{ marginTop: '20px' }}
+      >
+        <Grid item xs={12} sm={8}>
+          <Box p={4} justifyContent="center" alignItems="center">
+            <Typography variant="h3" fontWeight="bold" align="center" style={{ color: '#000' }}>
+              The sweetest vaults on Avalanche!
+            </Typography>
+          </Box>
+        </Grid>
+      </Grid>
       <Pools fromPage="home" />
     </>
   );

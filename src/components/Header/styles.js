@@ -16,33 +16,12 @@ import {
 
 const styles = theme => ({
   appBar: {
-    display: 'flex',
-    border: '0',
-    borderRadius: '3px',
-    padding: '0.625rem 0',
-    marginBottom: '20px',
-    color: grayColor[15],
-    width: 'calc(100% - 20px)',
-    margin: '0 auto',
-    backgroundColor: whiteColor,
-    boxShadow:
-      '0 4px 18px 0px rgba(' +
-      hexToRgb(blackColor) +
-      ', 0.12), 0 7px 10px -5px rgba(' +
-      hexToRgb(blackColor) +
-      ', 0.15)',
-    transition: 'all 150ms ease 0s',
-    alignItems: 'center',
-    flexFlow: 'row nowrap',
-    justifyContent: 'flex-start',
-    position: 'relative',
-  },
-  absolute: {
-    position: 'absolute',
-    top: 'auto',
-  },
-  fixed: {
-    position: 'fixed',
+    color: 'var(--white)',
+    'background-color': 'transparent!important',
+    'backdrop-filter': 'blur(10px)',
+    // borderBottom: `1px solid ${theme.palette.divider}`,
+    padding: '0 10px',
+    position: 'sticky',
   },
   container: {
     ...containerFluid,
