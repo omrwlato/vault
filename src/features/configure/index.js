@@ -1,4 +1,4 @@
-import { addressBook } from 'bombfarm-addressbook';
+import { addressBook } from 'froyo-addressbook';
 
 const {
   polygon: polygonAddressBook,

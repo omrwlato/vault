@@ -7107,6 +7107,11 @@ from2@^2.1.0:
     inherits "^2.0.1"
     readable-stream "^2.0.0"
 
+froyo-addressbook@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/froyo-addressbook/-/froyo-addressbook-1.0.0.tgz#6a7e5ed6c6022db93cd565e84e6783b09ede7117"
+  integrity sha512-shBPbg4ETAVgFs7KiUT67OH35pVpUHgnLVXwAYGi58d3Olf/A+VU3JsierkV68BTtuCAVHLLTt8q105Ny2/35A==
+
 froyo-api@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/froyo-api/-/froyo-api-1.0.1.tgz#da1ee6f0421fe97c1d67d96d2e403aa754957a97"

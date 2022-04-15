@@ -1,6 +1,6 @@
 // To run: yarn validate
 import { MultiCall } from 'eth-multicall';
-import { addressBook } from 'bombfarm-addressbook';
+import { addressBook } from 'froyo-addressbook';
 import Web3 from 'web3';
 
 import { isEmpty } from '../src/features/helpers/utils.js';
@@ -127,7 +127,7 @@ const validatePools = async () => {
       uniqueOracleId.add(pool.oracleId);
 
       const { keeper, strategyOwner, vaultOwner, beefyFeeRecipient } =
-        addressBook[chain].platforms.bombfarm;
+        addressBook[chain].platforms.beefyfinance;
 
       updates = isKeeperCorrect(pool, chain, keeper, updates);
       //   updates = isStratOwnerCorrect(pool, chain, strategyOwner, updates);
