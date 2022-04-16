@@ -103,7 +103,7 @@ const PoolSummary = ({
     >
       {vaultStateTitle}
       <PoolBoosts poolName={pool.name} earnedTokenAddress={pool.earnedTokenAddress} />
-      <Grid item xs={12} style={{ marginBottom: '15px', marginTop: '15px' }}>
+      <Grid item xs={12} style={{ margin: '15px 0' }}>
         <PoolTitle
           name={pool.name}
           logo={pool.logo}
@@ -117,44 +117,28 @@ const PoolSummary = ({
           multipleLaunchpools={multipleLaunchpools}
         />
       </Grid>
-      <Grid
-        container
-        xs={12}
-        style={{ display: 'flex', justifyContent: 'center', marginBottom: '15px' }}
-      >
+      <Grid container xs={12} style={{ margin: '15px 0' }}>
         <LabeledStat
-          style={{ marginLeft: '20px', marginTop: '20px' }}
           value={formatTvl(pool.tvl, pool.oraclePrice)}
           label={t('Vault-TVL')}
           isLoading={!fetchVaultsDataDone}
         />
       </Grid>
-      <Grid
-        container
-        xs={12}
-        style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          marginTop: '20px',
-          marginBottom: '20px',
-        }}
-      >
-        <Grid item>
-          <LabeledStat
-            value={formatDecimals(balanceSingle)}
-            subvalue={balanceUsd}
-            label={t('Vault-Wallet')}
-            isLoading={!fetchBalancesDone}
-          />
-        </Grid>
-        <Grid item>
-          <LabeledStat
-            value={formatDecimals(deposited)}
-            subvalue={depositedUsd}
-            label={t('Vault-Deposited')}
-            isLoading={!fetchBalancesDone}
-          />
-        </Grid>
+      <Grid item xs={12} style={{ margin: '15px 0' }}>
+        <LabeledStat
+          value={formatDecimals(balanceSingle)}
+          subvalue={balanceUsd}
+          label={t('Vault-Wallet')}
+          isLoading={!fetchBalancesDone}
+        />
+      </Grid>
+      <Grid item xs={12} style={{ margin: '15px 0' }}>
+        <LabeledStat
+          value={formatDecimals(deposited)}
+          subvalue={depositedUsd}
+          label={t('Vault-Deposited')}
+          isLoading={!fetchBalancesDone}
+        />
       </Grid>
       <ApyStats apy={apy} launchpoolApr={launchpoolApr} isLoading={!fetchApysDone} />
     </Grid>
@@ -163,7 +147,7 @@ const PoolSummary = ({
 };
 
 const formatDecimals = number => {
-  return number >= 10 ? number.toFixed(4) : number.isEqualTo(0) ? 0 : number.toFixed(8);
+  return number >= 10 ? number.toFixed(4) : number.isEqualTo(0) ? 0 : number.toFixed(3);
 };
 
 export default PoolSummary;

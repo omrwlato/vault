@@ -122,17 +122,25 @@ export default function Pools() {
           </h4>
         </div>
       </Grid>
-      <Grid item xs={12}>
-        <Button name="ALL" onClick={onClickPool}>
+      <Grid
+        item
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          marginBottom: '15px',
+        }}
+        xs={12}
+      >
+        <Button style={{ border: '1px solid pink' }} name="ALL" onClick={onClickPool}>
           All
         </Button>
-        <Button name="SUNDAE" onClick={onClickPool}>
+        <Button style={{ border: '1px solid pink' }} name="SUNDAE" onClick={onClickPool}>
           SUNDAE
         </Button>
-        <Button name="ICECREAM" onClick={onClickPool}>
+        <Button style={{ border: '1px solid pink' }} name="ICECREAM" onClick={onClickPool}>
           ICECREAM
         </Button>
-        <Button name="ARGOS" onClick={onClickPool}>
+        <Button style={{ border: '1px solid pink' }} name="ARGOS" onClick={onClickPool}>
           ARGOS
         </Button>
       </Grid>

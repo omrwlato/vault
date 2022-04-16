@@ -55,7 +55,6 @@ const Pool = ({
 
   return (
     <Grid xs={12} md={4} item key={index}>
-      {/* <div style={{ width: '100%', backgroundColor: 'red' }}>hey</div> */}
       <PoolSummary
         pool={pool}
         launchpool={launchpool}

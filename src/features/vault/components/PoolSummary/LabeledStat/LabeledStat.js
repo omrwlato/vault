@@ -14,7 +14,7 @@ const LabeledStat = forwardRef(
     return (
       <div {...passthrough} ref={ref}>
         <Typography className={classes.stat} variant="body2" gutterBottom>
-          {subvalue && !isLoading ? <span className={classes.substat}>{subvalue}</span> : ''}
+          {/* {subvalue && !isLoading ? <span className={classes.substat}>{subvalue}</span> : ''} */}
           {boosted ? (
             isLoading ? (
               <ValueLoader />
