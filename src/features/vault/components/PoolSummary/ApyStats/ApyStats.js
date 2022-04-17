@@ -199,7 +199,12 @@ const ApyStats = ({
       </Grid>
       {showVault ? (
         <Button className={classes.button}>
-          <Link style={{ color: 'white' }} to={`/${chain}/vault/${poolId}`}>
+          <Link
+            style={{
+              color: 'white',
+            }}
+            to={`/${chain}/vault/${poolId}`}
+          >
             <strong>+VAULT</strong>
           </Link>
         </Button>

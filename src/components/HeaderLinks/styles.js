@@ -217,11 +217,8 @@ const styles = theme => ({
     margin: '12px 0',
     fontSize: '14px',
     fontWeight: 'bold',
-    backgroundColor: theme.palette.background.secondary,
+    background: 'linear-gradient(45deg, #fcb037, #e638c7, #31bcfd)',
     color: '#fff',
-    '&:hover': {
-      backgroundColor: theme.palette.background.border,
-    },
     [theme.breakpoints.up('md')]: {
       width: '180px',
     },

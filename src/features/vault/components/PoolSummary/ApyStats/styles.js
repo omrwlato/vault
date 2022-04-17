@@ -1,10 +1,10 @@
 const styles = theme => ({
   button: {
-    border: '1px solid ' + theme.palette.background.border,
     padding: '4px 8px',
     backgroundColor: '#c59289',
     textTransform: 'none',
     margin: '10px 10px 0 0',
+    background: 'linear-gradient(45deg, #fcb037, #e638c7, #31bcfd)',
   },
   tooltip: {
     fontSize: 14,
