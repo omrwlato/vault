@@ -89,18 +89,7 @@ const PoolSummary = ({
     //   style={{ justifyContent: 'space-between' }}
     //   onClick={onSummaryClick}
     // >
-    <Grid
-      container
-      xs={12}
-      style={{
-        display: 'flex',
-        flexDirection: 'row',
-        backgroundColor: '#dda69c',
-        padding: '10px',
-        border: '2px solid gray',
-        borderRadius: '5px',
-      }}
-    >
+    <Grid container xs={12} className={classes.parentgrid}>
       {vaultStateTitle}
       <PoolBoosts poolName={pool.name} earnedTokenAddress={pool.earnedTokenAddress} />
       <Grid item xs={12} style={{ margin: '15px 0' }}>

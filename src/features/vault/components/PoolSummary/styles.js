@@ -1,4 +1,15 @@
 const styles = theme => ({
+  parentgrid: {
+    display: 'flex',
+    flexDirection: 'row',
+    backgroundColor: '#dda69c',
+    padding: '10px',
+    border: '2px solid gray',
+    borderRadius: '5px',
+    '&:hover': {
+      backgroundColor: '#c59289',
+    },
+  },
   details: {
     display: 'flex',
     alignItems: 'center',
