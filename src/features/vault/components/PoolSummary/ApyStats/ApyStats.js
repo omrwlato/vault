@@ -1,5 +1,6 @@
 import React, { memo } from 'react';
 import Grid from '@material-ui/core/Grid';
+import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import styles from './styles';
 import { formatApy } from '../../../../helpers/format';
@@ -165,7 +166,7 @@ const ApyStats = ({ apy, launchpoolApr, isLoading = false, itemClasses, itemInne
       return [key, formattedValue];
     })
   );
-
+  const classes = useStyles();
   return (
     <Grid
       container
@@ -184,6 +185,9 @@ const ApyStats = ({ apy, launchpoolApr, isLoading = false, itemClasses, itemInne
           className={`tooltip-toggle ${itemInnerClasses}`}
         />
       </Grid>
+      {/* <Button className={classes.button}>
+        <strong>+VAULT</strong>
+      </Button> */}
       <Grid item className={itemClasses}>
         <LabeledStatWithTooltip
           value={formatted.totalDaily}
