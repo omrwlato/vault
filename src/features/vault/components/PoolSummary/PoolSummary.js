@@ -78,74 +78,71 @@ const PoolSummary = ({
   );
 
   return (
-    <AccordionSummary
-      className={
-        pool.status === 'eol'
-          ? classes.detailsRetired
-          : pool.depositsPaused
-          ? classes.detailsPaused
-          : classes.details
-      }
-      style={{ justifyContent: 'space-between' }}
-      onClick={onSummaryClick}
-    >
-      <Grid container alignItems="center" style={{ paddingTop: '20px' }}>
-        {vaultStateTitle}
-        <PoolBoosts poolName={pool.name} earnedTokenAddress={pool.earnedTokenAddress} />
-        <Grid item xs={12} className={`${classes.item} ${classes.itemTitle}`}>
-          <PoolTitle
-            name={pool.name}
-            logo={pool.logo}
-            poolId={pool.id}
-            description={t('Vault-Description', { vault: pool.tokenDescription })}
-            launchpool={launchpool}
-            addLiquidityUrl={pool.addLiquidityUrl}
-            removeLiquidityUrl={pool.removeLiquidityUrl}
-            buyTokenUrl={pool.buyTokenUrl}
-            assets={pool.assets}
-            multipleLaunchpools={multipleLaunchpools}
-          />
-        </Grid>
-        <Grid item xs={6} className={`${classes.item} ${classes.itemBalances}`}>
-          <LabeledStat
-            value={formatDecimals(balanceSingle)}
-            subvalue={balanceUsd}
-            label={t('Vault-Wallet')}
-            isLoading={!fetchBalancesDone}
-            className={classes.itemInner}
-          />
-        </Grid>
-        <Grid item xs={6} className={`${classes.item} ${classes.itemBalances}`}>
-          <LabeledStat
-            value={formatDecimals(deposited)}
-            subvalue={depositedUsd}
-            label={t('Vault-Deposited')}
-            isLoading={!fetchBalancesDone}
-            className={classes.itemInner}
-          />
-        </Grid>
-        <ApyStats
-          apy={apy}
-          launchpoolApr={launchpoolApr}
-          isLoading={!fetchApysDone}
-          itemClasses={`${classes.item} ${classes.itemStats}`}
-          itemInnerClasses={classes.itemInner}
+    // <AccordionSummary
+    //   className={
+    //     pool.status === 'eol'
+    //       ? classes.detailsRetired
+    //       : pool.depositsPaused
+    //       ? classes.detailsPaused
+    //       : classes.details
+    //   }
+    //   style={{ justifyContent: 'space-between' }}
+    //   onClick={onSummaryClick}
+    // >
+    <Grid container xs={12} className={classes.parentgrid}>
+      {vaultStateTitle}
+      <PoolBoosts poolName={pool.name} earnedTokenAddress={pool.earnedTokenAddress} />
+      <Grid item xs={12} style={{ margin: '15px 0' }}>
+        <PoolTitle
+          name={pool.name}
+          logo={pool.logo}
+          poolId={pool.id}
+          description={t('Vault-Description', { vault: pool.tokenDescription })}
+          launchpool={launchpool}
+          addLiquidityUrl={pool.addLiquidityUrl}
+          removeLiquidityUrl={pool.removeLiquidityUrl}
+          buyTokenUrl={pool.buyTokenUrl}
+          assets={pool.assets}
+          multipleLaunchpools={multipleLaunchpools}
         />
-        <Grid item xs={4} className={`${classes.item} ${classes.itemStats}`}>
-          <LabeledStat
-            value={formatTvl(pool.tvl, pool.oraclePrice)}
-            label={t('Vault-TVL')}
-            isLoading={!fetchVaultsDataDone}
-            className={classes.itemInner}
-          />
-        </Grid>
       </Grid>
-    </AccordionSummary>
+      <Grid container xs={12} style={{ margin: '15px 0' }}>
+        <LabeledStat
+          value={formatTvl(pool.tvl, pool.oraclePrice)}
+          label={t('Vault-TVL')}
+          isLoading={!fetchVaultsDataDone}
+        />
+      </Grid>
+      <Grid item xs={12} style={{ margin: '15px 0' }}>
+        <LabeledStat
+          value={formatDecimals(balanceSingle)}
+          subvalue={balanceUsd}
+          label={t('Vault-Wallet')}
+          isLoading={!fetchBalancesDone}
+        />
+      </Grid>
+      <Grid item xs={12} style={{ margin: '15px 0' }}>
+        <LabeledStat
+          value={formatDecimals(deposited)}
+          subvalue={depositedUsd}
+          label={t('Vault-Deposited')}
+          isLoading={!fetchBalancesDone}
+        />
+      </Grid>
+      <ApyStats
+        apy={apy}
+        launchpoolApr={launchpoolApr}
+        isLoading={!fetchApysDone}
+        poolId={pool.id}
+        showVault
+      />
+    </Grid>
+    // </AccordionSummary>
   );
 };
 
 const formatDecimals = number => {
-  return number >= 10 ? number.toFixed(4) : number.isEqualTo(0) ? 0 : number.toFixed(8);
+  return number >= 10 ? number.toFixed(4) : number.isEqualTo(0) ? 0 : number.toFixed(3);
 };
 
 export default PoolSummary;

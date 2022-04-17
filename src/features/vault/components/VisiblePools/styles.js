@@ -1,6 +1,9 @@
 const styles = theme => ({
   scroller: {
     width: '100%',
+    display: 'flex',
+    flexDirection: 'row',
+    backgroundColor: 'gray',
   },
   subtitle: {
     fontSize: '20px',

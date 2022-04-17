@@ -1,7 +1,10 @@
 import React, { memo } from 'react';
 import Grid from '@material-ui/core/Grid';
+import { useParams } from 'react-router';
+import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import styles from './styles';
+import { Link } from 'react-router-dom';
 import { formatApy } from '../../../../helpers/format';
 import { isNaN } from '../../../../helpers/bignumber';
 import LabeledStat from '../LabeledStat/LabeledStat';
@@ -120,7 +123,17 @@ const LabeledStatWithTooltip = memo(({ tooltip, label, ...passthrough }) => {
   );
 });
 
-const ApyStats = ({ apy, launchpoolApr, isLoading = false, itemClasses, itemInnerClasses }) => {
+const ApyStats = ({
+  apy,
+  launchpoolApr,
+  isLoading = false,
+  itemClasses,
+  itemInnerClasses,
+  showVault,
+  poolId,
+  fromDetails,
+}) => {
+  const { chain } = useParams();
   const { t } = useTranslation();
   const isBoosted = !!launchpoolApr;
   const values = {};
@@ -165,10 +178,14 @@ const ApyStats = ({ apy, launchpoolApr, isLoading = false, itemClasses, itemInne
       return [key, formattedValue];
     })
   );
-
+  const classes = useStyles();
   return (
-    <>
-      <Grid item xs={4} className={itemClasses}>
+    <Grid
+      container
+      xs={12}
+      style={{ display: 'flex', justifyContent: fromDetails ? 'space-evenly' : 'space-between' }}
+    >
+      <Grid item className={itemClasses}>
         <LabeledStatWithTooltip
           value={formatted.totalApy}
           label={t('Vault-APY')}
@@ -180,7 +197,16 @@ const ApyStats = ({ apy, launchpoolApr, isLoading = false, itemClasses, itemInne
           className={`tooltip-toggle ${itemInnerClasses}`}
         />
       </Grid>
-      <Grid item xs={4} className={itemClasses}>
+      {showVault ? (
+        <Button className={classes.button}>
+          <Link style={{ color: 'white' }} to={`/${chain}/vault/${poolId}`}>
+            <strong>+VAULT</strong>
+          </Link>
+        </Button>
+      ) : (
+        <span></span>
+      )}
+      <Grid item className={itemClasses}>
         <LabeledStatWithTooltip
           value={formatted.totalDaily}
           label={t('Vault-APYDaily')}
@@ -192,7 +218,7 @@ const ApyStats = ({ apy, launchpoolApr, isLoading = false, itemClasses, itemInne
           className={`tooltip-toggle ${itemInnerClasses}`}
         />
       </Grid>
-    </>
+    </Grid>
   );
 };
 

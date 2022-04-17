@@ -143,14 +143,14 @@ export default function Pools() {
         </div> 
       </Grid> */}
       <Grid item xs={12}>
-        <Button name="ALL" onClick={onClickPool}>
+        <Button style={{ marginBottom: '10px ' }} name="ALL" onClick={onClickPool}>
           All
         </Button>
-        <Button name="SUNDAE" onClick={onClickPool}>
-          SUNDAE
+        <Button style={{ marginBottom: '10px ' }} name="SUNDAE" onClick={onClickPool}>
+          <strong>SUNDAE</strong>
         </Button>
-        <Button name="ICECREAM" onClick={onClickPool}>
-          ICECREAM
+        <Button style={{ marginBottom: '10px ' }} name="ICECREAM" onClick={onClickPool}>
+          <strong>ICECREAM</strong>
         </Button>
         {/*         <Button name="ARGOS" onClick={onClickPool}>
           ARGOS
