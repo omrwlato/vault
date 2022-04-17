@@ -129,7 +129,13 @@ const PoolSummary = ({
           isLoading={!fetchBalancesDone}
         />
       </Grid>
-      <ApyStats apy={apy} launchpoolApr={launchpoolApr} isLoading={!fetchApysDone} />
+      <ApyStats
+        apy={apy}
+        launchpoolApr={launchpoolApr}
+        isLoading={!fetchApysDone}
+        poolId={pool.id}
+        showVault
+      />
     </Grid>
     // </AccordionSummary>
   );

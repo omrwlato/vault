@@ -1,8 +1,10 @@
 import React, { memo } from 'react';
 import Grid from '@material-ui/core/Grid';
+import { useParams } from 'react-router';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import styles from './styles';
+import { Link } from 'react-router-dom';
 import { formatApy } from '../../../../helpers/format';
 import { isNaN } from '../../../../helpers/bignumber';
 import LabeledStat from '../LabeledStat/LabeledStat';
@@ -121,7 +123,16 @@ const LabeledStatWithTooltip = memo(({ tooltip, label, ...passthrough }) => {
   );
 });
 
-const ApyStats = ({ apy, launchpoolApr, isLoading = false, itemClasses, itemInnerClasses }) => {
+const ApyStats = ({
+  apy,
+  launchpoolApr,
+  isLoading = false,
+  itemClasses,
+  itemInnerClasses,
+  showVault,
+  poolId,
+}) => {
+  const { chain } = useParams();
   const { t } = useTranslation();
   const isBoosted = !!launchpoolApr;
   const values = {};
@@ -185,9 +196,15 @@ const ApyStats = ({ apy, launchpoolApr, isLoading = false, itemClasses, itemInne
           className={`tooltip-toggle ${itemInnerClasses}`}
         />
       </Grid>
-      {/* <Button className={classes.button}>
-        <strong>+VAULT</strong>
-      </Button> */}
+      {showVault ? (
+        <Button className={classes.button}>
+          <Link style={{ color: 'white' }} to={`/${chain}/vault/${poolId}`}>
+            <strong>+VAULT</strong>
+          </Link>
+        </Button>
+      ) : (
+        <span></span>
+      )}
       <Grid item className={itemClasses}>
         <LabeledStatWithTooltip
           value={formatted.totalDaily}
