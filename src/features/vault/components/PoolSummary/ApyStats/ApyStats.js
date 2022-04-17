@@ -131,6 +131,7 @@ const ApyStats = ({
   itemInnerClasses,
   showVault,
   poolId,
+  fromDetails,
 }) => {
   const { chain } = useParams();
   const { t } = useTranslation();
@@ -182,7 +183,7 @@ const ApyStats = ({
     <Grid
       container
       xs={12}
-      style={{ display: 'flex', justifyContent: 'space-between', marginTop: '20px' }}
+      style={{ display: 'flex', justifyContent: fromDetails ? 'space-evenly' : 'space-between' }}
     >
       <Grid item className={itemClasses}>
         <LabeledStatWithTooltip

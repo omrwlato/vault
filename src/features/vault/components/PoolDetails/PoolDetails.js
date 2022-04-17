@@ -152,11 +152,15 @@ const PoolDetails = ({ vaultId }) => {
       </Helmet>
       <HomeLink />
       {vaultId === 'cake-cakev2' ? <CakeV2Banner /> : ''}
-      <div className={classes.container}>
-        <Grid container alignItems="center" style={{ paddingTop: '20px' }}>
+      <div style={{ backgroundColor: '#dda69c' }}>
+        <Grid
+          container
+          alignItems="center"
+          style={{ display: 'flex', justifyContent: 'center', paddingTop: '20px' }}
+        >
           {vaultStateTitle}
           <PoolBoosts poolName={pool.name} earnedTokenAddress={pool.earnedTokenAddress} />
-          <Grid item xs={12} className={`${classes.item} ${classes.itemTitle}`}>
+          <Grid item xs={12}>
             <PoolTitle
               name={pool.name}
               logo={pool.logo}
@@ -170,37 +174,35 @@ const PoolDetails = ({ vaultId }) => {
               multipleLaunchpools={multipleLaunchpools}
             />
           </Grid>
-          <Grid item xs={6} className={`${classes.item} ${classes.itemBalances}`}>
+          <Grid container xs={2} justifyContent="center">
             <LabeledStat
               value={formatDecimals(balanceSingle)}
               subvalue={balanceUsd}
               label={t('Vault-Wallet')}
               isLoading={!fetchBalancesDone}
-              className={classes.itemInner}
             />
           </Grid>
-          <Grid item xs={6} className={`${classes.item} ${classes.itemBalances}`}>
+          <Grid container justifyContent="center" xs={2}>
             <LabeledStat
               value={formatDecimals(deposited)}
               subvalue={depositedUsd}
               label={t('Vault-Deposited')}
               isLoading={!fetchBalancesDone}
-              className={classes.itemInner}
             />
           </Grid>
-          <ApyStats
-            apy={apy}
-            launchpoolApr={launchpoolApr}
-            isLoading={!fetchApysDone}
-            itemClasses={`${classes.item} ${classes.itemStats}`}
-            itemInnerClasses={classes.itemInner}
-          />
-          <Grid item xs={4} className={`${classes.item} ${classes.itemStats}`}>
+          <Grid item xs={4}>
+            <ApyStats
+              apy={apy}
+              launchpoolApr={launchpoolApr}
+              isLoading={!fetchApysDone}
+              fromDetails
+            />
+          </Grid>
+          <Grid item xs={4} style={{ display: 'flex', justifyContent: 'center' }}>
             <LabeledStat
               value={formatTvl(pool.tvl, pool.oraclePrice)}
               label={t('Vault-TVL')}
               isLoading={!fetchVaultsDataDone}
-              className={classes.itemInner}
             />
           </Grid>
         </Grid>
