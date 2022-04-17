@@ -1,27 +1,26 @@
-import React, { memo } from 'react';
-import { useTranslation } from 'react-i18next';
-import { makeStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
+import React from 'react';
+import { Box, Button, CardContent, Grid, Paper, Typography } from '@material-ui/core';
 
-import styles from './styles';
+import Pools from 'features/vault/components/Pools/Pools';
 
-const useStyles = makeStyles(styles);
-
-const Disclaimer = () => {
-  const { t } = useTranslation();
-  const classes = useStyles();
-
+export default function Disclaimer() {
   return (
-    <Grid container item className={classes.root} justifyContent="center">
-      <Typography className={classes.disclaimer}>
-        Welcome to the sweetest AC on any network!
-        <br />
-        <br />
-        {t('Disclaimer')}
-      </Typography>
-    </Grid>
+    <>
+      <Grid
+        container
+        direction="column"
+        alignItems="center"
+        justifyContent="center"
+        style={{ marginTop: '20px' }}
+      >
+        <Grid item xs={12} sm={8}>
+          <Box p={4} justifyContent="center" alignItems="center">
+            <Typography variant="h3" fontWeight="bold" align="center" style={{ color: '#000' }}>
+              Vaults
+            </Typography>
+          </Box>
+        </Grid>
+      </Grid>
+    </>
   );
-};
-
-export default memo(Disclaimer);
+}

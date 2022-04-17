@@ -14,9 +14,9 @@ export default function HomePage() {
         style={{ marginTop: '20px' }}
       >
         <Grid item xs={12} sm={8}>
-          <Box p={4} justifyContent="center" alignItems="center">
+          <Box p={6} justifyContent="center" alignItems="center">
             <Typography variant="h3" fontWeight="bold" align="center" style={{ color: '#000' }}>
-              The sweetest vaults on Avalanche!
+              The sweetest yield optimization protocol built to be deflationary!
             </Typography>
           </Box>
         </Grid>
