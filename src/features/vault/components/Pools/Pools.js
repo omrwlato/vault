@@ -132,16 +132,16 @@ export default function Pools() {
         xs={12}
       >
         <Button style={{ border: '1px solid pink' }} name="ALL" onClick={onClickPool}>
-          All
+          <strong>All</strong>
         </Button>
         <Button style={{ border: '1px solid pink' }} name="SUNDAE" onClick={onClickPool}>
-          SUNDAE
+          <strong>SUNDAE</strong>
         </Button>
         <Button style={{ border: '1px solid pink' }} name="ICECREAM" onClick={onClickPool}>
-          ICECREAM
+          <strong>ICECREAM</strong>
         </Button>
         <Button style={{ border: '1px solid pink' }} name="ARGOS" onClick={onClickPool}>
-          ARGOS
+          <strong>ARGOS</strong>
         </Button>
       </Grid>
       {console.log(newPoolsSelected, 'newpools')}
