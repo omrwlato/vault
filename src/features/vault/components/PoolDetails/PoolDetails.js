@@ -133,6 +133,7 @@ const PoolDetails = ({ vaultId }) => {
     );
   }
 
+  /// UI
   return (
     <>
       <Helmet>
@@ -152,14 +153,25 @@ const PoolDetails = ({ vaultId }) => {
       </Helmet>
       <HomeLink />
       {vaultId === 'cake-cakev2' ? <CakeV2Banner /> : ''}
-      <div style={{ backgroundColor: '#dda69c' }}>
+      <div
+        style={{
+          backgroundColor: 'rgb(255, 255, 255)', //${(props) => props.theme.color.grey[800]};
+          backdropFilter: 'blur(10px) !important',
+          boxShadow: '10px 22px 33px 0px rgba(0, 0, 0, 0.9) !important',
+          overflow: 'hidden !important',
+          borderRadius: '15px',
+          color: '#000 !important',
+          display: 'flex',
+          flex: '1',
+          flexDirection: 'column',
+        }}
+      >
         <Grid
           container
           alignItems="center"
           style={{ display: 'flex', justifyContent: 'center', paddingTop: '20px' }}
         >
           {vaultStateTitle}
-          <PoolBoosts poolName={pool.name} earnedTokenAddress={pool.earnedTokenAddress} />
           <Grid item xs={12}>
             <PoolTitle
               name={pool.name}

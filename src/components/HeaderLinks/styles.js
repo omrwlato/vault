@@ -207,7 +207,7 @@ const styles = theme => ({
     },
   },
   Button: {
-    borderRadius: '.5em',
+    borderRadius: '15em',
   },
   cta: {
     color: theme.palette.text.primary,
