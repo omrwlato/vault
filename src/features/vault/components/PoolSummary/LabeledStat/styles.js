@@ -6,11 +6,12 @@ const styles = theme => ({
     justifyContent: 'center',
   },
   stat: {
-    fontSize: '18px',
-    fontWeight: '500',
+    fontSize: '16px',
+    fontWeight: 'bold',
     color: theme.palette.text.primary,
     letterSpacing: 0,
     position: 'relative',
+    marginBottom: '10px',
   },
   substat: {
     fontSize: '16px',
@@ -26,11 +27,10 @@ const styles = theme => ({
     marginTop: '20px',
   },
   label: {
-    fontSize: '18.72px',
+    fontSize: '18px',
     fontWeight: 'bold',
     color: theme.palette.text.secondary,
     letterSpacing: 0,
-    margin: '15px 0 ',
   },
   boosted: {
     color: '#2a9e46',

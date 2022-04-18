@@ -19,10 +19,10 @@ const LabeledStat = forwardRef(
             xs={12}
             style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}
           >
-            <Typography className={classes.label} variant="body2">
+            <Typography className={classes.label} variant="h4">
               {label}
             </Typography>
-            <Typography className={classes.stat} variant="body2" gutterBottom>
+            <Typography className={classes.stat} variant="h4" gutterBottom>
               {/* {subvalue && !isLoading ? <span className={classes.substat}>{subvalue}</span> : ''} */}
               {boosted ? (
                 isLoading ? (
@@ -42,7 +42,7 @@ const LabeledStat = forwardRef(
           </Grid>
         ) : (
           <>
-            <Typography className={classes.stat} variant="body2" gutterBottom>
+            <Typography className={classes.stat} variant="h4" gutterBottom>
               {/* {subvalue && !isLoading ? <span className={classes.substat}>{subvalue}</span> : ''} */}
               {boosted ? (
                 isLoading ? (
@@ -59,7 +59,7 @@ const LabeledStat = forwardRef(
                 <span className={boosted ? classes.crossed : ''}>{value}</span>
               )}
             </Typography>
-            <Typography className={classes.label} variant="body2">
+            <Typography className={classes.label} variant="h4">
               {label}
             </Typography>
           </>
