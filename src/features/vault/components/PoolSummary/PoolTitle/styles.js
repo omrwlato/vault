@@ -1,6 +1,9 @@
 const styles = theme => ({
   texts: {
     marginLeft: '20px',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'flex-end',
   },
   title: {
     fontSize: '20px',
