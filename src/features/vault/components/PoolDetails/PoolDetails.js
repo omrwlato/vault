@@ -196,6 +196,7 @@ const PoolDetails = ({ vaultId }) => {
                 multipleLaunchpools={multipleLaunchpools}
                 spacing={'center'}
               />
+
             </Grid>
             <Grid container justifyContent="center" xs={2}>
               <LabeledStat
