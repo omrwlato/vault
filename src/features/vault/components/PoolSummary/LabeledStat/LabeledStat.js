@@ -17,7 +17,7 @@ const LabeledStat = forwardRef(
           <Grid
             item
             xs={12}
-            style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop:'10px' }}
+            style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}
           >
             <Typography className={classes.label} variant="h4">
               {label}

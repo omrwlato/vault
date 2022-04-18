@@ -15,7 +15,7 @@
   "Vault-Balance": "Balance",
   "Vault-APR": "APR",
   "Vault-APY": "APY",
-  "Vault-APYDaily": "Daily",
+  "Vault-APYDaily": "Daily ROI",
   "Vault-TVL": "TVL",
   "Vault-AutocompoundingNote": "All vaults autocompound every 2 hours",
   "Vault-Approving": "Approving...",
