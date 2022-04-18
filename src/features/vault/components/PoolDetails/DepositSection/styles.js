@@ -45,6 +45,7 @@ const styles = theme => ({
     fontWeight: 'bold',
     borderRadius: '5px',
     width: '160px',
+    background: 'linear-gradient(45deg, #fcb037, #e638c7, #31bcfd)',
   },
   showDetailButtonOutlined: {
     backgroundColor: 'transparent',
