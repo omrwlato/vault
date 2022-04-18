@@ -93,8 +93,8 @@ const PoolDetails = ({ vaultId }) => {
       pool.status === 'eol'
         ? t(getRetireReason(pool.retireReason))
         : pool.depositsPaused
-          ? t('Vault-DepositsPausedTitle')
-          : null;
+        ? t('Vault-DepositsPausedTitle')
+        : null;
 
     if (launchpool) {
       state = t('Stake-BoostedBy', { name: launchpool.name });
@@ -177,7 +177,7 @@ const PoolDetails = ({ vaultId }) => {
         <Grid
           container
           alignItems="center"
-          style={{ display: 'flex', justifyContent: 'center', paddingTop: '20px', }}
+          style={{ display: 'flex', justifyContent: 'center', paddingTop: '20px' }}
         >
           {vaultStateTitle}
 
@@ -196,7 +196,6 @@ const PoolDetails = ({ vaultId }) => {
                 multipleLaunchpools={multipleLaunchpools}
                 spacing={'center'}
               />
-
             </Grid>
             <Grid container justifyContent="center" xs={2}>
               <LabeledStat
@@ -235,8 +234,8 @@ const PoolDetails = ({ vaultId }) => {
           </section>
         )}
         <Divider variant="middle" />
-        <Grid item style={{ justifyContent: "space-around", display: 'flex', margin: '10px' }}>
-          <Grid >
+        <Grid item style={{ justifyContent: 'space-around', display: 'flex', margin: '10px' }}>
+          <Grid>
             <Button
               style={{ textDecoration: 'none', color: '#2596be', padding: '0px' }}
               onClick={() => setDepositMenu(true)}
@@ -251,9 +250,10 @@ const PoolDetails = ({ vaultId }) => {
                   height: 1,
                 }}
               />
-            ) : <></>}
+            ) : (
+              <></>
+            )}
           </Grid>
-
           <Grid>
             <Button
               style={{ textDecoration: 'none', color: '#2596be', padding: '0px' }}
@@ -270,10 +270,17 @@ const PoolDetails = ({ vaultId }) => {
                   height: 1,
                 }}
               />
-            ) : <></>}
+            ) : (
+              <></>
+            )}
           </Grid>
         </Grid>
-        <PoolActions depositMenu={depositMenu} pool={pool} balanceSingle={balanceSingle} sharesBalance={sharesBalance} />
+        <PoolActions
+          depositMenu={depositMenu}
+          pool={pool}
+          balanceSingle={balanceSingle}
+          sharesBalance={sharesBalance}
+        />
       </div>
     </>
   );
