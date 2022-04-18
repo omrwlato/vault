@@ -19,9 +19,6 @@ const PoolTitle = ({
   poolId,
   description,
   launchpool,
-  buyTokenUrl,
-  addLiquidityUrl,
-  removeLiquidityUrl,
   assets,
   multipleLaunchpools = false,
 }) => {
@@ -61,7 +58,7 @@ const PoolTitle = ({
   }
 
   return (
-    <Grid container style={{ display: 'flex', justifyContent: 'center' }}>
+    <Grid container style={{ display: 'flex', justifyContent: 'space-between' }}>
       {avatar}
       <div className={classes.texts}>
         <Typography className={classes.title} variant="body2" gutterBottom>
@@ -76,7 +73,7 @@ const PoolTitle = ({
         <Typography className={classes.subtitle} variant="body2">
           {description}
         </Typography>
-        <div style={{ display: 'flex', marginTop: '6px' }}>
+        {/* <div style={{ display: 'flex', marginTop: '6px' }}>
           {buyTokenUrl ? (
             <a className={classes.url} href={buyTokenUrl} target="_blank" rel="noopener noreferrer">
               <span>{name === 'WBNB' ? t('Wrap-BNB') : t('Buy-Token')}</span>
@@ -109,7 +106,7 @@ const PoolTitle = ({
           ) : (
             ''
           )}
-        </div>
+        </div> */}
         {launchpool ? (
           <Link
             to={multipleLaunchpools ? `/${chain}/stake` : `/${chain}/stake/pool/${launchpool.id}`}

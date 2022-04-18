@@ -1,4 +1,11 @@
 const styles = theme => ({
+  button: {
+    padding: '4px 8px',
+    backgroundColor: '#c59289',
+    textTransform: 'none',
+    margin: '10px 10px 0 0',
+    background: 'linear-gradient(45deg, #fcb037, #e638c7, #31bcfd)',
+  },
   parentgrid: {
     padding: '10px',
     backgroundColor: 'rgb(255, 255, 255)', //${(props) => props.theme.color.grey[800]};

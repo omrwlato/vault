@@ -1,7 +1,9 @@
 import React, { useCallback, useMemo } from 'react';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
-import Divider from '@material-ui/core/Divider';
+import { Link } from 'react-router-dom';
+import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
+import { useParams } from 'react-router';
 import { useTranslation } from 'react-i18next';
 import BigNumber from 'bignumber.js';
 import { makeStyles } from '@material-ui/core/styles';
@@ -30,6 +32,7 @@ const PoolSummary = ({
   fetchVaultsDataDone,
   multipleLaunchpools = false,
 }) => {
+  const { chain } = useParams();
   const { t } = useTranslation();
   const classes = useStyles();
 
@@ -138,6 +141,38 @@ const PoolSummary = ({
           isLoading={!fetchBalancesDone}
           fromHomePage
         />
+        <Grid item xs={12} style={{ display: 'flex', justifyContent: 'space-evenly' }}>
+          <Button className={classes.button}>
+            <a
+              style={{
+                color: 'white',
+              }}
+              href={pool.buyTokenUrl}
+            >
+              <strong>BUY</strong>
+            </a>
+          </Button>
+          <Button className={classes.button}>
+            <a
+              style={{
+                color: 'white',
+              }}
+              href={pool.addLiquidityUrl}
+            >
+              <strong>LIQUIDITY</strong>
+            </a>
+          </Button>
+          <Button className={classes.button}>
+            <Link
+              style={{
+                color: 'white',
+              }}
+              to={`/${chain}/vault/${pool.id}`}
+            >
+              <strong>VIEW</strong>
+            </Link>
+          </Button>
+        </Grid>
       </Grid>
     </>
     // </AccordionSummary>

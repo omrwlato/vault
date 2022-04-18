@@ -64,7 +64,7 @@
   "Vault-DepositsRetiredTVLTitle": "RETIRED - TVL is too low.",
   "Vault-DepositsRetiredMsg": "Vault retired, withdraw your funds ASAP",
   "Vault-Staked": "Staked",
-  "Vault-Description": "Uses: {{vault}}",
+  "Vault-Description": "{{vault}}",
   "Vault-Network": "Select Network",
   "Vault-Experimental": "Experimental",
   "Vault-Loading": "Loading Vault...",

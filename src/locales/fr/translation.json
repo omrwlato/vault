@@ -48,7 +48,7 @@
   "Vault-DepositsRetiredTitle": "Coffre désuet",
   "Vault-DepositsRetiredMsg": "Coffre désuet, retirez vos fonds dès que possible",
   "Vault-Staked": "Staked",
-  "Vault-Description": "Uses: {{vault}}",
+  "Vault-Description": "{{vault}}",
   "Vault-Network": "Sélecteur de Réseaux",
   "Vault-Experimental": "Expérimental",
   "Vault-Loading": "Chargement du coffre",
