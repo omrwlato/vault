@@ -3,7 +3,7 @@ const styles = theme => ({
     padding: '4px 8px',
     backgroundColor: '#c59289',
     textTransform: 'none',
-    margin: '10px 10px 0 0',
+    margin: '10px',
     background: 'linear-gradient(45deg, #fcb037, #e638c7, #31bcfd)',
   },
   parentgrid: {
