@@ -307,8 +307,8 @@ const DepositSection = ({ pool }) => {
   const vaultState = getVaultState(pool.status, pool.depositsPaused);
   const swapTokenOut = depositSettings.isZap
     ? eligibleTokens.find(
-        t => t.address.toLowerCase() == pool.zapEstimate?.swapTokenOut?.toLowerCase()
-      )
+      t => t.address.toLowerCase() == pool.zapEstimate?.swapTokenOut?.toLowerCase()
+    )
     : undefined;
 
   const vaultFee = t('Vault-DepositAndWithdrawFee', {
@@ -319,7 +319,7 @@ const DepositSection = ({ pool }) => {
     <Grid
       item
       xs={12}
-      md={shouldHideFromHarvest(pool.id) ? 6 : 5}
+      md={shouldHideFromHarvest(pool.id) ? 12 : 10}
       className={classes.sliderDetailContainer}
     >
       <div className={classes.showDetailLeft}>

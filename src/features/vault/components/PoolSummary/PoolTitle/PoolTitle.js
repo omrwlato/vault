@@ -21,6 +21,7 @@ const PoolTitle = ({
   launchpool,
   assets,
   multipleLaunchpools = false,
+  spacing
 }) => {
   const { chain } = useParams();
 
@@ -58,7 +59,7 @@ const PoolTitle = ({
   }
 
   return (
-    <Grid container style={{ display: 'flex', justifyContent: 'space-between' }}>
+    <Grid container style={{ display: 'flex', justifyContent: spacing }}>
       {avatar}
       <div className={classes.texts}>
         <Typography className={classes.title} variant="body2" gutterBottom>

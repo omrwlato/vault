@@ -1,6 +1,7 @@
-import React, { useEffect, useMemo } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { useSelector } from 'react-redux';
 import Divider from '@material-ui/core/Divider';
+import { Button } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import { useTranslation } from 'react-i18next';
@@ -11,6 +12,8 @@ import { byDecimals } from 'features/helpers/bignumber';
 import { formatTvl } from 'features/helpers/format';
 import HomeLink from './HomeLink/HomeLink';
 import PoolActions from '../PoolActions/PoolActions';
+import Typography from '@material-ui/core/Typography';
+import { Link } from 'react-router-dom';
 import PoolTitle from '../PoolSummary/PoolTitle/PoolTitle';
 import LabeledStat from '../PoolSummary/LabeledStat/LabeledStat';
 import styles from './styles';
@@ -20,6 +23,8 @@ import ApyStats from '../PoolSummary/ApyStats/ApyStats';
 import PoolPaused from '../PoolSummary/PoolPaused/PoolPaused';
 import { CakeV2Banner } from './Banners/CakeV2Banner/CakeV2Banner';
 import { launchpools } from '../../../helpers/getNetworkData';
+import Avatar from '@material-ui/core/Avatar';
+import { useParams } from 'react-router';
 import {
   useLaunchpoolSubscriptions,
   useLaunchpoolUpdates,
@@ -51,6 +56,7 @@ const PoolDetails = ({ vaultId }) => {
   const launchpool = launchpoolId ? launchpools[launchpoolId] : null;
   const launchpoolApr = usePoolApr(launchpoolId);
   const multipleLaunchpools = activeLaunchpools.length > 1;
+  const [depositMenu, setDepositMenu] = useState(true);
 
   useEffect(() => {
     const unsubscribes = activeLaunchpools.map(launchpoolId =>
@@ -87,8 +93,8 @@ const PoolDetails = ({ vaultId }) => {
       pool.status === 'eol'
         ? t(getRetireReason(pool.retireReason))
         : pool.depositsPaused
-        ? t('Vault-DepositsPausedTitle')
-        : null;
+          ? t('Vault-DepositsPausedTitle')
+          : null;
 
     if (launchpool) {
       state = t('Stake-BoostedBy', { name: launchpool.name });
@@ -121,6 +127,8 @@ const PoolDetails = ({ vaultId }) => {
   );
   const depositedUsd =
     deposited > 0 && fetchVaultsDataDone ? formatTvl(deposited, pool.oraclePrice, false) : '';
+
+  const { chain } = useParams();
 
   if (!pool) {
     return (
@@ -169,7 +177,7 @@ const PoolDetails = ({ vaultId }) => {
         <Grid
           container
           alignItems="center"
-          style={{ display: 'flex', justifyContent: 'center', paddingTop: '20px' }}
+          style={{ display: 'flex', justifyContent: 'center', paddingTop: '20px', }}
         >
           {vaultStateTitle}
           <Grid item xs={12}>
@@ -184,38 +192,34 @@ const PoolDetails = ({ vaultId }) => {
               buyTokenUrl={pool.buyTokenUrl}
               assets={pool.assets}
               multipleLaunchpools={multipleLaunchpools}
+              spacing={'center'}
             />
           </Grid>
-          <Grid container xs={2} justifyContent="center">
-            <LabeledStat
-              value={formatDecimals(balanceSingle)}
-              subvalue={balanceUsd}
-              label={t('Vault-Wallet')}
-              isLoading={!fetchBalancesDone}
-            />
-          </Grid>
-          <Grid container justifyContent="center" xs={2}>
-            <LabeledStat
-              value={formatDecimals(deposited)}
-              subvalue={depositedUsd}
-              label={t('Vault-Deposited')}
-              isLoading={!fetchBalancesDone}
-            />
-          </Grid>
-          <Grid item xs={4}>
-            <ApyStats
-              apy={apy}
-              launchpoolApr={launchpoolApr}
-              isLoading={!fetchApysDone}
-              fromDetails
-            />
-          </Grid>
-          <Grid item xs={4} style={{ display: 'flex', justifyContent: 'center' }}>
-            <LabeledStat
-              value={formatTvl(pool.tvl, pool.oraclePrice)}
-              label={t('Vault-TVL')}
-              isLoading={!fetchVaultsDataDone}
-            />
+          <Grid container style={{ marginTop: '20px' }}>
+
+            <Grid container justifyContent="center" xs={4}>
+              <LabeledStat
+                value={formatDecimals(deposited)}
+                subvalue={depositedUsd}
+                label={t('Vault-Deposited')}
+                isLoading={!fetchBalancesDone}
+              />
+            </Grid>
+            <Grid item xs={4}>
+              <ApyStats
+                apy={apy}
+                launchpoolApr={launchpoolApr}
+                isLoading={!fetchApysDone}
+                fromDetails
+              />
+            </Grid>
+            <Grid item xs={4} style={{ display: 'flex', justifyContent: 'center' }}>
+              <LabeledStat
+                value={formatTvl(pool.tvl, pool.oraclePrice)}
+                label={t('Vault-TVL')}
+                isLoading={!fetchVaultsDataDone}
+              />
+            </Grid>
           </Grid>
         </Grid>
         <Divider variant="middle" />
@@ -230,7 +234,45 @@ const PoolDetails = ({ vaultId }) => {
           </section>
         )}
         <Divider variant="middle" />
-        <PoolActions pool={pool} balanceSingle={balanceSingle} sharesBalance={sharesBalance} />
+        <Grid item style={{ justifyContent: "space-around", display: 'flex', margin: '10px' }}>
+          <Grid >
+            <Button
+              style={{ textDecoration: 'none', color: '#2596be', padding: '0px' }}
+              onClick={() => setDepositMenu(true)}
+            >
+              <h3 style={{ color: 'black' }}>Deposit</h3>
+            </Button>
+            {depositMenu ? (
+              <hr
+                style={{
+                  color: '#D3D3D3',
+                  backgroundColor: '#D3D3D3',
+                  height: 1,
+                }}
+              />
+            ) : <></>}
+          </Grid>
+
+          <Grid>
+            <Button
+              style={{ textDecoration: 'none', color: '#2596be', padding: '0px' }}
+              onClick={() => setDepositMenu(false)}
+            >
+              <h3 style={{ color: 'black' }}>Withdraw</h3>
+            </Button>
+
+            {!depositMenu ? (
+              <hr
+                style={{
+                  color: '#D3D3D3',
+                  backgroundColor: '#D3D3D3',
+                  height: 1,
+                }}
+              />
+            ) : <></>}
+          </Grid>
+        </Grid>
+        <PoolActions depositMenu={depositMenu} pool={pool} balanceSingle={balanceSingle} sharesBalance={sharesBalance} />
       </div>
     </>
   );
