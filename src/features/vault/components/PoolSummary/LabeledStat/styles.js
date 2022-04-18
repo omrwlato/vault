@@ -7,9 +7,8 @@ const styles = theme => ({
   },
   stat: {
     fontSize: '18px',
-    fontWeight: 'bold',
+    fontWeight: '500',
     color: theme.palette.text.primary,
-    lineHeight: '18px',
     letterSpacing: 0,
     position: 'relative',
   },
@@ -27,11 +26,11 @@ const styles = theme => ({
     marginTop: '20px',
   },
   label: {
-    fontSize: '14px',
-    fontWeight: '400',
+    fontSize: '18.72px',
+    fontWeight: 'bold',
     color: theme.palette.text.secondary,
-    lineHeight: '14px',
     letterSpacing: 0,
+    margin: '15px 0 ',
   },
   boosted: {
     color: '#2a9e46',

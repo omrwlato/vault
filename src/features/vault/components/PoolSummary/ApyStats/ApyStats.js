@@ -132,6 +132,7 @@ const ApyStats = ({
   showVault,
   poolId,
   fromDetails,
+  fromHomePage,
 }) => {
   const { chain } = useParams();
   const { t } = useTranslation();
@@ -185,44 +186,63 @@ const ApyStats = ({
       xs={12}
       style={{ display: 'flex', justifyContent: fromDetails ? 'space-evenly' : 'space-between' }}
     >
-      <Grid item className={itemClasses}>
-        <LabeledStatWithTooltip
-          value={formatted.totalApy}
-          label={t('Vault-APY')}
-          tooltip={
-            !isLoading && needsApyTooltip ? <YearlyBreakdownTooltip rates={formatted} /> : null
-          }
-          boosted={isBoosted ? formatted.boostedTotalApy : ''}
-          isLoading={isLoading}
-          className={`tooltip-toggle ${itemInnerClasses}`}
-        />
-      </Grid>
-      {showVault ? (
-        <Button className={classes.button}>
-          <Link
-            style={{
-              color: 'white',
-            }}
-            to={`/${chain}/vault/${poolId}`}
-          >
-            <strong>+VAULT</strong>
-          </Link>
-        </Button>
+      {fromHomePage ? (
+        <>
+          <Grid xs={12} item className={itemClasses} style={{ margin: '15px 0' }}>
+            <LabeledStatWithTooltip
+              value={formatted.totalApy}
+              label={t('Vault-APY')}
+              tooltip={
+                !isLoading && needsApyTooltip ? <YearlyBreakdownTooltip rates={formatted} /> : null
+              }
+              boosted={isBoosted ? formatted.boostedTotalApy : ''}
+              isLoading={isLoading}
+              className={`tooltip-toggle ${itemInnerClasses}`}
+              fromHomePage
+            />
+          </Grid>
+          <Grid xs={12} item className={itemClasses}>
+            <LabeledStatWithTooltip
+              value={formatted.totalDaily}
+              label={t('Vault-APYDaily')}
+              tooltip={
+                !isLoading && needsDailyTooltip ? <DailyBreakdownTooltip rates={formatted} /> : null
+              }
+              boosted={isBoosted ? formatted.boostedTotalDaily : ''}
+              isLoading={isLoading}
+              className={`tooltip-toggle ${itemInnerClasses}`}
+              fromHomePage
+            />
+          </Grid>
+        </>
       ) : (
-        <span></span>
+        <>
+          <Grid item className={itemClasses}>
+            <LabeledStatWithTooltip
+              value={formatted.totalApy}
+              label={t('Vault-APY')}
+              tooltip={
+                !isLoading && needsApyTooltip ? <YearlyBreakdownTooltip rates={formatted} /> : null
+              }
+              boosted={isBoosted ? formatted.boostedTotalApy : ''}
+              isLoading={isLoading}
+              className={`tooltip-toggle ${itemInnerClasses}`}
+            />
+          </Grid>
+          <Grid item className={itemClasses}>
+            <LabeledStatWithTooltip
+              value={formatted.totalDaily}
+              label={t('Vault-APYDaily')}
+              tooltip={
+                !isLoading && needsDailyTooltip ? <DailyBreakdownTooltip rates={formatted} /> : null
+              }
+              boosted={isBoosted ? formatted.boostedTotalDaily : ''}
+              isLoading={isLoading}
+              className={`tooltip-toggle ${itemInnerClasses}`}
+            />
+          </Grid>
+        </>
       )}
-      <Grid item className={itemClasses}>
-        <LabeledStatWithTooltip
-          value={formatted.totalDaily}
-          label={t('Vault-APYDaily')}
-          tooltip={
-            !isLoading && needsDailyTooltip ? <DailyBreakdownTooltip rates={formatted} /> : null
-          }
-          boosted={isBoosted ? formatted.boostedTotalDaily : ''}
-          isLoading={isLoading}
-          className={`tooltip-toggle ${itemInnerClasses}`}
-        />
-      </Grid>
     </Grid>
   );
 };
