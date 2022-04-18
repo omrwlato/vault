@@ -1,10 +1,7 @@
 import React, { memo } from 'react';
 import Grid from '@material-ui/core/Grid';
-import { useParams } from 'react-router';
-import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import styles from './styles';
-import { Link } from 'react-router-dom';
 import { formatApy } from '../../../../helpers/format';
 import { isNaN } from '../../../../helpers/bignumber';
 import LabeledStat from '../LabeledStat/LabeledStat';
@@ -134,7 +131,6 @@ const ApyStats = ({
   fromDetails,
   fromHomePage,
 }) => {
-  const { chain } = useParams();
   const { t } = useTranslation();
   const isBoosted = !!launchpoolApr;
   const values = {};
