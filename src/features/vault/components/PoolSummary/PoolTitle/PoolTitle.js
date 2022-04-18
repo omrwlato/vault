@@ -76,7 +76,7 @@ const PoolTitle = ({
         <Typography className={classes.subtitle} variant="body2">
           {description}
         </Typography>
-        <div style={{ display: 'flex', marginTop: '6px' }}>
+        {/* <div style={{ display: 'flex', marginTop: '6px' }}>
           {buyTokenUrl ? (
             <a className={classes.url} href={buyTokenUrl} target="_blank" rel="noopener noreferrer">
               <span>{name === 'WBNB' ? t('Wrap-BNB') : t('Buy-Token')}</span>
@@ -109,7 +109,7 @@ const PoolTitle = ({
           ) : (
             ''
           )}
-        </div>
+        </div> */}
         {launchpool ? (
           <Link
             to={multipleLaunchpools ? `/${chain}/stake` : `/${chain}/stake/pool/${launchpool.id}`}
