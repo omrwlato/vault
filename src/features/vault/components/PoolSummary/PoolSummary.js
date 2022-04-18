@@ -1,5 +1,6 @@
 import React, { useCallback, useMemo } from 'react';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
+import Divider from '@material-ui/core/Divider';
 import Grid from '@material-ui/core/Grid';
 import { useTranslation } from 'react-i18next';
 import BigNumber from 'bignumber.js';
@@ -89,54 +90,56 @@ const PoolSummary = ({
     //   style={{ justifyContent: 'space-between' }}
     //   onClick={onSummaryClick}
     // >
-    <Grid container xs={12} className={classes.parentgrid}>
-      {vaultStateTitle}
-      <PoolBoosts poolName={pool.name} earnedTokenAddress={pool.earnedTokenAddress} />
-      <Grid item xs={12} style={{ margin: '15px 0' }}>
-        <PoolTitle
-          name={pool.name}
-          logo={pool.logo}
+    <>
+      <Grid container xs={12} className={classes.parentgrid}>
+        {vaultStateTitle}
+        <PoolBoosts poolName={pool.name} earnedTokenAddress={pool.earnedTokenAddress} />
+        <Grid item xs={12} style={{ margin: '15px 0' }}>
+          <PoolTitle
+            name={pool.name}
+            logo={pool.logo}
+            poolId={pool.id}
+            description={t('Vault-Description', { vault: pool.tokenDescription })}
+            launchpool={launchpool}
+            addLiquidityUrl={pool.addLiquidityUrl}
+            removeLiquidityUrl={pool.removeLiquidityUrl}
+            buyTokenUrl={pool.buyTokenUrl}
+            assets={pool.assets}
+            multipleLaunchpools={multipleLaunchpools}
+          />
+        </Grid>
+        <ApyStats
+          apy={apy}
+          launchpoolApr={launchpoolApr}
+          isLoading={!fetchApysDone}
           poolId={pool.id}
-          description={t('Vault-Description', { vault: pool.tokenDescription })}
-          launchpool={launchpool}
-          addLiquidityUrl={pool.addLiquidityUrl}
-          removeLiquidityUrl={pool.removeLiquidityUrl}
-          buyTokenUrl={pool.buyTokenUrl}
-          assets={pool.assets}
-          multipleLaunchpools={multipleLaunchpools}
+          showVault
+          fromHomePage
         />
-      </Grid>
-      <Grid container xs={12} style={{ margin: '15px 0' }}>
         <LabeledStat
           value={formatTvl(pool.tvl, pool.oraclePrice)}
           label={t('Vault-TVL')}
           isLoading={!fetchVaultsDataDone}
+          fromHomePage
         />
-      </Grid>
-      <Grid item xs={12} style={{ margin: '15px 0' }}>
-        <LabeledStat
-          value={formatDecimals(balanceSingle)}
-          subvalue={balanceUsd}
-          label={t('Vault-Wallet')}
-          isLoading={!fetchBalancesDone}
-        />
-      </Grid>
-      <Grid item xs={12} style={{ margin: '15px 0' }}>
+        <Grid item xs={12} style={{ margin: '15px 0' }}>
+          <LabeledStat
+            value={formatDecimals(balanceSingle)}
+            subvalue={balanceUsd}
+            label={t('Vault-Wallet')}
+            isLoading={!fetchBalancesDone}
+            fromHomePage
+          />
+        </Grid>
         <LabeledStat
           value={formatDecimals(deposited)}
           subvalue={depositedUsd}
           label={t('Vault-Deposited')}
           isLoading={!fetchBalancesDone}
+          fromHomePage
         />
       </Grid>
-      <ApyStats
-        apy={apy}
-        launchpoolApr={launchpoolApr}
-        isLoading={!fetchApysDone}
-        poolId={pool.id}
-        showVault
-      />
-    </Grid>
+    </>
     // </AccordionSummary>
   );
 };

@@ -1,5 +1,6 @@
 const styles = theme => ({
   parentgrid: {
+    padding: '10px',
     backgroundColor: 'rgb(255, 255, 255)', //${(props) => props.theme.color.grey[800]};
     backdropFilter: 'blur(10px) !important',
     boxShadow: '10px 22px 33px 0px rgba(0, 0, 0, 0.9) !important',
