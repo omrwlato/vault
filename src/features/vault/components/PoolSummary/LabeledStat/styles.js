@@ -11,7 +11,6 @@ const styles = theme => ({
     color: theme.palette.text.primary,
     letterSpacing: 0,
     position: 'relative',
-    marginBottom: '10px',
   },
   substat: {
     fontSize: '16px',
