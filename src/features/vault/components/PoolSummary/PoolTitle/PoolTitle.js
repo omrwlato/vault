@@ -19,9 +19,6 @@ const PoolTitle = ({
   poolId,
   description,
   launchpool,
-  buyTokenUrl,
-  addLiquidityUrl,
-  removeLiquidityUrl,
   assets,
   multipleLaunchpools = false,
 }) => {
@@ -61,7 +58,7 @@ const PoolTitle = ({
   }
 
   return (
-    <Grid container style={{ display: 'flex', justifyContent: 'center' }}>
+    <Grid container style={{ display: 'flex', justifyContent: 'space-between' }}>
       {avatar}
       <div className={classes.texts}>
         <Typography className={classes.title} variant="body2" gutterBottom>

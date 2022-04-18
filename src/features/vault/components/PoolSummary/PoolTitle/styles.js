@@ -3,12 +3,11 @@ const styles = theme => ({
     marginLeft: '20px',
   },
   title: {
-    fontSize: '18px',
+    fontSize: '20px',
     fontWeight: 'bold',
     color: theme.palette.text.primary,
     lineHeight: '18px',
     letterSpacing: 0,
-    minWidth: '150px',
   },
   subtitle: {
     fontSize: '14px',
@@ -29,10 +28,9 @@ const styles = theme => ({
   },
   icon: {
     color: theme.palette.text.primary,
-    marginLeft: '4px',
     'flex-shrink': 0,
-    width: '45px',
-    height: '45px',
+    width: '75px',
+    height: '75px',
     '& .MuiAvatarGroup-avatar': {
       border: 'none',
       width: '65%',
