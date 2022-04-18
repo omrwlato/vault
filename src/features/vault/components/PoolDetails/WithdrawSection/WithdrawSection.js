@@ -317,7 +317,7 @@ const WithdrawSection = ({ pool, index, sharesBalance }) => {
     <Grid
       item
       xs={12}
-      md={shouldHideFromHarvest(pool.name) ? 6 : 5}
+      md={shouldHideFromHarvest(pool.name) ? 12 : 10}
       className={classes.sliderDetailContainer}
     >
       <div className={classes.showDetailLeft}>
