@@ -94,7 +94,7 @@ const PoolSummary = ({
     //   onClick={onSummaryClick}
     // >
     <>
-      <Grid container xs={12} className={classes.parentgrid}>
+      <Grid container spacing={3} xs={12} className={classes.parentgrid}>
         {vaultStateTitle}
         <PoolBoosts poolName={pool.name} earnedTokenAddress={pool.earnedTokenAddress} />
         <Grid item xs={12} style={{ margin: '15px 0' }}>
@@ -133,22 +133,7 @@ const PoolSummary = ({
           label={t('Vault-TVL')}
           isLoading={!fetchVaultsDataDone}
           fromHomePage
-        />
-        <Grid item xs={12} style={{ margin: '15px 0' }}>
-          <LabeledStat
-            value={formatDecimals(balanceSingle)}
-            subvalue={balanceUsd}
-            label={t('Vault-Wallet')}
-            isLoading={!fetchBalancesDone}
-            fromHomePage
-          />
-        </Grid>
-        <LabeledStat
-          value={formatDecimals(deposited)}
-          subvalue={depositedUsd}
-          label={t('Vault-Deposited')}
-          isLoading={!fetchBalancesDone}
-          fromHomePage
+          style={{ marginTop: '20px', marginBottom: '10px' }}
         />
         <Grid item xs={12} style={{ display: 'flex', justifyContent: 'space-evenly' }}>
           <Button className={classes.button}>
