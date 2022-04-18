@@ -42,8 +42,8 @@ const PoolSummary = ({
       pool.status === 'eol'
         ? t(getRetireReason(pool.retireReason))
         : pool.depositsPaused
-        ? t('Vault-DepositsPausedTitle')
-        : null;
+          ? t('Vault-DepositsPausedTitle')
+          : null;
 
     if (launchpool) {
       state = t('Stake-BoostedBy', { name: launchpool.name });
@@ -94,7 +94,7 @@ const PoolSummary = ({
     //   onClick={onSummaryClick}
     // >
     <>
-      <Grid container xs={12} className={classes.parentgrid}>
+      <Grid container spacing={3} xs={12} className={classes.parentgrid}>
         {vaultStateTitle}
         <PoolBoosts poolName={pool.name} earnedTokenAddress={pool.earnedTokenAddress} />
         <Grid item xs={12} style={{ margin: '10px 0' }}>
@@ -110,7 +110,16 @@ const PoolSummary = ({
             assets={pool.assets}
             multipleLaunchpools={multipleLaunchpools}
           />
+          <hr
+            style={{
+              color: '#D3D3D3',
+              backgroundColor: '#D3D3D3',
+              height: 1,
+              marginTop: '10px'
+            }}
+          />
         </Grid>
+
         <ApyStats
           apy={apy}
           launchpoolApr={launchpoolApr}
@@ -124,24 +133,9 @@ const PoolSummary = ({
           label={t('Vault-TVL')}
           isLoading={!fetchVaultsDataDone}
           fromHomePage
+          style={{ marginTop: '20px', marginBottom: '10px' }}
         />
-{/*         <Grid item xs={12} style={{ margin: '10px 0' }}>
-          <LabeledStat
-            value={formatDecimals(balanceSingle)}
-            subvalue={balanceUsd}
-            label={t('Vault-Wallet')}
-            isLoading={!fetchBalancesDone}
-            fromHomePage
-          />
-        </Grid> */}
-{/*         <LabeledStat
-          value={formatDecimals(deposited)}
-          subvalue={depositedUsd}
-          label={t('Vault-Deposited')}
-          isLoading={!fetchBalancesDone}
-          fromHomePage
-        /> */}
-        <Grid item xs={12} style={{ display: 'flex', justifyContent: 'space-evenly', marginTop:'10px'}}>
+        <Grid item xs={12} style={{ display: 'flex', justifyContent: 'space-evenly' }}>
           <Button className={classes.button}>
             <a
               style={{
