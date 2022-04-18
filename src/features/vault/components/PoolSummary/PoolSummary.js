@@ -143,24 +143,24 @@ const PoolSummary = ({
         />
         <Grid item xs={12} style={{ display: 'flex', justifyContent: 'space-evenly' }}>
           <Button className={classes.button}>
-            <Link
+            <a
               style={{
                 color: 'white',
               }}
-              to={`/${chain}/vault/${pool.id}`}
+              href={pool.buyTokenUrl}
             >
               <strong>BUY</strong>
-            </Link>
+            </a>
           </Button>
           <Button className={classes.button}>
-            <Link
+            <a
               style={{
                 color: 'white',
               }}
-              to={`/${chain}/vault/${pool.id}`}
+              href={pool.addLiquidityUrl}
             >
               <strong>LIQUIDITY</strong>
-            </Link>
+            </a>
           </Button>
           <Button className={classes.button}>
             <Link
