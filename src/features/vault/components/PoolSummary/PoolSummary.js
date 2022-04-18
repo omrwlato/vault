@@ -94,7 +94,7 @@ const PoolSummary = ({
     //   onClick={onSummaryClick}
     // >
     <>
-      <Grid container spacing={3} xs={12} className={classes.parentgrid}>
+      <Grid container xs={12} className={classes.parentgrid}>
         {vaultStateTitle}
         <PoolBoosts poolName={pool.name} earnedTokenAddress={pool.earnedTokenAddress} />
         <Grid item xs={12} style={{ margin: '15px 0' }}>

@@ -180,24 +180,24 @@ const PoolDetails = ({ vaultId }) => {
           style={{ display: 'flex', justifyContent: 'center', paddingTop: '20px', }}
         >
           {vaultStateTitle}
-          <Grid item xs={12}>
-            <PoolTitle
-              name={pool.name}
-              logo={pool.logo}
-              poolId={pool.id}
-              description={t('Vault-Description', { vault: pool.tokenDescription })}
-              launchpool={launchpool}
-              addLiquidityUrl={pool.addLiquidityUrl}
-              removeLiquidityUrl={pool.removeLiquidityUrl}
-              buyTokenUrl={pool.buyTokenUrl}
-              assets={pool.assets}
-              multipleLaunchpools={multipleLaunchpools}
-              spacing={'center'}
-            />
-          </Grid>
-          <Grid container style={{ marginTop: '20px' }}>
 
-            <Grid container justifyContent="center" xs={4}>
+          <Grid container style={{ marginTop: '20px' }}>
+            <Grid item xs={3}>
+              <PoolTitle
+                name={pool.name}
+                logo={pool.logo}
+                poolId={pool.id}
+                description={t('Vault-Description', { vault: pool.tokenDescription })}
+                launchpool={launchpool}
+                addLiquidityUrl={pool.addLiquidityUrl}
+                removeLiquidityUrl={pool.removeLiquidityUrl}
+                buyTokenUrl={pool.buyTokenUrl}
+                assets={pool.assets}
+                multipleLaunchpools={multipleLaunchpools}
+                spacing={'center'}
+              />
+            </Grid>
+            <Grid container justifyContent="center" xs={2}>
               <LabeledStat
                 value={formatDecimals(deposited)}
                 subvalue={depositedUsd}
@@ -213,7 +213,7 @@ const PoolDetails = ({ vaultId }) => {
                 fromDetails
               />
             </Grid>
-            <Grid item xs={4} style={{ display: 'flex', justifyContent: 'center' }}>
+            <Grid item xs={3} style={{ display: 'flex', justifyContent: 'center' }}>
               <LabeledStat
                 value={formatTvl(pool.tvl, pool.oraclePrice)}
                 label={t('Vault-TVL')}
