@@ -42,8 +42,8 @@ const PoolSummary = ({
       pool.status === 'eol'
         ? t(getRetireReason(pool.retireReason))
         : pool.depositsPaused
-        ? t('Vault-DepositsPausedTitle')
-        : null;
+          ? t('Vault-DepositsPausedTitle')
+          : null;
 
     if (launchpool) {
       state = t('Stake-BoostedBy', { name: launchpool.name });
@@ -110,7 +110,16 @@ const PoolSummary = ({
             assets={pool.assets}
             multipleLaunchpools={multipleLaunchpools}
           />
+          <hr
+            style={{
+              color: '#D3D3D3',
+              backgroundColor: '#D3D3D3',
+              height: 1,
+              marginTop: '10px'
+            }}
+          />
         </Grid>
+
         <ApyStats
           apy={apy}
           launchpoolApr={launchpoolApr}

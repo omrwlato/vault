@@ -68,7 +68,7 @@ const PoolTitle = ({
               {name}
             </Link>
           ) : (
-            name
+            { name }
           )}
         </Typography>
         <Typography className={classes.subtitle} variant="body2">
