@@ -97,7 +97,7 @@ const PoolSummary = ({
       <Grid container xs={12} className={classes.parentgrid}>
         {vaultStateTitle}
         <PoolBoosts poolName={pool.name} earnedTokenAddress={pool.earnedTokenAddress} />
-        <Grid item xs={12} style={{ margin: '15px 0' }}>
+        <Grid item xs={12} style={{ margin: '10px 0' }}>
           <PoolTitle
             name={pool.name}
             logo={pool.logo}
@@ -125,7 +125,7 @@ const PoolSummary = ({
           isLoading={!fetchVaultsDataDone}
           fromHomePage
         />
-        <Grid item xs={12} style={{ margin: '15px 0' }}>
+{/*         <Grid item xs={12} style={{ margin: '10px 0' }}>
           <LabeledStat
             value={formatDecimals(balanceSingle)}
             subvalue={balanceUsd}
@@ -133,15 +133,15 @@ const PoolSummary = ({
             isLoading={!fetchBalancesDone}
             fromHomePage
           />
-        </Grid>
-        <LabeledStat
+        </Grid> */}
+{/*         <LabeledStat
           value={formatDecimals(deposited)}
           subvalue={depositedUsd}
           label={t('Vault-Deposited')}
           isLoading={!fetchBalancesDone}
           fromHomePage
-        />
-        <Grid item xs={12} style={{ display: 'flex', justifyContent: 'space-evenly' }}>
+        /> */}
+        <Grid item xs={12} style={{ display: 'flex', justifyContent: 'space-evenly', marginTop:'10px'}}>
           <Button className={classes.button}>
             <a
               style={{
@@ -159,7 +159,7 @@ const PoolSummary = ({
               }}
               href={pool.addLiquidityUrl}
             >
-              <strong>LIQUIDITY</strong>
+              <strong>CREATE LP</strong>
             </a>
           </Button>
           <Button className={classes.button}>

@@ -8,6 +8,7 @@ const styles = theme => ({
     color: theme.palette.text.primary,
     lineHeight: '18px',
     letterSpacing: 0,
+
   },
   subtitle: {
     fontSize: '14px',
