@@ -12,6 +12,8 @@ import { byDecimals } from 'features/helpers/bignumber';
 import { formatTvl } from 'features/helpers/format';
 import HomeLink from './HomeLink/HomeLink';
 import PoolActions from '../PoolActions/PoolActions';
+import Typography from '@material-ui/core/Typography';
+import { Link } from 'react-router-dom';
 import PoolTitle from '../PoolSummary/PoolTitle/PoolTitle';
 import LabeledStat from '../PoolSummary/LabeledStat/LabeledStat';
 import styles from './styles';
@@ -21,6 +23,8 @@ import ApyStats from '../PoolSummary/ApyStats/ApyStats';
 import PoolPaused from '../PoolSummary/PoolPaused/PoolPaused';
 import { CakeV2Banner } from './Banners/CakeV2Banner/CakeV2Banner';
 import { launchpools } from '../../../helpers/getNetworkData';
+import Avatar from '@material-ui/core/Avatar';
+import { useParams } from 'react-router';
 import {
   useLaunchpoolSubscriptions,
   useLaunchpoolUpdates,
@@ -124,6 +128,8 @@ const PoolDetails = ({ vaultId }) => {
   const depositedUsd =
     deposited > 0 && fetchVaultsDataDone ? formatTvl(deposited, pool.oraclePrice, false) : '';
 
+  const { chain } = useParams();
+
   if (!pool) {
     return (
       <>
@@ -186,6 +192,7 @@ const PoolDetails = ({ vaultId }) => {
               buyTokenUrl={pool.buyTokenUrl}
               assets={pool.assets}
               multipleLaunchpools={multipleLaunchpools}
+              spacing={'center'}
             />
           </Grid>
           <Grid container style={{ marginTop: '20px' }}>
