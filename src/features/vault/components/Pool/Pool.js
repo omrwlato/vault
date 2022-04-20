@@ -54,7 +54,7 @@ const Pool = ({
   }, [subscribe, activeLaunchpools]);
 
   return (
-    <Grid xs={12} md={4} item key={index}>
+    <Grid xs={12} md={6} lg={4} item key={index}>
       <PoolSummary
         pool={pool}
         launchpool={launchpool}
