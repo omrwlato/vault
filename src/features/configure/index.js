@@ -1,4 +1,4 @@
-import { addressBook } from 'froyo-addressbook';
+import { addressBook } from 'froyop-addressbook';
 
 const {
   polygon: polygonAddressBook,
