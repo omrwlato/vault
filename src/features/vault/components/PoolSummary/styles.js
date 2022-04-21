@@ -6,6 +6,12 @@ const styles = theme => ({
     margin: '10px',
     background: 'linear-gradient(45deg, #fcb037, #e638c7, #31bcfd)',
   },
+  buttonLink: {
+    color: 'white',
+  },
+  buttonText: {
+    fontWeight: '600',
+  },
   parentgrid: {
     padding: '30px',
     backgroundColor: 'rgb(255, 255, 255)', //${(props) => props.theme.color.grey[800]};
