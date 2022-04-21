@@ -1,4 +1,4 @@
-import { addressBook } from 'froyop-addressbook';
+import { addressBook } from 'blockchain-addressbook';
 
 const {
   polygon: polygonAddressBook,
