@@ -394,7 +394,7 @@ export const getNetworkConnectors = t => {
               description: t('Home-BrowserWallet'),
             },
           },
-          /*           walletconnect: {
+            walletconnect: {
             package: WalletConnectProvider,
             options: {
               rpc: {
@@ -402,7 +402,7 @@ export const getNetworkConnectors = t => {
                 56: 'https://bsc1.bomb.money/',
               },
             },
-          }, */
+          }, 
           'custom-binance': {
             display: {
               name: 'Binance',

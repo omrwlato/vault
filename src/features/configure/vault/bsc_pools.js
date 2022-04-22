@@ -1,5 +1,5 @@
 export const bscPools = [
-  {
+/*   {
     id: 'bomb-bomb-btcb',
     name: 'BOMB-BTCB LP',
     token: 'BOMB-BTCB LP',
@@ -108,5 +108,5 @@ export const bscPools = [
     buyTokenUrl:
       'https://pancakeswap.finance/swap?outputCurrency=0x522348779DCb2911539e76A1042aA922F9C47Ee3',
     family: 'BOMB',
-  },
+  }, */
 ];

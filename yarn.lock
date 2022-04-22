@@ -6700,6 +6700,11 @@ from2@^2.1.0:
     inherits "^2.0.1"
     readable-stream "^2.0.0"
 
+froyobook-addressbook@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/froyobook-addressbook/-/froyobook-addressbook-0.3.0.tgz#7e6022d9e9f9b572e72a3bbb525de7f117034758"
+  integrity sha512-Wfe1mNBbYrTCFZszBgpQ3+I0Y2Icqaza8Mhwhqoi+JQDhZ05cooh0isGHfEAiGb9GIm918S1r0CaR0CivrClIw==
+
 froyop-addressbook@^1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/froyop-addressbook/-/froyop-addressbook-1.0.4.tgz#dc5ba6179d1174591c8c9ee2054b52554262154b"
