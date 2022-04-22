@@ -24,6 +24,7 @@ import PoolPaused from '../PoolSummary/PoolPaused/PoolPaused';
 import { CakeV2Banner } from './Banners/CakeV2Banner/CakeV2Banner';
 import { launchpools } from '../../../helpers/getNetworkData';
 import Avatar from '@material-ui/core/Avatar';
+import AvatarGroup from '@material-ui/lab/AvatarGroup';
 import { useParams } from 'react-router';
 import {
   useLaunchpoolSubscriptions,
@@ -32,6 +33,7 @@ import {
 } from '../../../stake/redux/hooks';
 import { PoolBoosts } from '../PoolSummary/PoolBoosts/PoolBoosts';
 import { getRetireReason } from '../PoolSummary/RetireReason/RetireReason';
+import { getSingleAssetSrc } from '../../../helpers/getSingleAssetSrc';
 
 const FETCH_INTERVAL_MS = 30 * 1000;
 
@@ -93,8 +95,8 @@ const PoolDetails = ({ vaultId }) => {
       pool.status === 'eol'
         ? t(getRetireReason(pool.retireReason))
         : pool.depositsPaused
-        ? t('Vault-DepositsPausedTitle')
-        : null;
+          ? t('Vault-DepositsPausedTitle')
+          : null;
 
     if (launchpool) {
       state = t('Stake-BoostedBy', { name: launchpool.name });
@@ -132,18 +134,18 @@ const PoolDetails = ({ vaultId }) => {
 
   if (!pool) {
     return (
-      <>
+      <div>
         <HomeLink />
         <div className={classes.container}>
           <div className={classes.error}>Vault {vaultId} not found</div>
         </div>
-      </>
+      </div>
     );
   }
 
   /// UI
   return (
-    <>
+    <Grid container style={{ display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
       <Helmet>
         <title>
           {getPageMeta('Vault-Meta-Title', {
@@ -159,9 +161,12 @@ const PoolDetails = ({ vaultId }) => {
           })}
         />
       </Helmet>
-      <HomeLink />
+      <Grid item container style={{ display: 'flex', justifyContent: 'flex-start' }}>
+        <HomeLink />
+      </Grid>
+
       {vaultId === 'cake-cakev2' ? <CakeV2Banner /> : ''}
-      <div
+      <Grid item container
         style={{
           backgroundColor: 'rgb(255, 255, 255)', //${(props) => props.theme.color.grey[800]};
           backdropFilter: 'blur(10px) !important',
@@ -172,53 +177,119 @@ const PoolDetails = ({ vaultId }) => {
           display: 'flex',
           flex: '1',
           flexDirection: 'column',
+          width: '80%',
+          padding: '20px'
         }}
       >
         <Grid
           container
+          spacing={5}
           alignItems="center"
-          style={{ display: 'flex', justifyContent: 'center', paddingTop: '20px' }}
+          style={{ display: 'flex', justifyContent: 'flex-start', padding: '20px' }}
         >
           {vaultStateTitle}
+          <Grid container item style={{ justifyContent: 'space-around', display: 'flex', margin: '10px' }}>
+            <Grid fullWidth >
+              <Button
+                style={{ textDecoration: 'none', color: '#2596be', padding: '0px' }}
+                onClick={() => setDepositMenu(true)}
+              >
+                <h3 style={{ color: 'black' }}>Deposit</h3>
+              </Button>
+              {depositMenu ? (
+                <hr
+                  style={{
+                    color: '#D3D3D3',
+                    backgroundColor: '#D3D3D3',
+                    height: 1,
+                  }}
+                />
+              ) : (
+                <></>
+              )}
+            </Grid>
+            <Grid>
+              <Button
+                style={{ textDecoration: 'none', color: '#2596be', padding: '0px' }}
+                onClick={() => setDepositMenu(false)}
+              >
+                <h3 style={{ color: 'black' }}>Withdraw</h3>
+              </Button>
 
-          <Grid container style={{ marginTop: '20px' }}>
-            <Grid item xs={3}>
-              <PoolTitle
-                name={pool.name}
-                logo={pool.logo}
-                poolId={pool.id}
-                description={t('Vault-Description', { vault: pool.tokenDescription })}
-                launchpool={launchpool}
-                addLiquidityUrl={pool.addLiquidityUrl}
-                removeLiquidityUrl={pool.removeLiquidityUrl}
-                buyTokenUrl={pool.buyTokenUrl}
-                assets={pool.assets}
-                multipleLaunchpools={multipleLaunchpools}
-                spacing={'center'}
-              />
+              {!depositMenu ? (
+                <hr
+                  style={{
+                    color: '#D3D3D3',
+                    backgroundColor: '#D3D3D3',
+                    height: 1,
+                  }}
+                />
+              ) : (
+                <></>
+              )}
             </Grid>
-            <Grid container justifyContent="center" xs={2}>
-              <LabeledStat
-                value={formatDecimals(deposited)}
-                subvalue={depositedUsd}
-                label={t('Vault-Deposited')}
-                isLoading={!fetchBalancesDone}
-              />
+          </Grid>
+          <Grid container xs={12} md={4} style={{ display: 'flex', marginTop: '20px', justifyContent: 'flex-start' }}>
+            <PoolTitle
+              name={pool.name}
+              logo={pool.logo}
+              poolId={pool.id}
+              description={t('Vault-Description', { vault: pool.tokenDescription })}
+              launchpool={launchpool}
+              addLiquidityUrl={pool.addLiquidityUrl}
+              removeLiquidityUrl={pool.removeLiquidityUrl}
+              buyTokenUrl={pool.buyTokenUrl}
+              assets={pool.assets}
+              multipleLaunchpools={multipleLaunchpools}
+              spacing={'center'}
+              imgProps={{ style: { objectFit: 'contain' } }}
+            />
+          </Grid>
+          <hr
+            style={{
+              color: '#D3D3D3',
+              backgroundColor: '#D3D3D3',
+              margin: '20px',
+              height: 1,
+              width: '100%',
+            }}
+          />
+          <Grid container item style={{ marginTop: '20px', flexDirection: 'column' }}>
+            <Grid container item style={{ justifyContent: "space-between" }} xs={12}>
+              <Grid item>
+                <Typography variant="h6">
+                  Staked
+                </Typography>
+              </Grid>
+              <Grid item>
+                <Typography variant="h6">
+                  {formatDecimals(deposited)} (~{depositedUsd})
+                </Typography>
+              </Grid>
             </Grid>
-            <Grid item xs={4}>
-              <ApyStats
-                apy={apy}
-                launchpoolApr={launchpoolApr}
-                isLoading={!fetchApysDone}
-                fromDetails
-              />
+            <Grid container item style={{ justifyContent: "space-between" }} xs={12}>
+              <Grid item>
+                <Typography variant="h6">
+                  APY
+                </Typography>
+              </Grid>
+              <Grid item>
+                <Typography variant="h6">
+                  {apy.totalApy}
+                </Typography>
+              </Grid>
             </Grid>
-            <Grid item xs={3} style={{ display: 'flex', justifyContent: 'center' }}>
-              <LabeledStat
-                value={formatTvl(pool.tvl, pool.oraclePrice)}
-                label={t('Vault-TVL')}
-                isLoading={!fetchVaultsDataDone}
-              />
+            <Grid container item style={{ justifyContent: "space-between" }} xs={12}>
+              <Grid item>
+                <Typography variant="h6">
+                  TVL
+                </Typography>
+              </Grid>
+              <Grid item>
+                <Typography variant="h6">
+                  {formatTvl(pool.tvl, pool.oraclePrice)}
+                </Typography>
+              </Grid>
             </Grid>
           </Grid>
         </Grid>
@@ -234,55 +305,14 @@ const PoolDetails = ({ vaultId }) => {
           </section>
         )}
         <Divider variant="middle" />
-        <Grid item style={{ justifyContent: 'space-around', display: 'flex', margin: '10px' }}>
-          <Grid>
-            <Button
-              style={{ textDecoration: 'none', color: '#2596be', padding: '0px' }}
-              onClick={() => setDepositMenu(true)}
-            >
-              <h3 style={{ color: 'black' }}>Deposit</h3>
-            </Button>
-            {depositMenu ? (
-              <hr
-                style={{
-                  color: '#D3D3D3',
-                  backgroundColor: '#D3D3D3',
-                  height: 1,
-                }}
-              />
-            ) : (
-              <></>
-            )}
-          </Grid>
-          <Grid>
-            <Button
-              style={{ textDecoration: 'none', color: '#2596be', padding: '0px' }}
-              onClick={() => setDepositMenu(false)}
-            >
-              <h3 style={{ color: 'black' }}>Withdraw</h3>
-            </Button>
-
-            {!depositMenu ? (
-              <hr
-                style={{
-                  color: '#D3D3D3',
-                  backgroundColor: '#D3D3D3',
-                  height: 1,
-                }}
-              />
-            ) : (
-              <></>
-            )}
-          </Grid>
-        </Grid>
         <PoolActions
           depositMenu={depositMenu}
           pool={pool}
           balanceSingle={balanceSingle}
           sharesBalance={sharesBalance}
         />
-      </div>
-    </>
+      </Grid>
+    </Grid >
   );
 };
 
