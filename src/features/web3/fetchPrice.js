@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 import { getNetworkPools, launchpools } from '../helpers/getNetworkData';
-import { getApiCacheBuster } from './getApiCacheBuster';
+import { apiUrl, getApiCacheBuster } from '../helpers/getApiInfo';
 
 const pools = getNetworkPools();
 
@@ -10,10 +10,6 @@ const priceCache = {
   cache: new Map(),
   lastUpdated: undefined,
 };
-
-function isCached(id) {
-  return priceCache.cache.has(id);
-}
 
 function getCachedPrice(id) {
   return priceCache.cache.get(id);
@@ -34,7 +30,7 @@ const fetchTokens = async () => {
   const cacheBuster = getApiCacheBuster();
 
   try {
-    const response = await axios.get(`https://api.bomb.farm/prices?_=${cacheBuster}`);
+    const response = await axios.get(`${apiUrl}/prices?_=${cacheBuster}`);
     return response.data;
   } catch (err) {
     console.error(err);
@@ -46,7 +42,7 @@ const fetchLPs = async () => {
   const cacheBuster = getApiCacheBuster();
 
   try {
-    const response = await axios.get(`https://api.bomb.farm/lps?_=${cacheBuster}`);
+    const response = await axios.get(`${apiUrl}/lps?_=${cacheBuster}`);
     return response.data;
   } catch (err) {
     console.error(err);

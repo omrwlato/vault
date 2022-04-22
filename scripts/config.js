@@ -1,4 +1,4 @@
-// import { bscPools } from '../src/features/configure/vault/bsc_pools.js';
+import { bscPools } from '../src/features/configure/vault/bsc_pools.js';
 // import { hecoPools } from '../src/features/configure/vault/heco_pools.js';
 import { avalanchePools } from '../src/features/configure/vault/avalanche_pools.js';
 // import { polygonPools } from '../src/features/configure/vault/polygon_pools.js';
@@ -10,7 +10,7 @@ import { avalanchePools } from '../src/features/configure/vault/avalanche_pools.
 // import { cronosPools } from '../src/features/configure/vault/cronos_pools.js';
 
 export const chainPools = {
-  //  bsc: bscPools,
+  bsc: bscPools,
   // heco: hecoPools,
   avax: avalanchePools,
   // polygon: polygonPools,
@@ -23,7 +23,7 @@ export const chainPools = {
 };
 
 export const chainRpcs = {
-  /* bsc: process.env.BSC_RPC || 'https://bsc1.bomb.money/', */
+  bsc: process.env.BSC_RPC || 'https://bsc1.bomb.money/', 
   // heco: process.env.HECO_RPC || 'https://http-mainnet.hecochain.com',
   avax: process.env.AVAX_RPC || 'https://api.avax.network/ext/bc/C/rpc',
   // polygon: process.env.POLYGON_RPC || 'https://polygon-rpc.com',
