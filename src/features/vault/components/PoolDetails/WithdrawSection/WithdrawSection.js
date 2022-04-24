@@ -339,13 +339,18 @@ const WithdrawSection = ({ pool, index, sharesBalance }) => {
             pool.zap && (
               <FormControl className={classes.zapFormControl}>
                 <Select
-                  variant="standard"
+                  variant="outlined"
                   className={classes.zapSelect}
                   value={withdrawSettings.outputIndex}
                   onChange={handleOutputChange}
+                  MenuProps={{
+                    MenuListProps: {
+                      disablePadding: true,
+                    }
+                  }}
                 >
                   {withdrawOutputs.map((output, i) => (
-                    <MenuItem key={i} value={i}>
+                    <MenuItem key={i} divider value={i} className={classes.zapListItem}>
                       {output.symbol}
                     </MenuItem>
                   ))}

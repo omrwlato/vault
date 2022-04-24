@@ -41,7 +41,7 @@ const PoolTitle = ({
     );
   } else {
     avatar = (
-      <AvatarGroup className={`${classes.icon} MuiAvatar-root MuiAvatar-square`} spacing="small">
+      <AvatarGroup className={`${classes.icon} MuiAvatar-root MuiAvatar-square`} spacing="small" style={{ display: 'flex' }}>
         <Avatar
           alt={assets[0]}
           variant="square"
@@ -59,10 +59,13 @@ const PoolTitle = ({
   }
 
   return (
-    <Grid container style={{ display: 'flex', justifyContent: spacing ?? 'space-between' }}>
-      {avatar}
-      <div className={classes.texts}>
-        <Typography className={classes.title} variant="body2" gutterBottom>
+    <Grid container style={{ alignItems: 'center' }}>
+      <Grid item xs={6} style={{ position: 'relative', left: 0, top: 0 }} >
+        {avatar}
+      </Grid>
+
+      <Grid item xs={6} style={{ position: 'relative', right: 0, top: 0 }}>
+        <Typography className={classes.title} variant="body2" gutterBottom style={{ textAlign: 'right' }}>
           {poolId ? (
             <Link to={`/${chain}/vault/${poolId}`} className={classes.url}>
               {name}
@@ -71,7 +74,7 @@ const PoolTitle = ({
             { name }
           )}
         </Typography>
-        <Typography className={classes.subtitle} variant="body2">
+        <Typography className={classes.subtitle} variant="body2" style={{ textAlign: 'right' }}>
           {description}
         </Typography>
         {/* <div style={{ display: 'flex', marginTop: '6px' }}>
@@ -121,7 +124,7 @@ const PoolTitle = ({
         ) : (
           ''
         )}
-      </div>
+      </Grid>
     </Grid>
   );
 };

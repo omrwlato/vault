@@ -10,7 +10,7 @@ import { useTranslation } from 'react-i18next';
 
 const useStyles = makeStyles(styles);
 
-const yearlyToDaily = apy => {
+export const yearlyToDaily = apy => {
   const g = Math.pow(10, Math.log10(apy + 1) / 365) - 1;
 
   if (isNaN(g)) {
@@ -101,7 +101,7 @@ const LabeledStatWithTooltip = memo(({ tooltip, label, ...passthrough }) => {
       arrow
       TransitionComponent={Fade}
       title={tooltip}
-      placement="bottom"
+      placement="left-start"
       enterTouchDelay={0}
       leaveTouchDelay={3000}
       classes={{ tooltip: classes.tooltip }}

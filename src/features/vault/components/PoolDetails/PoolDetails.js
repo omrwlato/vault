@@ -19,7 +19,7 @@ import LabeledStat from '../PoolSummary/LabeledStat/LabeledStat';
 import styles from './styles';
 import { Helmet } from 'react-helmet';
 import { usePageMeta } from '../../../common/getPageMeta';
-import ApyStats from '../PoolSummary/ApyStats/ApyStats';
+import { yearlyToDaily } from '../PoolSummary/ApyStats/ApyStats';
 import PoolPaused from '../PoolSummary/PoolPaused/PoolPaused';
 import { CakeV2Banner } from './Banners/CakeV2Banner/CakeV2Banner';
 import { launchpools } from '../../../helpers/getNetworkData';
@@ -34,6 +34,7 @@ import {
 import { PoolBoosts } from '../PoolSummary/PoolBoosts/PoolBoosts';
 import { getRetireReason } from '../PoolSummary/RetireReason/RetireReason';
 import { getSingleAssetSrc } from '../../../helpers/getSingleAssetSrc';
+import { formatApy } from '../../../../features/helpers/format'
 
 const FETCH_INTERVAL_MS = 30 * 1000;
 
@@ -183,7 +184,7 @@ const PoolDetails = ({ vaultId }) => {
       >
         <Grid
           container
-          spacing={5}
+          spacing={3}
           alignItems="center"
           style={{ display: 'flex', justifyContent: 'flex-start', padding: '20px' }}
         >
@@ -229,7 +230,7 @@ const PoolDetails = ({ vaultId }) => {
               )}
             </Grid>
           </Grid>
-          <Grid container xs={12} md={4} style={{ display: 'flex', marginTop: '20px', justifyContent: 'flex-start' }}>
+          <Grid item xs={12}>
             <PoolTitle
               name={pool.name}
               logo={pool.logo}
@@ -241,7 +242,6 @@ const PoolDetails = ({ vaultId }) => {
               buyTokenUrl={pool.buyTokenUrl}
               assets={pool.assets}
               multipleLaunchpools={multipleLaunchpools}
-              spacing={'center'}
               imgProps={{ style: { objectFit: 'contain' } }}
             />
           </Grid>
@@ -263,7 +263,7 @@ const PoolDetails = ({ vaultId }) => {
               </Grid>
               <Grid item>
                 <Typography variant="h6">
-                  {formatDecimals(deposited)} (~{depositedUsd})
+                  {formatDecimals(deposited)} {deposited.eq(0) ? null : depositedUsd}
                 </Typography>
               </Grid>
             </Grid>
@@ -275,7 +275,19 @@ const PoolDetails = ({ vaultId }) => {
               </Grid>
               <Grid item>
                 <Typography variant="h6">
-                  {apy.totalApy}
+                  {formatApy(apy.totalApy)}
+                </Typography>
+              </Grid>
+            </Grid>
+            <Grid container item style={{ justifyContent: "space-between" }} xs={12}>
+              <Grid item>
+                <Typography variant="h6">
+                  Daily ROI
+                </Typography>
+              </Grid>
+              <Grid item>
+                <Typography variant="h6">
+                  {formatApy(yearlyToDaily(apy.totalApy))}
                 </Typography>
               </Grid>
             </Grid>

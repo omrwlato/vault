@@ -340,13 +340,18 @@ const DepositSection = ({ pool }) => {
             pool.zap && (
               <FormControl className={classes.zapFormControl}>
                 <Select
-                  variant="standard"
+                  variant="outlined"
                   className={classes.zapSelect}
                   value={depositSettings.tokenIndex}
                   onChange={handleTokenChange}
+                  MenuProps={{
+                    MenuListProps: {
+                      disablePadding: true,
+                    }
+                  }}
                 >
                   {eligibleTokens.map((token, i) => (
-                    <MenuItem key={i} value={i}>
+                    <MenuItem key={i} divider value={i} className={classes.zapListItem}>
                       {token.symbol}
                     </MenuItem>
                   ))}
@@ -362,100 +367,102 @@ const DepositSection = ({ pool }) => {
         onChange={handleSliderChange}
         onChangeCommitted={handleSliderChangeCommitted}
       />
-      {vaultState.display === true ? (
-        vaultState.content
-      ) : (
-        <div>
-          {depositSettings.isNeedApproval ? (
-            <div className={classes.showDetailButtonCon}>
-              <Button
-                className={`${classes.showDetailButton} ${classes.showDetailButtonContained}`}
-                onClick={handleApproval}
-                disabled={pool.depositsPaused || fetchApprovalPending[depositSettings.token.symbol]}
-              >
-                {fetchApprovalPending[depositSettings.token.symbol]
-                  ? `${t('Vault-Approving')}`
-                  : `${t('Vault-ApproveButton')}`}
-              </Button>
-            </div>
-          ) : (
-            <div className={classes.showDetailButtonCon}>
-              <Button
-                className={`${classes.showDetailButton} ${classes.showDetailButtonOutlined}`}
-                color="primary"
-                disabled={
-                  pool.depositsPaused ||
-                  fetchZapEstimatePending[pool.earnContractAddress] ||
-                  fetchDepositPending[pool.earnContractAddress] ||
-                  depositSettings.amount.isZero() ||
-                  tokenBalance(depositSettings.token.symbol).isZero()
-                }
-                onClick={handleDepositAmount}
-              >
-                {t('Vault-DepositButton')}
-              </Button>
-              {Boolean(pool.tokenAddress) && Boolean(!depositSettings.isZap) && (
+      {
+        vaultState.display === true ? (
+          vaultState.content
+        ) : (
+          <div>
+            {depositSettings.isNeedApproval ? (
+              <div className={classes.showDetailButtonCon}>
                 <Button
                   className={`${classes.showDetailButton} ${classes.showDetailButtonContained}`}
+                  onClick={handleApproval}
+                  disabled={pool.depositsPaused || fetchApprovalPending[depositSettings.token.symbol]}
+                >
+                  {fetchApprovalPending[depositSettings.token.symbol]
+                    ? `${t('Vault-Approving')}`
+                    : `${t('Vault-ApproveButton')}`}
+                </Button>
+              </div>
+            ) : (
+              <div className={classes.showDetailButtonCon}>
+                <Button
+                  className={`${classes.showDetailButton} ${classes.showDetailButtonOutlined}`}
+                  color="primary"
                   disabled={
                     pool.depositsPaused ||
+                    fetchZapEstimatePending[pool.earnContractAddress] ||
                     fetchDepositPending[pool.earnContractAddress] ||
+                    depositSettings.amount.isZero() ||
                     tokenBalance(depositSettings.token.symbol).isZero()
                   }
-                  onClick={handleDepositAll}
+                  onClick={handleDepositAmount}
                 >
-                  {t('Vault-DepositButtonAll')}
+                  {t('Vault-DepositButton')}
                 </Button>
-              )}
-            </div>
-          )}
-          {depositSettings.isZap && !depositSettings.amount.isZero() && pool.zapEstimate && (
-            <div className={classes.zapNote}>
-              <span>{t('Vault-DepositScenario')}&nbsp;</span>
-              {fetchZapEstimatePending[pool.earnContractAddress] && <CircularProgress size={12} />}
-              <ol>
-                <li>
-                  {t('Vault-DepositScenarioSwap', {
-                    swapIn: `${convertAmountFromRawNumber(
-                      pool.zapEstimate.swapAmountIn,
-                      depositSettings.token.decimals
-                    )
-                      .decimalPlaces(8, BigNumber.ROUND_DOWN)
-                      .toFormat()} ${depositSettings.token.symbol}`,
-                    swapOut: `${convertAmountFromRawNumber(
-                      pool.zapEstimate.swapAmountOut,
-                      swapTokenOut.decimals
-                    )
-                      .decimalPlaces(8, BigNumber.ROUND_DOWN)
-                      .toFormat()} ${swapTokenOut.symbol}`,
-                    slippageTolerance: `1%`,
-                  })}
-                </li>
-                <li>
-                  {t('Vault-DepositScenarioAddLiquidity', {
-                    tokenA: pool.assets[0],
-                    tokenB: pool.assets[1],
-                    poolToken: pool.token,
-                  })}
-                </li>
-                <li>{t('Vault-DepositScenarioDepositToVault', { poolToken: pool.token })}</li>
-                <li>
-                  {t('Vault-DepositScenarioReturnDust', {
-                    tokenA: pool.assets[0],
-                    tokenB: pool.assets[1],
-                  })}
-                </li>
-              </ol>
-            </div>
-          )}
-        </div>
-      )}
+                {Boolean(pool.tokenAddress) && Boolean(!depositSettings.isZap) && (
+                  <Button
+                    className={`${classes.showDetailButton} ${classes.showDetailButtonContained}`}
+                    disabled={
+                      pool.depositsPaused ||
+                      fetchDepositPending[pool.earnContractAddress] ||
+                      tokenBalance(depositSettings.token.symbol).isZero()
+                    }
+                    onClick={handleDepositAll}
+                  >
+                    {t('Vault-DepositButtonAll')}
+                  </Button>
+                )}
+              </div>
+            )}
+            {depositSettings.isZap && !depositSettings.amount.isZero() && pool.zapEstimate && (
+              <div className={classes.zapNote}>
+                <span>{t('Vault-DepositScenario')}&nbsp;</span>
+                {fetchZapEstimatePending[pool.earnContractAddress] && <CircularProgress size={12} />}
+                <ol>
+                  <li>
+                    {t('Vault-DepositScenarioSwap', {
+                      swapIn: `${convertAmountFromRawNumber(
+                        pool.zapEstimate.swapAmountIn,
+                        depositSettings.token.decimals
+                      )
+                        .decimalPlaces(8, BigNumber.ROUND_DOWN)
+                        .toFormat()} ${depositSettings.token.symbol}`,
+                      swapOut: `${convertAmountFromRawNumber(
+                        pool.zapEstimate.swapAmountOut,
+                        swapTokenOut.decimals
+                      )
+                        .decimalPlaces(8, BigNumber.ROUND_DOWN)
+                        .toFormat()} ${swapTokenOut.symbol}`,
+                      slippageTolerance: `1%`,
+                    })}
+                  </li>
+                  <li>
+                    {t('Vault-DepositScenarioAddLiquidity', {
+                      tokenA: pool.assets[0],
+                      tokenB: pool.assets[1],
+                      poolToken: pool.token,
+                    })}
+                  </li>
+                  <li>{t('Vault-DepositScenarioDepositToVault', { poolToken: pool.token })}</li>
+                  <li>
+                    {t('Vault-DepositScenarioReturnDust', {
+                      tokenA: pool.assets[0],
+                      tokenB: pool.assets[1],
+                    })}
+                  </li>
+                </ol>
+              </div>
+            )}
+          </div>
+        )
+      }
 
       {vaultFee ? <h3 className={classes.subtitle}>{vaultFee}</h3> : ''}
       <p className={classes.note}>
         {t('Vault-DepositTokensNote', { mooToken: pool.earnedToken, assetToken: pool.token })}
       </p>
-    </Grid>
+    </Grid >
   );
 };
 

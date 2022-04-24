@@ -1,16 +1,26 @@
 const styles = theme => ({
   button: {
     padding: '4px 8px',
-    backgroundColor: '#c59289',
+    backgroundColor: '#e638c7',
     textTransform: 'none',
     margin: '10px',
-    background: 'linear-gradient(45deg, #fcb037, #e638c7, #31bcfd)',
+    '&:hover': {
+      color: '#e638c7 !important',
+      border: '1px solid #e638c7',
+      backgroundColor: 'white'
+    },
   },
   buttonLink: {
     color: 'white',
+    '&:hover': {
+      color: '#e638c7 !important',
+    },
   },
   buttonText: {
     fontWeight: '600',
+    '&:hover': {
+      color: '#e638c7 !important',
+    },
   },
   parentgrid: {
     padding: '30px',

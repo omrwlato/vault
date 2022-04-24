@@ -42,8 +42,8 @@ const PoolSummary = ({
       pool.status === 'eol'
         ? t(getRetireReason(pool.retireReason))
         : pool.depositsPaused
-        ? t('Vault-DepositsPausedTitle')
-        : null;
+          ? t('Vault-DepositsPausedTitle')
+          : null;
 
     if (launchpool) {
       state = t('Stake-BoostedBy', { name: launchpool.name });
@@ -97,7 +97,7 @@ const PoolSummary = ({
       <Grid container xs={12} className={classes.parentgrid}>
         {vaultStateTitle}
         <PoolBoosts poolName={pool.name} earnedTokenAddress={pool.earnedTokenAddress} />
-        <Grid item xs={12} style={{ margin: '10px 0' }}>
+        <Grid item xs={12} style={{ marginBotton: '10px' }}>
           <PoolTitle
             name={pool.name}
             logo={pool.logo}

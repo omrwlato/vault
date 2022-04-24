@@ -156,7 +156,6 @@ export default function Pools() {
           <strong>GRAPE</strong>
         </Button>
       </Grid>
-      {console.log(newPoolsSelected, 'newpools')}
       {poolSelected === 'ALL' ? (
         <VisiblePools
           pools={pools}

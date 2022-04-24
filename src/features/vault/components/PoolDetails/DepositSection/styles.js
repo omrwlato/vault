@@ -100,8 +100,8 @@ const styles = theme => ({
     minWidth: 'auto',
   },
   zapSelect: {
-    border: 'none',
-    borderLeft: `1px solid ${theme.palette.text.secondary}`,
+    color: 'black',
+    border: `1px solid ${theme.palette.text.secondary}`,
     paddingLeft: '10px',
     '& > div': {
       padding: '6px 0',
@@ -112,7 +112,18 @@ const styles = theme => ({
     '&::after': {
       content: 'none',
     },
+    '& > svg': {
+      color: 'black'
+    }
   },
+  zapListItem: {
+
+    backgroundColor: 'white',
+    "&.Mui-selected": {
+      backgroundColor: 'rgba(255, 255, 255, 0.08)'
+    }
+  }
+
 });
 
 export default styles;
