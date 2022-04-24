@@ -10,10 +10,11 @@ const Loader = props => {
       width={120}
       height={28}
       viewBox="0 0 120 28"
-      backgroundColor={theme.palette.background.primary}
-      foregroundColor={theme.palette.background.hover}
+      backgroundColor='#fcb037'
+      foregroundColor= '#e638c7'
       {...props}
     >
+
       <rect x="0" y="0" width="120" height="28" />
     </ContentLoader>
   );
