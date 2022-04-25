@@ -26,7 +26,7 @@
   "Vault-DepositButton": "Deposit",
   "Vault-DepositButtonAll": "Deposit All",
   "Vault-DepositTokensNote": "You will receive {{mooToken}} token as a receipt for your deposited {{assetToken}} assets. This token is needed to withdraw your {{assetToken}}, do not trade or transfer {{mooToken}} to strangers!",
-  "Vault-DepositAndWithdrawFee": "Deposit fee: {{depositFee}}, Withdrawal fee: {{withdrawalFee}}",
+  "Vault-DepositAndWithdrawFee": "Deposit fee: 0%, Withdrawal fee: 0% ",
   "Vault-Deposited": "Deposited",
   "Vault-DepositSuccess": "Deposit success",
   "Vault-DepositError": "Deposit error: {{error}}",
