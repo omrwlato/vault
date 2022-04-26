@@ -1,5 +1,5 @@
 export const networkSettings = {
-     56: {
+/*      56: {
     chainId: `0x${parseInt(56, 10).toString(16)}`,
     chainName: 'BSC Mainnet',
     nativeCurrency: {
@@ -9,7 +9,7 @@ export const networkSettings = {
     },
     rpcUrls: ['https://bsc-dataseed.binance.org'],
     blockExplorerUrls: ['https://bscscan.com/'],
-  }, 
+  },  */
   // 128: {
   //   chainId: `0x${parseInt(128, 10).toString(16)}`,
   //   chainName: 'HECO Mainnet',

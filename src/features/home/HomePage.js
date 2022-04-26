@@ -11,7 +11,7 @@ export default function HomePage() {
         direction="column"
         alignItems="center"
         justifyContent="center"
-        style={{ marginTop: '20px' }}
+        style={{ marginTop: '10px' }}
       >
         <Grid item xs={12} sm={8}>
           <Box p={6} justifyContent="center" alignItems="center">

@@ -13,6 +13,7 @@ import { formatGlobalTvl } from 'features/helpers/format';
 import { useFetchBifibuyback } from 'features/vault/redux/fetchBifiBuyback';
 import { getNetworkFriendlyName } from '../../../helpers/getNetworkData';
 import { Box, Button, CardContent, Grid, Paper, Typography } from '@material-ui/core';
+import CountUp from 'react-countup';
 
 const FETCH_INTERVAL_MS = 15 * 1000;
 
@@ -111,14 +112,8 @@ export default function Pools() {
             alignItems: 'center',
           }}
         >
-          <h3 style={{ color: '#000', fontSize: '1.17em' }}>Total Value Locked</h3>
-          <span style={{ fontSize: '50px', marginBottom: '30px' }}>
-            {fetchVaultsDataDone && poolsTvl > 0 ? (
-              formatGlobalTvl(poolsTvl)
-            ) : (
-              <TVLLoader className={classes.titleLoader} />
-            )}
-          </span>
+          <h3 style={{ color: '#000', fontSize: '1.17em', marginBottom:'2.5px' }}>Total Value Locked</h3>
+          <CountUp style={{ fontSize: '50px', marginBottom: '30px', color:'#000'}} end={poolsTvl} separator="," prefix="$" />
         </Box>
       </Grid>
       {/* {fetchBifibuybackDone && chainBifibuyback && (
@@ -154,6 +149,9 @@ export default function Pools() {
         </Button>
         <Button style={{ marginBottom: '10px ' }} name="GRAPE" onClick={onClickPool}>
           <strong>GRAPE</strong>
+        </Button>
+        <Button style={{ marginBottom: '10px ' }} name="PIGGY" onClick={onClickPool}>
+          <strong>PIGGY</strong>
         </Button>
       </Grid>
       {poolSelected === 'ALL' ? (
