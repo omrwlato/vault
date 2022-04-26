@@ -1,14 +1,10 @@
 const styles = theme => ({
   notice: {
-    backgroundColor: 'rgb(255, 255, 255)', //${(props) => props.theme.color.grey[800]};
-    backdropFilter: 'blur(10px) !important',
-    boxShadow: '10px 22px 33px 0px rgba(0, 0, 0, 0.9) !important',
-    overflow: 'hidden !important',
-    borderRadius: '15px',
-    color: '#000 !important',
-    display: 'flex',
-    flex: '1',
-    flexDirection: 'column',
+    backgroundColor: theme.palette.background.secondary,
+    padding: 25,
+    marginBottom: 25,
+    textAlign: 'center',
+    color: theme.palette.primary.main,
     '& > :last-child': {
       marginBottom: 0,
     },
@@ -20,14 +16,15 @@ const styles = theme => ({
     margin: '-10px -10px 15px 0',
   },
   button: {
+    border: '1px solid ' + theme.palette.background.border,
     padding: '4px 8px',
-    backgroundColor: '#fff',
+    backgroundColor: theme.palette.background.default,
     textTransform: 'none',
     margin: '10px 10px 0 0',
   },
   note: {
     marginBottom: 15,
-    fontStyle: 'Bold',
+    fontStyle: 'italic',
   },
   error: {
     color: 'red',

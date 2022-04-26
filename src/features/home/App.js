@@ -83,13 +83,13 @@ export default function App({ children }) {
             />
             <div className={classes.container}>
               <div className={classes.children}>
-                {/*                 <NetworkConnectNotice
+                  <NetworkConnectNotice
                   web3={web3}
                   address={address}
                   connectWallet={connectWalletCallback}
                   disconnectWallet={disconnectWalletCallback}
                   networkId={networkId}
-                /> */}
+                 /> 
                 {networkId === window.REACT_APP_NETWORK_ID ? children : null}
                 <Notifier />
               </div>
