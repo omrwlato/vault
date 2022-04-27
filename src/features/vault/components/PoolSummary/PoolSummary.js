@@ -136,21 +136,29 @@ const PoolSummary = ({
           style={{ marginTop: '20px', marginBottom: '10px' }}
         />
         <Grid item xs={12} style={{ display: 'flex', justifyContent: 'space-between' }}>
-          <Button className={classes.button}>
-            <a className={classes.buttonLink} href={pool.buyTokenUrl}>
-              <div className={classes.buttonText}>BUY</div>
-            </a>
-          </Button>
-          <Button className={classes.button}>
-            <a className={classes.buttonLink} href={pool.addLiquidityUrl}>
-              <div className={classes.buttonText}>CREATE LP</div>
-            </a>
-          </Button>
-          <Button className={classes.button}>
-            <Link className={classes.buttonLink} to={`/${chain}/vault/${pool.id}`}>
-              <div className={classes.buttonText}>VIEW</div>
-            </Link>
-          </Button>
+          <Grid item xs={3} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <Button className={classes.button} >
+              <a className={classes.buttonLink} href={pool.buyTokenUrl}>
+                <div className={classes.buttonText}>BUY</div>
+              </a>
+            </Button>
+          </Grid>
+          <Grid item xs={6} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <Button className={classes.button}>
+              <a className={classes.buttonLink} href={pool.addLiquidityUrl}>
+                <div className={classes.buttonText}>CREATE LP</div>
+              </a>
+            </Button>
+          </Grid>
+          <Grid item xs={3} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <Button className={classes.button}>
+              <Link className={classes.buttonLink} to={`/${chain}/vault/${pool.id}`}>
+                <div className={classes.buttonText}>VIEW</div>
+              </Link>
+            </Button>
+          </Grid>
+
+
         </Grid>
       </Grid>
     </>

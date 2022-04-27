@@ -15,6 +15,7 @@ const styles = theme => ({
     '&:hover': {
       color: '#e638c7 !important',
     },
+
   },
   buttonText: {
     fontWeight: '600',
