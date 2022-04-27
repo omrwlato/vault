@@ -1,7 +1,8 @@
 // To run: yarn validate
 import { MultiCall } from 'eth-multicall';
-import { addressBook } from 'froyop-addressbook';
+import { addressBook } from 'blockchain-addressbook';
 import Web3 from 'web3';
+import BigNumber from 'bignumber.js';
 
 import { isEmpty } from '../src/features/helpers/utils.js';
 import { isValidChecksumAddress, maybeChecksumAddress } from './utils.js';
@@ -9,15 +10,22 @@ import { vaultABI, strategyABI } from '../src/features/configure/abi.js';
 import { chainPools, chainRpcs } from './config.js';
 
 const overrides = {
-  // 'bunny-bunny-eol': { keeper: undefined, stratOwner: undefined },
-  // 'blizzard-xblzd-bnb-old-eol': { keeper: undefined },
-  // 'blizzard-xblzd-busd-old-eol': { keeper: undefined },
-  // 'heco-bifi-maxi': { beefyFeeRecipient: undefined }, // 0x0
-  // 'polygon-bifi-maxi': { beefyFeeRecipient: undefined }, // 0x0
-  // 'avax-bifi-maxi': { beefyFeeRecipient: undefined }, // 0x0
-  // 'bifi-maxi': { stratOwner: undefined }, // harvester 0xDe30
-  // 'beltv2-4belt': { vaultOwner: undefined }, // moonpot deployer
-  // 'cronos-bifi-maxi': { beefyFeeRecipient: undefined }, // 0x0
+  'bunny-bunny-eol': { keeper: undefined, stratOwner: undefined },
+  'blizzard-xblzd-bnb-old-eol': { keeper: undefined },
+  'blizzard-xblzd-busd-old-eol': { keeper: undefined },
+  'heco-bifi-maxi': { beefyFeeRecipient: undefined }, // 0x0
+  'polygon-bifi-maxi': { beefyFeeRecipient: undefined }, // 0x0
+  'avax-bifi-maxi': { beefyFeeRecipient: undefined }, // 0x0
+  'bifi-maxi': { stratOwner: undefined }, // harvester 0xDe30
+  'beltv2-4belt': { vaultOwner: undefined }, // moonpot deployer
+  'cronos-bifi-maxi': { beefyFeeRecipient: undefined }, // 0x0
+  'metis-bifi-maxi': { beefyFeeRecipient: undefined }, // 0x0
+  'aurora-bifi-maxi': { beefyFeeRecipient: undefined }, // 0x0
+  'fuse-bifi-maxi': { beefyFeeRecipient: undefined }, // 0x0
+  'moonbeam-bifi-maxi': { beefyFeeRecipient: undefined }, // 0x0
+  // TODO delete after updating beefyFeeRecipient
+  'stargate-bsc-busd': { beefyFeeRecipient: undefined }, // 0x0
+  'stargate-bsc-usdt': { beefyFeeRecipient: undefined }, // 0x0
 };
 
 const oldValidOwners = [
@@ -40,10 +48,11 @@ const validatePools = async () => {
 
   let updates = {};
 
+  const uniquePoolId = new Set();
+
   for (let [chain, pools] of Object.entries(chainPools)) {
     console.log(`Validating ${pools.length} pools in ${chain}...`);
 
-    const uniquePoolId = new Set();
     const uniqueEarnedToken = new Set();
     const uniqueEarnedTokenAddress = new Set();
     const uniqueOracleId = new Set();
@@ -52,10 +61,8 @@ const validatePools = async () => {
 
     // Populate some extra data.
     const web3 = new Web3(chainRpcs[chain]);
-    pools = await populateStrategyAddrs(chain, pools, web3);
-    pools = await populateKeepers(chain, pools, web3);
-    pools = await populateBeefyFeeRecipients(chain, pools, web3);
-    pools = await populateOwners(chain, pools, web3);
+    pools = await populateVaultsData(chain, pools, web3);
+    pools = await populateStrategyData(chain, pools, web3);
 
     pools = override(pools);
     pools.forEach(pool => {
@@ -105,6 +112,18 @@ const validatePools = async () => {
           : 1;
       }
 
+      if (!pool.createdAt) {
+        console.error(
+          `Error: ${pool.id} : Pool createdAt timestamp missing - required for UI: vault sorting`
+        );
+        exitCode = 1;
+      } else if (isNaN(pool.createdAt)) {
+        console.error(
+          `Error: ${pool.id} : Pool createdAt timestamp wrong type, should be a number`
+        );
+        exitCode = 1;
+      }
+
       addressFields.forEach(field => {
         if (pool.hasOwnProperty(field) && !isValidChecksumAddress(pool[field])) {
           const maybeValid = maybeChecksumAddress(pool[field]);
@@ -121,6 +140,17 @@ const validatePools = async () => {
         activePools++;
       }
 
+      if (new BigNumber(pool.totalSupply).isZero()) {
+        if (pool.status !== 'eol') {
+          console.error(`Error: ${pool.id} : Pool is empty`);
+          exitCode = 1;
+          if (!('emptyVault' in updates)) updates['emptyVault'] = {};
+          updates.emptyVault[pool.id] = pool.earnContractAddress;
+        } else {
+          console.warn(`${pool.id} : eol pool is empty`);
+        }
+      }
+
       uniquePoolId.add(pool.id);
       uniqueEarnedToken.add(pool.earnedToken);
       uniqueEarnedTokenAddress.add(pool.earnedTokenAddress);
@@ -129,10 +159,10 @@ const validatePools = async () => {
       const { keeper, strategyOwner, vaultOwner, beefyFeeRecipient } =
         addressBook[chain].platforms.beefyfinance;
 
-    //  updates = isKeeperCorrect(pool, chain, keeper, updates);
-        // updates = isStratOwnerCorrect(pool, chain, strategyOwner, updates);
-    //  updates = isVaultOwnerCorrect(pool, chain, vaultOwner, updates);
-     //  updates = isBeefyFeeRecipientCorrect(pool, chain, beefyFeeRecipient, updates);
+      updates = isKeeperCorrect(pool, chain, keeper, updates);
+      updates = isStratOwnerCorrect(pool, chain, strategyOwner, updates);
+      updates = isVaultOwnerCorrect(pool, chain, vaultOwner, updates);
+      updates = isBeefyFeeRecipientCorrect(pool, chain, beefyFeeRecipient, updates);
     });
     if (!isEmpty(updates)) {
       exitCode = 1;
@@ -160,7 +190,7 @@ const validatePools = async () => {
 
 // Validation helpers. These only log for now, could throw error if desired.
 const isKeeperCorrect = (pool, chain, chainKeeper, updates) => {
-  if (pool.keeper !== undefined && pool.keeper !== chainKeeper) {
+  if (pool.status !== 'eol' && pool.keeper !== undefined && pool.keeper !== chainKeeper) {
     console.log(`Pool ${pool.id} should update keeper. From: ${pool.keeper} To: ${chainKeeper}`);
 
     if (!('keeper' in updates)) updates['keeper'] = {};
@@ -239,79 +269,51 @@ const isBeefyFeeRecipientCorrect = (pool, chain, recipient, updates) => {
 
 // Helpers to populate required addresses.
 
-const populateStrategyAddrs = async (chain, pools, web3) => {
+const populateVaultsData = async (chain, pools, web3) => {
   const multicall = new MultiCall(web3, addressBook[chain].platforms.beefyfinance.multicall);
 
   const calls = pools.map(pool => {
     const vaultContract = new web3.eth.Contract(vaultABI, pool.earnContractAddress);
     return {
       strategy: vaultContract.methods.strategy(),
+      owner: vaultContract.methods.owner(),
+      totalSupply: vaultContract.methods.totalSupply(),
     };
   });
 
   const [results] = await multicall.all([calls]);
 
   return pools.map((pool, i) => {
-    return { ...pool, strategy: results[i].strategy };
+    return {
+      ...pool,
+      strategy: results[i].strategy,
+      vaultOwner: results[i].owner,
+      totalSupply: results[i].totalSupply,
+    };
   });
 };
 
-const populateKeepers = async (chain, pools, web3) => {
+const populateStrategyData = async (chain, pools, web3) => {
   const multicall = new MultiCall(web3, addressBook[chain].platforms.beefyfinance.multicall);
 
   const calls = pools.map(pool => {
     const stratContract = new web3.eth.Contract(strategyABI, pool.strategy);
     return {
       keeper: stratContract.methods.keeper(),
-    };
-  });
-
-  const [results] = await multicall.all([calls]);
-
-  return pools.map((pool, i) => {
-    return { ...pool, keeper: results[i].keeper };
-  });
-};
-
-const populateBeefyFeeRecipients = async (chain, pools, web3) => {
-  const multicall = new MultiCall(web3, addressBook[chain].platforms.beefyfinance.multicall);
-
-  const calls = pools.map(pool => {
-    const stratContract = new web3.eth.Contract(strategyABI, pool.strategy);
-    return {
       beefyFeeRecipient: stratContract.methods.beefyFeeRecipient(),
-    };
-  });
-
-  const [results] = await multicall.all([calls]);
-
-  return pools.map((pool, i) => {
-    return { ...pool, beefyFeeRecipient: results[i].beefyFeeRecipient };
-  });
-};
-
-const populateOwners = async (chain, pools, web3) => {
-  const multicall = new MultiCall(web3, addressBook[chain].platforms.beefyfinance.multicall);
-
-  const vaultCalls = pools.map(pool => {
-    const vaultContract = new web3.eth.Contract(vaultABI, pool.earnContractAddress);
-    return {
-      owner: vaultContract.methods.owner(),
-    };
-  });
-
-  const stratCalls = pools.map(pool => {
-    const stratContract = new web3.eth.Contract(strategyABI, pool.strategy);
-    return {
       owner: stratContract.methods.owner(),
     };
   });
 
-  const [vaultResults] = await multicall.all([vaultCalls]);
-  const [stratResults] = await multicall.all([stratCalls]);
+  const [results] = await multicall.all([calls]);
 
   return pools.map((pool, i) => {
-    return { ...pool, vaultOwner: vaultResults[i].owner, stratOwner: stratResults[i].owner };
+    return {
+      ...pool,
+      keeper: results[i].keeper,
+      beefyFeeRecipient: results[i].beefyFeeRecipient,
+      stratOwner: results[i].owner,
+    };
   });
 };
 
