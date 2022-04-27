@@ -27,10 +27,17 @@ const styles = theme => ({
     backgroundColor: '#e638c7',
     textTransform: 'none',
     margin: '10px',
+    color: 'white',
     '&:hover': {
       color: '#e638c7 !important',
       border: '1px solid #e638c7',
       backgroundColor: 'white'
+    },
+  },
+  buttonText: {
+    fontWeight: '600',
+    '&:hover': {
+      color: '#e638c7 !important',
     },
   },
   note: {

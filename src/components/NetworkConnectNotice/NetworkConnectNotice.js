@@ -82,7 +82,7 @@ export function NetworkConnectNotice({
           style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '20px' }}
         >
           <Button onClick={connectWallet} className={classes.button}>
-            {t('Network-ConnectWallet')}
+            <div className={classes.buttonText}> {t('Network-ConnectWallet')}</div>
           </Button>
         </Grid>
       </Grid>
@@ -112,18 +112,21 @@ export function NetworkConnectNotice({
           style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '20px' }}
         >
           <Button onClick={targetNetworkSetup} className={classes.button}>
-            {t('Network-SwitchToNetwork', { network: targetNetworkFriendlyName })}
+            <div className={classes.buttonText}>{t('Network-SwitchToNetwork', { network: targetNetworkFriendlyName })}</div>
+
           </Button>
           {isSupportedNetwork ? (
             <Button
               onClick={() => networkRedirect(supportedNetwork.url)}
               className={classes.button}
             >
-              {t('Network-GoToApp', { network: supportedNetwork.name })}
+              <div className={classes.buttonText}>{t('Network-GoToApp', { network: supportedNetwork.name })}</div>
+
             </Button>
           ) : null}
           <Button onClick={disconnectWallet} className={classes.button}>
-            {t('Network-DisconnectWallet')}
+            <div className={classes.buttonText}>{t('Network-DisconnectWallet')}</div>
+
           </Button>
 
         </Grid>
