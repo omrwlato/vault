@@ -30,6 +30,7 @@ import {
   useLaunchpoolSubscriptions,
   useLaunchpoolUpdates,
   usePoolApr,
+  useUserRewardsAvailable
 } from '../../../stake/redux/hooks';
 import { PoolBoosts } from '../PoolSummary/PoolBoosts/PoolBoosts';
 import { getRetireReason } from '../PoolSummary/RetireReason/RetireReason';
@@ -128,6 +129,14 @@ const PoolDetails = ({ vaultId }) => {
     sharesBalance.multipliedBy(new BigNumber(pool.pricePerFullShare)),
     pool.tokenDecimals
   );
+
+  //const userRewardsAvailable = useUserRewardsAvailable(launchpool.id);
+
+  const rewardsDecimal = byDecimals(
+    sharesBalance.multipliedBy(new BigNumber(pool.pricePerFullShare)),
+    pool.tokenDecimals
+  ); 
+
   const depositedUsd =
     deposited > 0 && fetchVaultsDataDone ? formatTvl(deposited, pool.oraclePrice, false) : '';
 
@@ -257,19 +266,19 @@ const PoolDetails = ({ vaultId }) => {
           <Grid container item style={{ marginTop: '20px', flexDirection: 'column' }}>
             <Grid container item style={{ justifyContent: "space-between" }} xs={12}>
               <Grid item>
-                <Typography variant="h6">
-                  Staked
+                <Typography variant="h6"style={{fontWeight:'Bold'}}>
+                  Deposited Balance
                 </Typography>
               </Grid>
               <Grid item>
                 <Typography variant="h6">
-                  {formatDecimals(deposited)} {deposited.eq(0) ? null : depositedUsd}
+                  {formatDecimals(deposited)} / {deposited.eq(0) ? null : depositedUsd}
                 </Typography>
               </Grid>
             </Grid>
             <Grid container item style={{ justifyContent: "space-between" }} xs={12}>
               <Grid item>
-                <Typography variant="h6">
+                <Typography variant="h6"style={{fontWeight:'Bold'}}>
                   APY
                 </Typography>
               </Grid>
@@ -281,7 +290,7 @@ const PoolDetails = ({ vaultId }) => {
             </Grid>
             <Grid container item style={{ justifyContent: "space-between" }} xs={12}>
               <Grid item>
-                <Typography variant="h6">
+                <Typography variant="h6" style={{fontWeight:'Bold'}}>
                   Daily ROI
                 </Typography>
               </Grid>
@@ -293,8 +302,8 @@ const PoolDetails = ({ vaultId }) => {
             </Grid>
             <Grid container item style={{ justifyContent: "space-between" }} xs={12}>
               <Grid item>
-                <Typography variant="h6">
-                  TVL
+                <Typography variant="h6"style={{fontWeight:'Bold'}}>
+                  Total Value Locked
                 </Typography>
               </Grid>
               <Grid item>
