@@ -6,7 +6,7 @@ import {
   VAULT_FETCH_BIFIBUYBACK_SUCCESS,
   VAULT_FETCH_BIFIBUYBACK_FAILURE,
 } from './constants';
-import { apiUrl, getApiCacheBuster } from '../../helpers/getApiInfo';
+import { getApiCacheBuster } from '../../web3/getApiCacheBuster';
 
 export function fetchBifibuyback() {
   return dispatch => {
@@ -16,7 +16,7 @@ export function fetchBifibuyback() {
 
     return new Promise((resolve, reject) => {
       const cacheBuster = getApiCacheBuster();
-      const doRequest = axios.get(`${apiUrl}/bifibuyback?_=${cacheBuster}`);
+      const doRequest = axios.get(`https://froyop-api.herokuapp.com/bifibuyback?_=${cacheBuster}`);
 
       doRequest.then(
         res => {

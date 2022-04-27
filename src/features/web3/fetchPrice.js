@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 import { getNetworkPools, launchpools } from '../helpers/getNetworkData';
-import { apiUrl, getApiCacheBuster } from '../helpers/getApiInfo';
+import { getApiCacheBuster } from './getApiCacheBuster';
 
 const pools = getNetworkPools();
 
@@ -10,6 +10,10 @@ const priceCache = {
   cache: new Map(),
   lastUpdated: undefined,
 };
+
+function isCached(id) {
+  return priceCache.cache.has(id);
+}
 
 function getCachedPrice(id) {
   return priceCache.cache.get(id);
@@ -30,7 +34,7 @@ const fetchTokens = async () => {
   const cacheBuster = getApiCacheBuster();
 
   try {
-    const response = await axios.get(`${apiUrl}/prices?_=${cacheBuster}`);
+    const response = await axios.get(`https://froyop-api.herokuapp.com/prices?_=${cacheBuster}`);
     return response.data;
   } catch (err) {
     console.error(err);
@@ -42,7 +46,7 @@ const fetchLPs = async () => {
   const cacheBuster = getApiCacheBuster();
 
   try {
-    const response = await axios.get(`${apiUrl}/lps?_=${cacheBuster}`);
+    const response = await axios.get(`https://froyop-api.herokuapp.com/lps?_=${cacheBuster}`);
     return response.data;
   } catch (err) {
     console.error(err);

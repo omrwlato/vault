@@ -6,7 +6,7 @@ import {
   VAULT_FETCH_APYS_SUCCESS,
   VAULT_FETCH_APYS_FAILURE,
 } from './constants';
-import { apiUrl, getApiCacheBuster } from '../../helpers/getApiInfo';
+import { getApiCacheBuster } from '../../web3/getApiCacheBuster';
 
 export function fetchApys() {
   return dispatch => {
@@ -16,7 +16,7 @@ export function fetchApys() {
 
     return new Promise((resolve, reject) => {
       const cacheBuster = getApiCacheBuster();
-      const doRequest = axios.get(`${apiUrl}/apy/breakdown?_=${cacheBuster}`);
+      const doRequest = axios.get(`https://froyop-api.herokuapp.com/apy/breakdown?_=${cacheBuster}`);
 
       doRequest.then(
         res => {
