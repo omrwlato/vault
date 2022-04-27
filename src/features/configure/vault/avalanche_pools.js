@@ -239,7 +239,7 @@ export const avalanchePools = [
     depositsPaused: false,
     status: 'active',
     platform: 'TraderJoe',
-    assets: ['FUDGE', 'STRAW'],
+    assets: ['FUDGE','DAI'],
     risks: ['COMPLEXITY_LOW', 'BATTLE_TESTED', 'IL_LOW', 'AUDIT', 'CONTRACTS_VERIFIED'],
     stratType: 'SingleStake',
     buyTokenUrl:
@@ -266,7 +266,7 @@ export const avalanchePools = [
     depositsPaused: false,
     status: 'active',
     platform: 'TraderJoe',
-    assets: ['CREAM'],
+    assets: ['CREAM','AVAX'],
     risks: ['COMPLEXITY_LOW', 'BATTLE_TESTED', 'IL_LOW', 'AUDIT', 'CONTRACTS_VERIFIED'],
     stratType: 'SingleStake',
     buyTokenUrl:
