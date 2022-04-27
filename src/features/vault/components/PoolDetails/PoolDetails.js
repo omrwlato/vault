@@ -272,7 +272,7 @@ const PoolDetails = ({ vaultId }) => {
               </Grid>
               <Grid item>
                 <Typography variant="h6">
-                  {formatDecimals(deposited)} / {deposited.eq(0) ? null : depositedUsd}
+                  {deposited.eq(0) ? 0 : formatDecimals(deposited)} / {deposited.eq(0) ? 0 : depositedUsd}
                 </Typography>
               </Grid>
             </Grid>
