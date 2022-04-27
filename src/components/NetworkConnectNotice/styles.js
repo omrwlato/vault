@@ -1,10 +1,16 @@
 const styles = theme => ({
   notice: {
-    backgroundColor: theme.palette.background.secondary,
-    padding: 25,
-    marginBottom: 25,
-    textAlign: 'center',
-    color: theme.palette.primary.main,
+    padding: '30px',
+    backgroundColor: 'rgb(255, 255, 255)', //${(props) => props.theme.color.grey[800]};
+    backdropFilter: 'blur(10px) !important',
+    boxShadow: '10px 22px 33px 0px rgba(0, 0, 0, 0.9) !important',
+    overflow: 'hidden !important',
+    borderRadius: '15px',
+    color: '#000 !important',
+    display: 'flex',
+    flex: '1',
+    marginTop: '30px',
+    flexDirection: 'column',
     '& > :last-child': {
       marginBottom: 0,
     },
@@ -15,12 +21,17 @@ const styles = theme => ({
   actions: {
     margin: '-10px -10px 15px 0',
   },
+
   button: {
-    border: '1px solid ' + theme.palette.background.border,
     padding: '4px 8px',
-    backgroundColor: theme.palette.background.default,
+    backgroundColor: '#e638c7',
     textTransform: 'none',
-    margin: '10px 10px 0 0',
+    margin: '10px',
+    '&:hover': {
+      color: '#e638c7 !important',
+      border: '1px solid #e638c7',
+      backgroundColor: 'white'
+    },
   },
   note: {
     marginBottom: 15,
