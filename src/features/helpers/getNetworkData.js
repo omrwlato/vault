@@ -452,8 +452,8 @@ export const getNetworkConnectors = t => {
         providerOptions: {
           injected: {
             display: {
-              name: 'Injected',
-              description: t('Home-BrowserWallet'),
+              name: 'Metamask',
+              description: t('Connect with Metamask wallet'),
             },
           },
           // walletconnect: {
@@ -483,8 +483,8 @@ export const getNetworkConnectors = t => {
         providerOptions: {
           injected: {
             display: {
-              name: 'Injected',
-              description: t('Home-BrowserWallet'),
+              name: 'Metamask',
+              description: t('Connect with Metamask wallet'),
             },
           },
           walletconnect: {
@@ -505,8 +505,8 @@ export const getNetworkConnectors = t => {
         providerOptions: {
           injected: {
             display: {
-              name: 'Injected',
-              description: t('Home-BrowserWallet'),
+              name: 'Metamask',
+              description: t('Connect with Metamask wallet'),
             },
           },
           walletconnect: {
@@ -528,8 +528,8 @@ export const getNetworkConnectors = t => {
         providerOptions: {
           injected: {
             display: {
-              name: 'Injected',
-              description: t('Home-BrowserWallet'),
+              name: 'Metamask',
+              description: t('Connect with Metamask wallet'),
             },
           },
           // walletconnect: {
@@ -550,8 +550,8 @@ export const getNetworkConnectors = t => {
         providerOptions: {
           injected: {
             display: {
-              name: 'Injected',
-              description: t('Home-BrowserWallet'),
+              name: 'Metamask',
+              description: t('Connect with Metamask wallet'),
             },
           },
         },
@@ -563,8 +563,8 @@ export const getNetworkConnectors = t => {
         providerOptions: {
           injected: {
             display: {
-              name: 'Injected',
-              description: t('Home-BrowserWallet'),
+              name: 'Metamask',
+              description: t('Connect with Metamask wallet'),
             },
           },
         },
@@ -576,8 +576,8 @@ export const getNetworkConnectors = t => {
         providerOptions: {
           injected: {
             display: {
-              name: 'Injected',
-              description: t('Home-BrowserWallet'),
+              name: 'Metamask',
+              description: t('Connect with Metamask wallet'),
             },
           },
         },
@@ -589,8 +589,8 @@ export const getNetworkConnectors = t => {
         providerOptions: {
           injected: {
             display: {
-              name: 'Injected',
-              description: t('Home-BrowserWallet'),
+              name: 'Metamask',
+              description: t('Connect with Metamask wallet'),
             },
           },
           walletconnect: {
@@ -612,8 +612,8 @@ export const getNetworkConnectors = t => {
         providerOptions: {
           injected: {
             display: {
-              name: 'Injected',
-              description: t('Home-BrowserWallet'),
+              name: 'Metamask',
+              description: t('Connect with Metamask wallet'),
             },
           },
         },
