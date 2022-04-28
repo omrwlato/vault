@@ -1,7 +1,7 @@
 // To run: node --experimental-specifier-resolution=node updatePools.js
 
 // FIXME: Adapt updatePools to multichain.
-import { bscPools } from '../src/features/configure/pools.js';
+import { avalanchePools } from '../src/features/configure/pools.js';
 import { fetchStrategy } from '../src/features/web3/fetchStrategy.js';
 import Web3 from 'web3';
 import axios from 'axios';
@@ -20,7 +20,7 @@ async function main() {
     if (!pools[i].creationBlock) {
       let response = await axios
         .get(
-          `https://api.bscscan.com/api?module=account&action=txlist&address=${contractAddress}&startblock=0&sort=asc&page=1&offset=1`
+          `https://api.snowtrace.io//api?module=account&action=txlist&address=${contractAddress}&startblock=0&sort=asc&page=1&offset=1`
         )
         .then();
       pools[i].creationBlock = response.data['result'][0]['blockNumber'];
