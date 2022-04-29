@@ -1,6 +1,6 @@
 // To run: yarn validate
 import { MultiCall } from 'eth-multicall';
-import { addressBook } from 'blockchain-addressbook';
+import { addressBook } from 'hoyo-addressbook';
 import Web3 from 'web3';
 import BigNumber from 'bignumber.js';
 

@@ -16,7 +16,7 @@ export function fetchBifibuyback() {
 
     return new Promise((resolve, reject) => {
       const cacheBuster = getApiCacheBuster();
-      const doRequest = axios.get(`https://froyop-api.herokuapp.com/bifibuyback?_=${cacheBuster}`);
+      const doRequest = axios.get(`https://hoyo-api.herokuapp.com/bifibuyback?_=${cacheBuster}`);
 
       doRequest.then(
         res => {

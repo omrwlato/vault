@@ -27,6 +27,7 @@
     "eth-multicall": "^1.3.13",
     "froyop-addressbook": "^1.0.1",
     "history": "^5.0.0",
+    "hoyo-addressbook": "^1.0.4",
     "i18next": "^19.8.2",
     "i18next-browser-languagedetector": "^6.0.1",
     "moment": "^2.29.1",

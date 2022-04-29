@@ -34,7 +34,7 @@ const fetchTokens = async () => {
   const cacheBuster = getApiCacheBuster();
 
   try {
-    const response = await axios.get(`https://froyop-api.herokuapp.com/prices?_=${cacheBuster}`);
+    const response = await axios.get(`https://hoyo-api.herokuapp.com/prices?_=${cacheBuster}`);
     return response.data;
   } catch (err) {
     console.error(err);
@@ -46,7 +46,7 @@ const fetchLPs = async () => {
   const cacheBuster = getApiCacheBuster();
 
   try {
-    const response = await axios.get(`https://froyop-api.herokuapp.com/lps?_=${cacheBuster}`);
+    const response = await axios.get(`https://hoyo-api.herokuapp.com/lps?_=${cacheBuster}`);
     return response.data;
   } catch (err) {
     console.error(err);
