@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useCallback } from 'react';
+import React, { useRef, useEffect, useCallback, createContext } from 'react';
 import { useSpring, animated } from 'react-spring';
 import styled from 'styled-components';
 //import { MdClose } from 'react-icons/md';
@@ -7,10 +7,14 @@ const Background = styled.div`
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.8);
-  position: fixed;
+  position: absolute;
+  left: 50%;
+  top: 20%;
+  transform: translate(-50%, -50%);
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items:center;
+  z-index:1;
 `;
 
 const ModalWrapper = styled.div`
@@ -19,11 +23,12 @@ const ModalWrapper = styled.div`
   box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
   background: #fff;
   color: #000;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  position: relative;
+  position: fixed;
   z-index: 10;
   border-radius: 10px;
+  display: flex;
+  justify-content: flex;
+  align-items:flex;
 `;
 
 
@@ -64,7 +69,10 @@ export const Modal = ({ showModal, setShowModal }) => {
       duration: 250
     },
     opacity: showModal ? 1 : 0,
-    transform: showModal ? `translateY(0%)` : `translateY(-100%)`
+    transform: showModal ? `translateY(0%)` : `translateY(-100%)`,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
   });
 
   const closeModal = e => {
@@ -101,14 +109,14 @@ export const Modal = ({ showModal, setShowModal }) => {
                 <h2>Welcome to</h2>
                 <h2 style={{ color: '#ff4794' }}>FROYO Farms</h2>
                 <p>A yield optimization protocol built with the health of your favorite protocol in mind.</p>
-                <p>
-                Deposit your liquidity-pairs into our vaults to automatically compound your rewards.
-                Our vaults run an optimized strategy that initiates a buy back and burn of any
-                specified token using the native token. The burning mechanism automatically results in every protocol
-                listed to become deflationary with with the help of the investors!
+                <p align="center">
+                  Deposit your liquidity-pairs into our vaults to automatically compound your rewards.
+                  Our vaults run an optimized strategy that initiates a buy back and burn of any
+                  specified token using the native token. The burning mechanism automatically results in every protocol
+                  listed to become deflationary with with the help of the investors!
                 </p>
-                </ModalContent>
-                {/* <CloseModalButton
+              </ModalContent>
+              {/* <CloseModalButton
                     aria-label='Close modal'
                     onClick={() => setShowModal(prev => !prev)}
                 /> */}
