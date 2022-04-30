@@ -10,8 +10,8 @@ export const formatApy = (apy, dp = 2) => {
   const order = apy < 1 ? 0 : Math.floor(Math.log10(apy) / 3);
   if (order >= units.length - 1) return `🔥`;
 
-  const num = apy / 1000 ** order;
-  return `${num.toFixed(dp)}${units[order]}%`;
+  const num = apy ;
+  return `${num.toFixed(dp)}%`;
 };
 
 export const formatPercent = (per, dp = 2) => {
@@ -22,7 +22,7 @@ export const formatPercent = (per, dp = 2) => {
   return stripTrailingZeros((per * 100).toFixed(dp)) + '%';
 };
 
-export const formatTvl = (tvl, oraclePrice, useOrder = true) => {
+export const formatTvl = (tvl, oraclePrice, useOrder = false) => {
   if (oraclePrice) {
     tvl = BigNumber(tvl).times(oraclePrice).toFixed(2);
   }

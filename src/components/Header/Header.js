@@ -92,6 +92,15 @@ const Header = ({ links, isNightMode, setNightMode }) => {
               <span>Twitter</span>
             </a>
             <a
+              href="https://discord.gg/qv6gA8jt"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={classes.link}
+            >
+              <i className={`fab fa-hand-holding-usd ${classes.linkIcon}`} />
+              <span>Apply </span>
+            </a>
+            <a
               href="https://icecreamfinance.app/#/"
               target="_blank"
               rel="noopener noreferrer"

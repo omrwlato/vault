@@ -216,6 +216,7 @@ const styles = theme => ({
     textDecoration: 'none',
     '&:hover': {
       textDecoration: 'underline',
+      color: '#000'
     },
     '& span': {
       color: theme.palette.text.primary,
