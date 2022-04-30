@@ -6,7 +6,6 @@ import styled from 'styled-components';
 const Background = styled.div`
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.8);
   position: absolute;
   left: 50%;
   top: 20%;
@@ -18,36 +17,28 @@ const Background = styled.div`
 `;
 
 const ModalWrapper = styled.div`
-  width: 800px;
-  height: 500px;
-  box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
-  background: #fff;
-  color: #000;
-  position: fixed;
-  z-index: 10;
-  border-radius: 10px;
-  display: flex;
-  justify-content: flex;
-  align-items:flex;
+    background-color: rgba(255, 255, 255, 1);
+    backdrop-filter: blur(10px) !important;
+    -webkit-box-shadow: 10px 22px 33px 0px rgba(0, 0, 0, 0.9) !important;
+    -moz-box-shadow: 5px 22px 33px 0px rgba(0, 0, 0, 0.9) !important;
+    box-shadow: 10px 22px 33px 0px rgba(0, 0, 0, 0.9) !important;
+    overflow: hidden !important;
+    border-radius: 15px;
+    color: #000 !important;
+    flex-direction: column;
+    display: flex;
+    position: relative;
+    z-index: 10;
+    width: 550px;
+    height: 350px;
 `;
 
 
 const ModalContent = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  line-height: 1.8;
-  color: #141414;
-  p {
-    margin-bottom: 1rem;
-  }
-  button {
-    padding: 10px 24px;
-    background: #141414;
-    color: #fff;
-    border: none;
-  }
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: 25px;
 `;
 
 // const CloseModalButton = styled(MdClose)`
@@ -106,14 +97,23 @@ export const Modal = ({ showModal, setShowModal }) => {
           <animated.div style={animation}>
             <ModalWrapper showModal={showModal}>
               <ModalContent>
-                <h2>Welcome to</h2>
-                <h2 style={{ color: '#ff4794' }}>FROYO Farms</h2>
-                <p>A yield optimization protocol built with the health of your favorite protocol in mind.</p>
-                <p align="center">
-                  Deposit your liquidity-pairs into our vaults to automatically compound your rewards.
-                  Our vaults run an optimized strategy that initiates a buy back and burn of any
-                  specified token using the native token. The burning mechanism automatically results in every protocol
-                  listed to become deflationary with with the help of the investors!
+                <h1 
+                style={{size:'27px', margin:'0px', marginTop:'15px'}}
+                >
+                Welcome to
+                </h1>
+                <h1 style={{ color: '#ff4794', size:'35px', margin:'0px' }}
+                
+                >
+                FROYO Farms
+                </h1>
+                <p style={{color:'#000'}}>A yield optimization protocol built with the health of your favorite protocol in mind.</p>
+                <p>
+                  Deposit your liquidity-pairs to get started!.
+                </p>
+                <p style={{ marginTop:'15px'}}>
+                  Our vaults run a strategy developed to maximize yield for investors as well as offer the native project a bonus. 
+                  The vaults built-in burning mechanism results in every protocol listed to automatically become deflationary!
                 </p>
               </ModalContent>
               {/* <CloseModalButton

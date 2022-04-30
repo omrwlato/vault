@@ -97,7 +97,7 @@ const Header = ({ links, isNightMode, setNightMode }) => {
               rel="noopener noreferrer"
               className={classes.link}
             >
-              <i className={`fab fa-hand-holding-usd ${classes.linkIcon}`} />
+              <i className={`fas fa-hand-holding-usd ${classes.linkIcon}`} />
               <span>Apply </span>
             </a>
             <a
