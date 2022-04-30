@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Modal } from './components/Modal';
 import { Box, Button, CardContent, Grid, Paper, Typography } from '@material-ui/core';
@@ -19,22 +19,23 @@ export default function HomePage() {
   };
 
   return (
-    <>
-    <Grid container spacing={3}>
-      <Grid
-        container 
-        direction="column"
-        alignItems="center"
-        justifyContent="center"
-        style={{marginTop:'35px'}}
-      >
-        <Grid item xs={12} sm={8}>
-          <Box p={4} justifyContent="center" alignItems="center">
-            <Typography variant="h3" fontWeight="bold" align="center" style={{ color: '#000'}}>
-              A Yield Optimizer Built to Make a Difference!
-            </Typography>
-          </Box>
-          <Box style={{ justifyContent: 'center', alignItems: 'center', display: 'flex' }}>
+    <div>
+      <Modal showModal={showModal} setShowModal={setShowModal} />
+      <Grid container spacing={3} style={{ zIndex: 1 }}>
+        <Grid
+          container
+          direction="column"
+          alignItems="center"
+          justifyContent="center"
+          style={{ marginTop: '35px' }}
+        >
+          <Grid item xs={12} sm={8}>
+            <Box p={4} justifyContent="center" alignItems="center">
+              <Typography variant="h3" fontWeight="bold" align="center" style={{ color: '#000' }}>
+                A Yield Optimizer Built to Make a Difference!
+              </Typography>
+            </Box>
+            <Box style={{ justifyContent: 'center', alignItems: 'center', display: 'flex' }}>
               <Button
                 disabled={false}
                 variant="contained"
@@ -42,12 +43,12 @@ export default function HomePage() {
               >
                 Read More
               </Button>
-              <Modal showModal={showModal} setShowModal={setShowModal} />
-           </Box>
+
+            </Box>
+          </Grid>
         </Grid>
       </Grid>
-    </Grid>
       <Pools fromPage="home" />
-    </>
+    </div>
   );
 }
