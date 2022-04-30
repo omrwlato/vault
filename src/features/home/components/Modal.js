@@ -9,6 +9,10 @@ const Background = styled.div`
   position: absolute;
   left: 50%;
   top: 25%;
+  right: auto;
+  bottom: auto;
+  overflow: auto;
+  WebkitOverflowScrolling: 'touch';
   transform: translate(-50%, -50%);
   display: flex;
   justify-content: center;
@@ -23,13 +27,15 @@ const ModalWrapper = styled.div`
     -moz-box-shadow: 5px 22px 33px 0px rgba(0, 0, 0, 0.9) !important;
     box-shadow: 10px 22px 33px 0px rgba(0, 0, 0, 0.9) !important;
     overflow: hidden !important;
+    z-index: 10;
     border-radius: 15px;
     color: #000 !important;
+
+    
     flex-direction: column;
     display: flex;
     flex: 1;
     position: relative;
-    z-index: 10;
     width: 550px;
     height: 350px;
 `;
