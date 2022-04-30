@@ -8,7 +8,7 @@ const Background = styled.div`
   height: 100%;
   position: absolute;
   left: 50%;
-  top: 20%;
+  top: 25%;
   transform: translate(-50%, -50%);
   display: flex;
   justify-content: center;
@@ -27,6 +27,7 @@ const ModalWrapper = styled.div`
     color: #000 !important;
     flex-direction: column;
     display: flex;
+    flex: 1;
     position: relative;
     z-index: 10;
     width: 550px;
