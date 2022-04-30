@@ -7181,9 +7181,9 @@ hosted-git-info@^2.1.4:
   integrity sha512-mxIDAb9Lsm6DoOJ7xH+5+X4y1LU/4Hi50L9C5sIswK3JzULS4bwk1FvjdBgvYR4bzT4tuUQiC15FE2f5HbLvYw==
 
 hoyo-addressbook@^1.0.4:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/hoyo-addressbook/-/hoyo-addressbook-1.0.4.tgz#512dff13fcdf568cb648e9ea290d7e1890688db9"
-  integrity sha512-I5t47r9b0cIDKBJCtB3qjOjgvaQgX0Hev4+RtiAZpwUM3oRt6tre6dBwYAgYw2c+WYD0jAkOeq7x66uloBEj/w==
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/hoyo-addressbook/-/hoyo-addressbook-1.0.6.tgz#958a3d2b9374764e09baf2128b55b01c4cf2eb95"
+  integrity sha512-ebtnkDufLp16fLXgn6DO4IMrx5psWQJofNWLa/fmdRFZ4RH2U/m9iWMCGaWMumV8qh46uW8UPiCPD0vgZ6si0g==
 
 hpack.js@^2.1.6:
   version "2.1.6"
@@ -13201,7 +13201,7 @@ style-loader@0.23.1:
     loader-utils "^1.1.0"
     schema-utils "^1.0.0"
 
-styled-components@^5.3.3:
+styled-components@^5.3.3, styled-components@^5.3.5:
   version "5.3.5"
   resolved "https://registry.yarnpkg.com/styled-components/-/styled-components-5.3.5.tgz#a750a398d01f1ca73af16a241dec3da6deae5ec4"
   integrity sha512-ndETJ9RKaaL6q41B69WudeqLzOpY1A/ET/glXkNZ2T7dPjPqpPCXXQjDFYZWwNnE5co0wX+gTCqx9mfxTmSIPg==

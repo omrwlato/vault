@@ -60,6 +60,7 @@ export default function App({ children }) {
   const disconnectWalletCallback = useCallback(() => {
     disconnectWallet(web3, web3Modal);
   }, [web3, web3Modal, disconnectWallet]);
+  
 
   return (
     <StylesProvider injectFirst>

@@ -53,7 +53,6 @@ function Root() {
   const { getPageMeta } = usePageMeta();
 
   initializePriceCache();
-
   return (
     <Provider store={store}>
       <Helmet>

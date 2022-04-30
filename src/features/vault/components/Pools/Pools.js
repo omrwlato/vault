@@ -110,6 +110,7 @@ export default function Pools() {
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
+            marginTop:'75px'
           }}
         >
           <h3 style={{ color: '#000', fontSize: '1.17em', marginBottom:'2.5px' }}>Total Value Locked</h3>

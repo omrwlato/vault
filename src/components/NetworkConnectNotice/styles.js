@@ -10,6 +10,7 @@ const styles = theme => ({
     display: 'flex',
     flex: '1',
     marginTop: '30px',
+    marginBottom:'30px',
     flexDirection: 'column',
     '& > :last-child': {
       marginBottom: 0,
