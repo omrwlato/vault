@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import { Box, Button, CardContent, Grid, Paper, Typography } from '@material-ui/core';
 import Pools from 'features/vault/components/Pools/Pools';
-import { Modal } from '../../components/Modal';
 
 
 export default function HomePage() {
