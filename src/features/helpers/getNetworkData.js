@@ -456,15 +456,15 @@ export const getNetworkConnectors = t => {
               description: t('Home-BrowserWallet'),
             },
           },
-          // walletconnect: {
-          //   package: WalletConnectProvider,
-          //   options: {
-          //     rpc: {
-          //       1: 'https://http-mainnet.hecochain.com',
-          //       128: 'https://http-mainnet.hecochain.com',
-          //     },
-          //   },
-          // },
+          walletconnect: {
+            package: WalletConnectProvider,
+            options: {
+              rpc: {
+                1: 'https://http-mainnet.hecochain.com',
+                128: 'https://http-mainnet.hecochain.com',
+              },
+            },
+          },
           'custom-math': {
             display: {
               name: 'Math',
@@ -487,15 +487,15 @@ export const getNetworkConnectors = t => {
               description: t('Connect with Metamask Wallet'),
             },
           },
-          // walletconnect: {
-          //   package: WalletConnectProvider,
-          //   options: {
-          //     rpc: {
-          //       1: 'https://api.avax.network/ext/bc/C/rpc',
-          //       43114: 'https://api.avax.network/ext/bc/C/rpc',
-          //     },
-          //   },
-          // },
+          walletconnect: {
+            package: WalletConnectProvider,
+            options: {
+              rpc: {
+                1: 'https://api.avax.network/ext/bc/C/rpc',
+                43114: 'https://api.avax.network/ext/bc/C/rpc',
+              },
+            },
+          },
         },
       };
     case 137:
