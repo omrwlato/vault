@@ -483,8 +483,8 @@ export const getNetworkConnectors = t => {
         providerOptions: {
           injected: {
             display: {
-              name: 'Metamask',
-              description: t('Connect with Metamask Wallet'),
+              name: 'Injected',
+              description: t('Home-BrowserWallet'),
             },
           },
           walletconnect: {
