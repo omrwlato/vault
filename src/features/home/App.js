@@ -60,7 +60,6 @@ export default function App({ children }) {
   const disconnectWalletCallback = useCallback(() => {
     disconnectWallet(web3, web3Modal);
   }, [web3, web3Modal, disconnectWallet]);
-  
 
   return (
     <StylesProvider injectFirst>
@@ -75,22 +74,22 @@ export default function App({ children }) {
                   connected={connected}
                   connectWallet={connectWalletCallback}
                   disconnectWallet={disconnectWalletCallback}
-                  /*                   isNightMode={isNightMode}
-                  setNightMode={() => setNightMode(!isNightMode)} */
+                  isNightMode={isNightMode}
+                  setNightMode={() => setNightMode(!isNightMode)}
                 />
               }
-              /*               isNightMode={isNightMode}
-              setNightMode={() => setNightMode(!isNightMode)} */
+              isNightMode={isNightMode}
+              setNightMode={() => setNightMode(!isNightMode)}
             />
             <div className={classes.container}>
               <div className={classes.children}>
-                  <NetworkConnectNotice
+                <NetworkConnectNotice
                   web3={web3}
                   address={address}
                   connectWallet={connectWalletCallback}
                   disconnectWallet={disconnectWalletCallback}
                   networkId={networkId}
-                 /> 
+                />
                 {networkId === window.REACT_APP_NETWORK_ID ? children : null}
                 <Notifier />
               </div>

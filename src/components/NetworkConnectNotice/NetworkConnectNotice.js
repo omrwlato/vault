@@ -54,10 +54,10 @@ export function NetworkConnectNotice({
   const supportedNetwork = useMemo(() => {
     return isSupportedNetwork
       ? {
-        id: networkId,
-        url: getNetworkAppUrl(networkId),
-        name: getNetworkFriendlyName(networkId),
-      }
+          id: networkId,
+          url: getNetworkAppUrl(networkId),
+          name: getNetworkFriendlyName(networkId),
+        }
       : null;
   }, [isSupportedNetwork, networkId]);
 
