@@ -5,8 +5,6 @@ import { getNetworkAppUrl, getNetworkFriendlyName } from 'features/helpers/getNe
 import { makeStyles } from '@material-ui/core/styles';
 import styles from './styles';
 import { useTranslation } from 'react-i18next';
-import Grid from '@material-ui/core/Grid';
-import { Typography } from '@material-ui/core';
 
 const useStyles = makeStyles(styles);
 const targetNetworkId = window.REACT_APP_NETWORK_ID;
@@ -63,115 +61,54 @@ export function NetworkConnectNotice({
 
   if (!haveConnection) {
     notice = (
-      <Grid container >
-        <Grid
-          container
-          item
-          spacing={3}
-          style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '20px' }}
-        >
-          <Typography style={{ color: 'black' }} align='center' variant='h6'>
-            {t('Network-ConnectionRequired', { network: targetNetworkFriendlyName })}
-          </Typography>
-
-        </Grid>
-        <Grid
-          container
-          item
-          spacing={3}
-          style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '20px' }}
-        >
+      <>
+        <div className={classes.message}>
+          {t('Network-ConnectionRequired', { network: targetNetworkFriendlyName })}
+        </div>
+        <div className={classes.actions}>
           <Button onClick={connectWallet} className={classes.button}>
-            <div className={classes.buttonText}> {t('Network-ConnectWallet')}</div>
+            {t('Network-ConnectWallet')}
           </Button>
-        </Grid>
-      </Grid>
+        </div>
+      </>
     );
   } else if (!isCorrectNetwork) {
     notice = (
-      <Grid container >
-        <Grid
-          container
-          item
-          spacing={3}
-          style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '20px' }}
-        >
-          <Typography style={{ color: 'black' }} variant="h6" align='center'>
-            {t('Network-Supports', { network: targetNetworkFriendlyName })}{' '}
-            {isSupportedNetwork
-              ? t('Network-ConnectedTo', { network: supportedNetwork.name })
-              : t('Network-ConnectedUnsupported')}
-          </Typography>
-
-        </Grid>
-
-        <Grid
-          container
-          item
-          spacing={3}
-          style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '20px' }}
-        >
+      <>
+        <div className={classes.message}>
+          {t('Network-Supports', { network: targetNetworkFriendlyName })}{' '}
+          {isSupportedNetwork
+            ? t('Network-ConnectedTo', { network: supportedNetwork.name })
+            : t('Network-ConnectedUnsupported')}
+        </div>
+        <div className={classes.actions}>
           <Button onClick={targetNetworkSetup} className={classes.button}>
-            <div className={classes.buttonText}>{t('Network-SwitchToNetwork', { network: targetNetworkFriendlyName })}</div>
-
+            {t('Network-SwitchToNetwork', { network: targetNetworkFriendlyName })}
           </Button>
           {isSupportedNetwork ? (
             <Button
               onClick={() => networkRedirect(supportedNetwork.url)}
               className={classes.button}
             >
-              <div className={classes.buttonText}>{t('Network-GoToApp', { network: supportedNetwork.name })}</div>
-
+              {t('Network-GoToApp', { network: supportedNetwork.name })}
             </Button>
           ) : null}
           <Button onClick={disconnectWallet} className={classes.button}>
-            <div className={classes.buttonText}>{t('Network-DisconnectWallet')}</div>
-
+            {t('Network-DisconnectWallet')}
           </Button>
-
-        </Grid>
-
-        <Grid
-          container
-          item
-          spacing={3}
-          style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '20px' }}
-        >
-          <Typography style={{ color: 'black' }} align='center' variant='h6'>
-            {t('Network-SwitchNote')}
-          </Typography>
-          {networkSetupError ? <div className={classes.error}>
-            <Typography align='center' variant='h6'>
-              {networkSetupError}
-            </Typography>
-          </div> : ''}
-        </Grid>
-      </Grid>
+        </div>
+        <div className={classes.note}>{t('Network-SwitchNote')}</div>
+        {networkSetupError ? <div className={classes.error}>{networkSetupError}</div> : ''}
+      </>
     );
   } else if (!haveAddress) {
     notice = (
-      <Grid container >
-        <Grid
-          container
-          item
-          spacing={3}
-          style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '20px' }}
-        >
-          <Typography style={{ color: 'black' }} align='center' variant='h6'>
-            {t('Network-ConnectedTo', { network: targetNetworkFriendlyName })}
-          </Typography>
-
-        </Grid>
-        <Grid
-          container
-          item
-          spacing={3}
-          style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '20px' }}
-        >
-          <Typography style={{ color: 'black' }} align='center' variant='h6'>
-            {t('Network-NoWalletAddress')}
-          </Typography></Grid>
-      </Grid>
+      <>
+        <div className={classes.message}>
+          {t('Network-ConnectedTo', { network: targetNetworkFriendlyName })}
+        </div>
+        <div className={classes.error}>{t('Network-NoWalletAddress')}</div>
+      </>
     );
   }
 

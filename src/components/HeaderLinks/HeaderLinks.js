@@ -8,7 +8,7 @@ import { WbSunny, NightsStay } from '@material-ui/icons';
 import Davatar from '@davatar/react';
 import Button from 'components/CustomButtons/Button.js';
 import { useTranslation } from 'react-i18next';
-import { useENS } from 'hooks/useENS';
+import { useENS } from 'features/home/hooks/useENS';
 import { LanguageDropdown } from '../LanguageDropdown/LanguageDropdown';
 
 import styles from './styles';
