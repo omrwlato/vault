@@ -154,8 +154,8 @@ export default function Pools() {
         <Button style={{ marginBottom: '10px ' }} name="PIGGY" onClick={onClickPool}>
           <strong>PIGGY</strong>
         </Button>
-        <Button style={{ marginBottom: '10px ' }} name="ZOMBIE" onClick={onClickPool}>
-          <strong>ZOMBIE</strong>
+        <Button style={{ marginBottom: '10px ' }} name="GRAVE" onClick={onClickPool}>
+          <strong>GRAVE</strong>
         </Button>
       </Grid>
       {poolSelected === 'ALL' ? (
