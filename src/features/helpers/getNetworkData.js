@@ -701,40 +701,40 @@ export const getNetworkConnectors = t => {
               return provider;
             },
           },
-          'custom-cb-avalanche': {
-            display: {
-              logo: require(`images/wallets/coinbase.png`),
-              name: 'Coinbase Wallet',
-              description: t('Connect to your Coinbase Wallet'),
-            },
-            options: {
-              appName: 'Beefy Finance',
-              appLogoUrl: 'https://app.beefy.finance/static/media/BIFI.e797b2e4.png',
-              darkMode: false,
-            },
-            package: WalletLink,
-            connector: async (ProviderPackage, options) => {
-              const walletLink = new ProviderPackage(options);
+          // 'custom-cb-avalanche': {
+          //   display: {
+          //     logo: require(`images/wallets/coinbase.png`),
+          //     name: 'Coinbase Wallet',
+          //     description: t('Connect to your Coinbase Wallet'),
+          //   },
+          //   options: {
+          //     appName: 'Beefy Finance',
+          //     appLogoUrl: 'https://app.beefy.finance/static/media/BIFI.e797b2e4.png',
+          //     darkMode: false,
+          //   },
+          //   package: WalletLink,
+          //   connector: async (ProviderPackage, options) => {
+          //     const walletLink = new ProviderPackage(options);
 
-              const provider = walletLink.makeWeb3Provider(
-                'https://api.avax.network/ext/bc/C/rpc',
-                43114
-              );
+          //     const provider = walletLink.makeWeb3Provider(
+          //       'https://api.avax.network/ext/bc/C/rpc',
+          //       43114
+          //     );
 
-              await provider.enable();
+          //     await provider.enable();
 
-              return provider;
-            },
-          },
-          'custom-bitkeep': {
-            display: {
-              name: 'BitKeep Wallet',
-              description: 'Connect your BitKeep Wallet',
-              logo: require(`images/wallets/bitkeep-wallet.png`),
-            },
-            package: 'bitkeep',
-            connector: connectors.injected,
-          },
+          //     return provider;
+          //   },
+          // },
+          // 'custom-bitkeep': {
+          //   display: {
+          //     name: 'BitKeep Wallet',
+          //     description: 'Connect your BitKeep Wallet',
+          //     logo: require(`images/wallets/bitkeep-wallet.png`),
+          //   },
+          //   package: 'bitkeep',
+          //   connector: connectors.injected,
+          // },
         },
       };
     case 137:
