@@ -344,7 +344,7 @@ export const avalanchePools = [
   },
   {
     id: 'zombie-zombie',
-    logo: 'single-assets/ZOMBIE.svg',
+    logo: 'single-assets/ZOMBIE.png',
     name: 'ZOMBIE',
     token: 'ZOMBIE',
     tokenDescription: 'Grave Finance',
