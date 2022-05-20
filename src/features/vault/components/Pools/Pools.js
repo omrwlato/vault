@@ -157,6 +157,9 @@ export default function Pools() {
         <Button style={{ marginBottom: '10px ' }} name="GRAVE" onClick={onClickPool}>
           <strong>GRAVE</strong>
         </Button>
+        <Button style={{ marginBottom: '10px ' }} name="FROZENTOMB" onClick={onClickPool}>
+          <strong>FROZENTOMB</strong>
+        </Button>
       </Grid>
       {poolSelected === 'ALL' ? (
         <VisiblePools

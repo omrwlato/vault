@@ -9,7 +9,7 @@ import {
   avalanchePools,
   avalancheStakePools,
   avaxAddressBook,
-  avalancheZaps,
+  // avalancheZaps,
   bscPools,
   bscStakePools,
   bscAddressBook,
@@ -327,8 +327,8 @@ export const getNetworkZaps = () => {
     case 128:
       return hecoZaps;
     case 43114:
-      return avalancheZaps;
-    case 137:
+    //   return avalancheZaps;
+    // case 137:
       return polygonZaps;
     case 250:
       return fantomZaps;
