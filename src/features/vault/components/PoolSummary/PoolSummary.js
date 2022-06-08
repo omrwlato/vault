@@ -138,14 +138,14 @@ const PoolSummary = ({
         <Grid item xs={12} style={{ display: 'flex', justifyContent: 'space-between' }}>
           <Grid item xs={3} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
             <Button className={classes.button} >
-              <a className={classes.buttonLink} href={pool.buyTokenUrl}>
+              <a className={classes.buttonLink} href={pool.buyTokenUrl}  target="_blank">
                 <div className={classes.buttonText}>BUY</div>
               </a>
             </Button>
           </Grid>
           <Grid item xs={6} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
             <Button className={classes.button}>
-              <a className={classes.buttonLink} href={pool.addLiquidityUrl}>
+              <a className={classes.buttonLink} href={pool.addLiquidityUrl} target="_blank">
                 <div className={classes.buttonText}>CREATE LP</div>
               </a>
             </Button>

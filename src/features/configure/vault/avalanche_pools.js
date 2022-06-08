@@ -163,7 +163,7 @@ export const avalanchePools = [
     stratType: 'StratLP',
     addLiquidityUrl:
       'https://traderjoexyz.com/pool/0xd586E7F844cEa2F87f50152665BCbc2C279D8d70/0xf8D0C6c3ddC03F43A0687847f2b34bfd6941C2A2',
-    buyTokenUrl: 'https://traderjoexyz.com/pool/AVAX/0xf8D0C6c3ddC03F43A0687847f2b34bfd6941C2A2',
+    buyTokenUrl: 'https://traderjoexyz.com/pool/0xd586E7F844cEa2F87f50152665BCbc2C279D8d70/0xf8D0C6c3ddC03F43A0687847f2b34bfd6941C2A2',
     family: 'SUNDAE',
     createdAt: 1650758400,
   },
