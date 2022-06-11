@@ -476,7 +476,7 @@ export const avalanchePools = [
     depositsPaused: false,
     status: 'active',
     platform: 'Other',
-    assets: ['ZOMBIE', 'AVAX'],
+    assets: ['GRAVE', 'AVAX'],
     risks: ['COMPLEXITY_LOW', 'BATTLE_TESTED', 'IL_LOW', 'AUDIT', 'CONTRACTS_VERIFIED'],
     stratType: 'StratLP',
     addLiquidityUrl:
