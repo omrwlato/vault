@@ -7284,9 +7284,9 @@ hosted-git-info@^2.1.4:
   integrity sha512-mxIDAb9Lsm6DoOJ7xH+5+X4y1LU/4Hi50L9C5sIswK3JzULS4bwk1FvjdBgvYR4bzT4tuUQiC15FE2f5HbLvYw==
 
 hoyo-addressbook@^1.0.10:
-  version "1.0.10"
-  resolved "https://registry.yarnpkg.com/hoyo-addressbook/-/hoyo-addressbook-1.0.10.tgz#8b2bae53f78b828349694c48b5ffb4542fc62dbf"
-  integrity sha512-gELWUIwWCAotJu2+TDrOK1Wt3eMFdZTLMW4HLWOYLMFIY/RE+lsrZKMzal1vAROqCK36E6RajXr1gZ8Nn4Mb7w==
+  version "1.0.12"
+  resolved "https://registry.yarnpkg.com/hoyo-addressbook/-/hoyo-addressbook-1.0.12.tgz#9cf11af200ab956eee19dae351de9c55acdc28c1"
+  integrity sha512-bDTK9LfsmJwmX7MRORL2098p2CVtVFcQJhuv/wzopLU49n0/LXQrGXfocsasCqd3nyYeYneSyFMsDOU/cnqHxw==
 
 hpack.js@^2.1.6:
   version "2.1.6"
