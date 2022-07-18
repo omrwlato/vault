@@ -40,7 +40,7 @@ const infoColor = ['#00acc1'];
 const roseColor = ['#e91e63'];
 const grayColor = [
   '#999',
-  '#3C4858',
+  '#000',
   '#eee',
   '#343434',
   '#585858',
