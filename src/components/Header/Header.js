@@ -92,11 +92,7 @@ const Header = ({ links, isNightMode, setNightMode }) => {
               <span>Twitter</span>
             </a>
             <a
-<<<<<<< HEAD
               href="https://discord.gg/Z9wrNDUDa9"
-=======
-              href="https://discord.gg/qv6gA8jt"
->>>>>>> 9507b15ca9c2dd0ffa19b5e53087070995c891bb
               target="_blank"
               rel="noopener noreferrer"
               className={classes.link}
